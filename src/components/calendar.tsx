@@ -38,7 +38,7 @@ export default function Calendar({type}) {
   return (
     <div className="m-10 rounded-lg border w-full px-3 py-3 mx-auto border-gray-600 flex flex-col justify-center items-center ">
       {cards.map((data) => (
-              <EventCard type={data.Type} link={data.Link == "" ? Constants.links[data.Type] : data.Link} description={data.Blurb}/>
+              <EventCard type={data.Type} link={data.Link == "" ? Constants.links[data.Type] : data.Link} description={data.Blurb} important={data.Important=="TRUE"}/>
       ))}
     </div>
   );

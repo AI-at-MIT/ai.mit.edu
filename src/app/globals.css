@@ -11,16 +11,40 @@
   --aim-grad: linear-gradient(45deg, #FC5836, #CB2455, #9317C1, #24CBF3, #30E548, #DCFF01);
 
   
-  --labs-grad: linear-gradient(45deg, #FF7A00, #7F00FE);
-  --labs-grad-transparent: linear-gradient(45deg, #FF7A0030, #7F00FE30);
-  --workshops-grad: linear-gradient(45deg, #FF530C, #FF0574);
-  --workshops-grad-transparent: linear-gradient(45deg, #FF530C30, #FF057430);
-  --generator-grad: linear-gradient(45deg, #00FFF0, #AD00FF);
-  --generator-grad-transparent: linear-gradient(45deg, #00FFF030, #AD00FF30);
-  --speakers-grad: linear-gradient(45deg, #00FFB2, #DBFF00);
-  --speakers-grad-transparent: linear-gradient(45deg, #00FFB230, #DBFF0030);
-  --permeate-grad: linear-gradient(45deg, #FFE601, #FF7A00, #FF0674);
-  --permeate-grad-transparent: linear-gradient(45deg, #FFE60130, #FF7A0030, #FF067430);
+  --labs-c1: 255, 122, 0;
+  --labs-c2: 127, 0, 254;
+
+  --workshops-c1: 255, 83, 12;
+  --workshops-c2: 255, 5, 116;
+
+  --generator-c1: 0, 255, 240;
+  --generator-c2: 173, 0, 255;
+
+  --speakers-c1: 0, 255, 178;
+  --speakers-c2: 219, 255, 0;
+
+  --permeate-c1: 255, 230, 1;
+  --permeate-c2: 255, 122, 0;
+  --permeate-c3: 255, 6, 116;
+
+  --transparency: 0.2;
+
+  --labs-grad: linear-gradient(45deg, rgb(var(--labs-c1)), rgb(var(--labs-c2)));
+  --labs-grad-transparent: linear-gradient(45deg, rgba(var(--labs-c1),var(--transparency)), rgba(var(--labs-c2),var(--transparency)));
+
+  
+  --workshops-grad: linear-gradient(45deg, rgb(var(--workshops-c1)), rgb(var(--workshops-c2)));
+  --workshops-grad-transparent: linear-gradient(45deg, rgba(var(--workshops-c1),var(--transparency)), rgba(var(--workshops-c2),var(--transparency)));
+
+  --generator-grad: linear-gradient(45deg, rgb(var(--generator-c1)), rgb(var(--generator-c2)));
+  --generator-grad-transparent: linear-gradient(45deg, rgba(var(--generator-c1),var(--transparency)), rgba(var(--generator-c2),var(--transparency)));
+
+  --speakers-grad: linear-gradient(45deg, rgb(var(--speakers-c1)), rgb(var(--speakers-c2)));
+  --speakers-grad-transparent: linear-gradient(45deg, rgba(var(--speakers-c1),var(--transparency)), rgba(var(--speakers-c2),var(--transparency)));
+  
+  --permeate-grad: linear-gradient(45deg, rgb(var(--permeate-c1)), rgb(var(--permeate-c2)), rgb(var(--permeate-c3)));
+  --permeate-grad-transparent: linear-gradient(45deg, rgba(var(--permeate-c1),var(--transparency)), rgba(var(--permeate-c2),var(--transparency)), rgba(var(--permeate-c3),var(--transparency)));
+
 }
 
 body {

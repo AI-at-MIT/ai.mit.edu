@@ -1,8 +1,8 @@
 import * as Constants from './constants'
 import Image from 'next/image'
 
-export default function EventCard({type, link, description}) {
-    const isTypeL = true;
+export default function EventCard({type, link, description, important}) {
+    const isTypeL = important;
     let classnames = `${Constants.border_class[type]} event-card m-1 group rounded-lg border border-transparent w-full px-5 py-3 transition-colors flex flex-col ${
       isTypeL ? "relative" : ""
     }`;
@@ -24,15 +24,8 @@ export default function EventCard({type, link, description}) {
           </div>
           
         {isTypeL && (
-        <div
-          className={`${Constants.clip_backgrounds[type]} absolute  event-card w-full h-full rounded-full bg-black`}
-       
-        >
-          
-          <div className="absolute top-8 right-2 transform -translate-x-1/2 -translate-y-1/2">
-          !
-
-          </div>
+        <div className="group-hover:opacity-0 duration-100 transition group-hover:translate-x-1 motion-reduce:transform-none absolute top-8 right-2 transform -translate-x-1/2 -translate-y-1/2">
+        <div className={`${Constants.backgrounds[type]} event-card w-3 h-3 rounded-full `}></div>
         </div>
         )}
         </div>
@@ -41,9 +34,3 @@ export default function EventCard({type, link, description}) {
     );
   }
 
-
-//  {isTypeL && (
-//    <div className="absolute top-8 right-2 transform -translate-x-1/2 -translate-y-1/2">
-//      <div className={`${Constants.backgrounds[type]} event-card w-4 h-4 rounded-full bg-black`}></div>
-//    </div>
-//  )}
