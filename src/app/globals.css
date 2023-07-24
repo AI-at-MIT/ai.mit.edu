@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+
+
+  --background-gradient: radial-gradient(circle at 0% 80%, #1D1D1D, #0D0D0D);
+
+  --aim-grad: linear-gradient(45deg, #FC5836, #CB2455, #9317C1, #24CBF3, #30E548, #DCFF01);
+
+  
+  --labs-grad: linear-gradient(45deg, #FF7A00, #7F00FE);
+  --labs-grad-transparent: linear-gradient(45deg, #FF7A0030, #7F00FE30);
+  --workshops-grad: linear-gradient(45deg, #FF530C, #FF0574);
+  --workshops-grad-transparent: linear-gradient(45deg, #FF530C30, #FF057430);
+  --generator-grad: linear-gradient(45deg, #00FFF0, #AD00FF);
+  --generator-grad-transparent: linear-gradient(45deg, #00FFF030, #AD00FF30);
+  --speakers-grad: linear-gradient(45deg, #00FFB2, #DBFF00);
+  --speakers-grad-transparent: linear-gradient(45deg, #00FFB230, #DBFF0030);
+  --permeate-grad: linear-gradient(45deg, #FFE601, #FF7A00, #FF0674);
+  --permeate-grad-transparent: linear-gradient(45deg, #FFE60130, #FF7A0030, #FF067430);
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: var(--background-gradient);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  overflow-x: hidden;
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+.quicklink {
+  background-size: cover;
+
+  color: transparent;
+
+}
+.quicklink-text {
+  color: #00000080;
+}
+
+.quicklink-text:hover {
+  color: transparent;
+}
+.container {
+  background: var(--background-gradient);
+
+}
+
+.title-tag-text {
+  color: #E1E1E1;
+  font-size: 2.0rem;
+  margin: 30px;
+}
+
+.title-desc-text {
+  color: #7E7E7E;
+  font-size: 1.25rem;
+  margin: 30px;
+
+}
+
+.clip-background-aim {
+  background: var(--aim-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.clip-background-labs {
+  background: var(--labs-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+
+}
+.clip-background-workshops {
+  background: var(--workshops-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+
+}
+.clip-background-generator {
+  background: var(--generator-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+
+}
+.clip-background-speakers {
+  background: var(--speakers-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+
+}
+.clip-background-permeate {
+  background: var(--permeate-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+
+}
+
+
+.background-aim {
+  background: var(--aim-grad);
+}
+.background-labs {
+  background: var(--labs-grad);
+}
+.background-workshops {
+  background: var(--workshops-grad);
+
+}
+.background-generator {
+  background: var(--generator-grad);
+
+}
+.background-speakers {
+  background: var(--speakers-grad);
+
+}
+.background-permeate {
+  background: var(--permeate-grad);
+}
+
+
+.border-labs  {
+  background: var(--background-gradient) padding-box,
+              var(--labs-grad-transparent) border-box;  
+}
+
+.border-labs:hover {
+  background: var(--background-gradient) padding-box,
+              var(--labs-grad) border-box;  
+  transition-duration: 100;
+  
+}
+
+.border-workshops {
+  background: var(--background-gradient) padding-box,
+              var(--workshops-grad-transparent) border-box;  
+    
+}
+
+.border-workshops:hover {
+  background: var(--background-gradient) padding-box,
+              var(--workshops-grad) border-box;  
+}
+
+.border-generator {
+  background: var(--background-gradient) padding-box,
+              var(--generator-grad-transparent) border-box;  
+}
+
+.border-generator:hover {
+  background: var(--background-gradient) padding-box,
+              var(--generator-grad) border-box;  
+}
+
+.border-speakers {
+  background: var(--background-gradient) padding-box,
+              var(--speakers-grad-transparent) border-box;  
+}
+
+.border-speakers:hover {
+  background: var(--background-gradient) padding-box,
+              var(--speakers-grad) border-box;  
+}
+
+
+
+.border-permeate {
+  background: var(--background-gradient) padding-box,
+              var(--permeate-grad-transparent) border-box;  
+              
+}
+
+.border-permeate:hover {
+  background: var(--background-gradient) padding-box,
+              var(--permeate-grad) border-box;  
+}
+
+
+.event-card:active {
+
+  transform: scale(0.99); 
+}
+
+h1 {
+  font-size: xxx-large;
+  margin: 30px 0 30px 0;
+  text-align: center;
+}
+
+h3 {
+  font-size: x-large;
+  margin: 15px 0 15px 0;
+}
+p {
+  font-size: large;
+  color: #E1E1E1;
+}
+.section {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.title-text {
+  color: #E1E1E1;
+  font-size: 6rem;
+  margin: 30px;
+}
+
+
+
+
+
