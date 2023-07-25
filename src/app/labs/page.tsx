@@ -4,7 +4,10 @@ import Sponsors from '@/components/sponsors'
 import About from '@/components/about'
 import BackgroundAnimation from '@/components/backgroundanimation'
 import QuickView from '@/components/quickview'
+import Image from 'next/image'
 
+import Stats from '@/components/stats'
+import {faUniversity, faUsers, faRocket} from "@fortawesome/free-solid-svg-icons";
 
 
 const type = "l";
@@ -23,8 +26,13 @@ export default function Home() {
         l2_t="Slides" l2_l="https://calendar.google.com/calendar/u/0/r?cid=o2l92fc80naot7nh8fmc4iklh8@group.calendar.google.com"
         l3_t="Contact" l3_l="mailto:aim-exec@mit.edu"
         />
+      <Stats content={[
+        [faUniversity, "6", "Semesters"],
+        [faUsers, "120+", "Alumni"],
+        [faRocket, "24", "Projects"]
+      ]}/>
       <About blurb="
-          AI@MIT is a community of undergraduates aimed at promoting and fostering the growing interest around machine intelligence on campus. We hold weekly discussions on the latest papers in the field, organize workshops, host speakers, and arrange competitions around machine intelligence at MIT.
+          AIM Labs is MIT’s premier undergraduate artificial intelligence project incubator. Every semester we recruit a diverse cohort of talented students and provide them funding, mentorship, and resources to build services that bring recent advances in artificial intelligence to you.
       "/>
 
       <Sponsors/>

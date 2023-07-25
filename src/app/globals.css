@@ -10,6 +10,9 @@
 
   --aim-grad: linear-gradient(45deg, #FC5836, #CB2455, #9317C1, #24CBF3, #30E548, #DCFF01);
 
+  --off-white: 225, 225, 225;
+  --gray: 126, 126, 126;
+
   
   --labs-c1: 255, 122, 0;
   --labs-c2: 127, 0, 254;
@@ -84,17 +87,26 @@ body::-webkit-scrollbar {
 }
 
 .title-tag-text {
-  color: #E1E1E1;
+  color: rgb(var(--off-white));
   font-size: 2.0rem;
   margin: 30px;
 }
 
 .title-desc-text {
-  color: #7E7E7E;
+  color: rgb(var(--gray));
   font-size: 1.25rem;
   margin: 30px;
-
 }
+
+
+.off-white-text {
+  color: rgb(var(--off-white));
+}
+
+.gray-text {
+  color: rgb(var(--gray));
+}
+
 
 .clip-background-aim {
   background: var(--aim-grad);
