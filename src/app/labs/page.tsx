@@ -70,7 +70,6 @@ export default function Home() {
           blurb: "Applying custom neural style transfers to generate unique effects on images and videos"
         }
       ]}
-      
       />
       <Sponsors/>
 

@@ -8,10 +8,13 @@ import BackgroundAnimation from '@/components/backgroundanimation'
 import About from '@/components/about'
 import QuickView from '@/components/quickview'
 import Initiatives from '@/components/Initiatives'
+import Head from 'next/head'
+
 
 function PageTitle() {
   return (
     <div className="section w-screen overflow-hidden -z-10 flex flex-col justify-center">
+     
       <div className="absolute inset-0">
         <Image
           alt="aim-backdrop"

@@ -5,8 +5,8 @@ function updateGradient() {
     const currentTime = new Date().getTime();
     const centerX = (Math.sin(currentTime / 2000) ) * 80; // Adjust the speed and range of the center movement
     const centerY = (Math.cos(currentTime / 2000) ) * 80; // Adjust the speed and range of the center movement
-    const gradient = `radial-gradient(circle at ${centerX}% ${centerY}%, #1D1D1D, #0D0D0D)`;
-    document.documentElement.style.setProperty('--background-gradient', gradient);
+    document.documentElement.style.setProperty('--b-x-offset', `${centerX}%`);
+    document.documentElement.style.setProperty('--b-y-offset', `${centerY}%`);
   }
 
 

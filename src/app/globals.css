@@ -6,7 +6,10 @@
   --foreground-rgb: 255, 255, 255;
 
 
-  --background-gradient: radial-gradient(circle at 0% 80%, #1D1D1D, #0D0D0D);
+  --b-x-offset: 0%;
+  --b-y-offset: 80%;
+  
+  --background-gradient: radial-gradient(circle at var(--b-x-offset) var(--b-y-offset), #1D1D1D, #0D0D0D);
 
   --aim-grad: linear-gradient(45deg, #FC5836, #CB2455, #9317C1, #24CBF3, #30E548, #DCFF01);
 
