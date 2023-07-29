@@ -47,15 +47,11 @@ function PageTitle() {
         </div>
 
         </div>
-          <div className="bg-gray-700 w-full h-[1px] opacity-50">
-        </div>
+          <div className="bg-gray-700 w-full h-[1px] opacity-50"></div>
     </div>
 
   );
 }
-
-
-
 
 
 

@@ -45,7 +45,7 @@ export default function InitiativePageTitle({type}) {
           <p className="title-desc-text max-w-[700px]">
             {Constants.descriptions[type]}
           </p>
-          <div className="w-32 ml-6 z-100">
+          <div className="w-48 ml-6 z-100">
 
               <a href="./">
                   <Image

@@ -15,7 +15,7 @@ export default function InitiativeCard({ type}) {
 
       <div
         onClick={handleCardClick}
-        className={`desktop overflow-hidden transition-all max-h-[200px] max-w-[200px] m-5 group rounded-2xl border border-transparent px-5 py-4 hover:border-neutral-700 hover:bg-neutral-800/30 flex flex-row justify-start items-center ${expanded ? "max-w-[800px] max-h-[350px]":""}`}
+        className={`desktop overflow-hidden transition-all max-h-[250px] max-w-[250px] m-5 group rounded-2xl border border-transparent px-5 py-4 hover:border-neutral-700 hover:bg-neutral-800/30 flex flex-row justify-start items-center ${expanded ? "max-w-[800px] max-h-[350px]":""}`}
       >
         <img alt="Initiative" src={Constants.icons[type]} width={200} height={200} quality={100} />
 
@@ -45,7 +45,7 @@ export default function InitiativeCard({ type}) {
  
       <div
         onClick={handleCardClick}
-        className={`mobile overflow-hidden transition-all max-h-[200px] max-w-[200px] m-10 group rounded-2xl border border-transparent px-5 py-4 hover:border-neutral-700 hover:bg-neutral-800/30 justify-center items-center ${expanded ? "max-w-[800px] max-h-[800px]":""}`}
+        className={`mobile overflow-hidden transition-all max-h-[250px] max-w-[250px] m-10 group rounded-2xl border border-transparent px-5 py-4 hover:border-neutral-700 hover:bg-neutral-800/30 justify-center items-center ${expanded ? "max-w-[800px] max-h-[800px]":""}`}
       >
         <div className="flex justify-center items-center">
         <img alt="Initiative"  src={Constants.icons[type]} width={200} height={200} quality={100} />
