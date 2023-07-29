@@ -1,11 +1,12 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Nunito } from 'next/font/google'
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
-const inter = Inter({ subsets: ['latin'] })
+const sharpfont = Inter({ subsets: ['latin'] })
+const mainfont = Nunito({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'AI@MIT',
@@ -22,7 +23,7 @@ export default function RootLayout({
       <head>
         <link rel="shortcut icon" href="icons/aim-icon-at.svg"  />
       </head>
-      <body className={inter.className}>
+      <body className={mainfont.className}>
   
    
         {children}

@@ -12,8 +12,8 @@ export default function ExecutiveCard({ imageName, name, position }) {
           />
         </div>
         <div className="mt-4 text-center">
-          <h3 className="text-xl font-semibold">{name}</h3>
-          <p className="text-gray-500">{position}</p>
+          <h3 className="text-xxl font-semibold">{name}</h3>
+          <p className="text-xl text-gray-500">{position}</p>
         </div>
       </div>
     );

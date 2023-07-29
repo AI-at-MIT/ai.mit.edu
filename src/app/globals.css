@@ -59,12 +59,10 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   overflow-x: hidden;
   overflow: auto;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
-
 }
 
 body::-webkit-scrollbar {
@@ -72,17 +70,18 @@ body::-webkit-scrollbar {
 }
 
 .quicklink {
-  background-size: cover;
-
+ 
   color: transparent;
 
 }
 .quicklink-text {
+
   color: #00000080;
 }
 
 .quicklink-text:hover {
   color: transparent;
+
 }
 .container {
   background: var(--background-gradient);
@@ -91,13 +90,13 @@ body::-webkit-scrollbar {
 
 .title-tag-text {
   color: rgb(var(--off-white));
-  font-size: 2.0rem;
+  font-size: xx-large;
   margin: 30px;
 }
 
 .title-desc-text {
   color: rgb(var(--gray));
-  font-size: 1.25rem;
+  font-size: x-large;
   margin: 30px;
 }
 
@@ -237,6 +236,7 @@ h1 {
   font-size: xxx-large;
   margin: 30px 0 30px 0;
   text-align: center;
+  font-family: 'Inter', sans-serif;
 }
  h2 {
   font-size: xx-large;
@@ -245,10 +245,10 @@ h1 {
  }
 h3 {
   font-size: x-large;
-  margin: 15px 0 15px 0;
+  margin: 10px 0 10px 0;
 }
 p {
-  font-size: large;
+  font-size: x-large;
   color: #E1E1E1;
 }
 .section {
@@ -260,6 +260,8 @@ p {
   color: #E1E1E1;
   font-size: 6rem;
   margin: 30px;
+  font-family: 'Inter', sans-serif;
+
 }
 
 .mobile {

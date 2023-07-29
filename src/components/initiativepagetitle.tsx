@@ -4,6 +4,7 @@ import * as Constants from '@/components/constants'
 
 export default function InitiativePageTitle({type}) {
     return (
+      <div>
       <div className="section w-screen overflow-hidden flex flex-col justify-center">
 
         <div className="absolute inset-0 -z-50">
@@ -66,7 +67,8 @@ export default function InitiativePageTitle({type}) {
   
   
       </div>
-
+          <div className="bg-gray-700 w-full h-[1px] opacity-50"></div>
+          </div>
     );
   }
   
