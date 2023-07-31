@@ -4,6 +4,7 @@ export const icons = {
     "g": "icons/generator-icon.svg",
     "s": "icons/speakers-icon.svg",
     "p": "icons/permeate-icon.svg",
+    "aim": "icons/aim-icon-at.svg",
   }
   
 export const backdrops = {
@@ -15,6 +16,7 @@ export const backdrops = {
 }
 
 export const border_class = {
+    "aim": "border-aim",
     "l": "border-labs",
     "w": "border-workshops",
     "g": "border-generator",

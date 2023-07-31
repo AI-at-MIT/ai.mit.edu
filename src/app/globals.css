@@ -12,6 +12,8 @@
   --background-gradient: radial-gradient(circle at var(--b-x-offset) var(--b-y-offset), #1D1D1D, #0D0D0D);
 
   --aim-grad: linear-gradient(45deg, #FC5836, #CB2455, #9317C1, #24CBF3, #30E548, #DCFF01);
+  --aim-grad-transparent: linear-gradient(45deg, #FC583650, #CB245550, #9317C150, #24CBF350, #30E54850, #DCFF0150);
+
 
   --off-white: 225, 225, 225;
   --gray: 126, 126, 126;
@@ -75,12 +77,12 @@ body::-webkit-scrollbar {
 
 }
 .quicklink-text {
+  color: transparent;
 
-  color: #00000080;
 }
 
 .quicklink-text:hover {
-  color: transparent;
+  color: #00000060;
 
 }
 .container {
@@ -169,6 +171,16 @@ body::-webkit-scrollbar {
   background: var(--permeate-grad);
 }
 
+.border-aim {
+  background: var(--background-gradient) padding-box,
+              var(--aim-grad-transparent) border-box;  
+}
+
+.border-aim:hover {
+  background: var(--background-gradient) padding-box,
+              var(--aim-grad) border-box;  
+
+}
 
 .border-labs  {
   background: var(--background-gradient) padding-box,
@@ -178,7 +190,6 @@ body::-webkit-scrollbar {
 .border-labs:hover {
   background: var(--background-gradient) padding-box,
               var(--labs-grad) border-box;  
-  transition-duration: 100;
   
 }
 
