@@ -1,6 +1,6 @@
 import ProjectCard from "./projectcard";
 
-export default function Projects({heading, projects}){
+export default function Showcase({heading, projects}){
     return (
       <div>
         <h1>Recent Projects</h1>

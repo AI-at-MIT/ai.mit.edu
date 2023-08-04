@@ -19,7 +19,7 @@ export default function Calendar({type}) {
       complete: (results) => {
           //keep only 5 most recent cards
         const all_cards = Array.from(results.data);
-        const valid_cards = all_cards.filter((card) => type=="aim" || card.Important == "TRUE" || card.Type==type);
+        const valid_cards = all_cards.filter((card) => type=="aim" || card.Type==type);
         //sort valid events by date and time
         const cards = valid_cards.sort((a, b) => {
           if (a.Date == b.Date) {

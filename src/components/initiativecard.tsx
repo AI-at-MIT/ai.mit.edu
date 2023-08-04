@@ -1,15 +1,45 @@
 
 import * as Constants from './constants'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 export default function InitiativeCard({ type}) {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(true);
+  const [seen, setSeen] = useState(false);
 
   const handleCardClick = () => {
     setExpanded(!expanded);
   };
-  return (
-    <div>
+
+
+
+const cardRef = useRef();
+
+useEffect(() => {
+
+  
+  const handleScroll = () => {
+    const rect = cardRef.current.getBoundingClientRect();
+    const elemTop = rect.top;
+    const elemBottom = rect.bottom;
+    
+    const isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight/2);
+    
+    if(isVisible && !seen) {
+      setSeen(true);
+      setExpanded(false); 
+    } 
+  }
+
+  window.addEventListener('scroll', handleScroll);
+
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+  };
+
+}, []);  
+
+return (
+    <div ref={cardRef}>
 
     
 

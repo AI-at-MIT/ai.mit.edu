@@ -4,11 +4,10 @@ import Sponsors from '@/components/sponsors'
 import About from '@/components/about'
 import BackgroundAnimation from '@/components/backgroundanimation'
 import QuickView from '@/components/quickview'
-import Image from 'next/image'
 
 import Stats from '@/components/stats'
 import {faUniversity, faUsers, faRocket} from "@fortawesome/free-solid-svg-icons";
-import Projects from '@/components/projects'
+import Showcase from '@/components/showcase'
 
 const type = "l";
 
@@ -42,7 +41,7 @@ export default function Home() {
           AIM Labs is MIT’s premier undergraduate artificial intelligence project incubator. Every semester we recruit a diverse cohort of talented students and provide them funding, mentorship, and resources to build services that bring recent advances in artificial intelligence to you.
       "/>
     
-      <Projects 
+      <Showcase 
       heading="Recent Projects"
       projects={[
         {
