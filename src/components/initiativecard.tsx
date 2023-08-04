@@ -59,7 +59,7 @@ return (
             <p>{Constants.descriptions[type]}</p>
             <div className="flex justify-end">
                 <a href={Constants.links[type]}>
-                <div className={`${Constants.border_class[type]} text-xl w-48 h-16 mt-8 rounded-full border border-transparent px-5 py-3 flex items-center justify-center `}>
+                <div className={`${Constants.border_class[type]} border-2  text-xl w-48 h-16 mt-8 rounded-full border border-transparent px-5 py-3 flex items-center justify-center `}>
 
                   Learn More
 
@@ -93,7 +93,7 @@ return (
             <p>{Constants.descriptions[type]}</p>
             <div className="flex justify-center">
                 <a href={Constants.links[type]}>
-                  <div className={`${Constants.border_class[type]} text-xl w-48 h-16 mt-8 mb-8 rounded-full border border-transparent px-5 py-3 flex items-center justify-center `}>
+                  <div className={`${Constants.border_class[type]} border-2 text-xl w-48 h-16 mt-8 mb-8 rounded-full border border-transparent px-5 py-3 flex items-center justify-center `}>
 
                       Learn More
 

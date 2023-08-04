@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function EventCard({type, link, description, important} : {type: string, link: string, description: string, important: boolean}) {
     const isTypeL = important;
-    let classnames = `${Constants.border_class[type]} event-card m-1 group rounded-lg border border-transparent w-full px-5 py-3 flex flex-col ${
+    let classnames = `${Constants.border_class[type]} border-2 event-card m-1 group rounded-lg border border-transparent w-full px-5 py-4 flex flex-col ${
       isTypeL ? "relative" : ""
     }`;
 
@@ -24,7 +24,7 @@ export default function EventCard({type, link, description, important} : {type: 
           </div>
           
         {isTypeL && (
-        <div className="group-hover:opacity-0 duration-100 transition group-hover:translate-x-1 motion-reduce:transform-none absolute top-8 right-2 transform -translate-x-1/2 -translate-y-1/2">
+        <div className="group-hover:opacity-0 duration-100 transition group-hover:translate-x-1 motion-reduce:transform-none absolute top-9 right-2 transform -translate-x-1/2 -translate-y-1/2">
         <div className={`${Constants.backgrounds[type]} event-card w-3 h-3 rounded-full `}></div>
         </div>
         )}

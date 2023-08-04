@@ -28,7 +28,7 @@ export default function EventCardLoading() {
 
   return (
     <div
-      className="event-card h-[4.0rem] m-1 group rounded-lg border border-transparent w-full px-5 py-3 flex flex-col" 
+      className="event-card h-[4.0rem] m-1 group rounded-lg border border-transparent w-full px-5 py-4 flex flex-col" 
       style={{
         background: `radial-gradient(circle at ${x}px ${y}px,
           rgba(255, 255, 255, 0.1) 0%,
