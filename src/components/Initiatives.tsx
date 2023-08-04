@@ -1,4 +1,4 @@
-import InitiativeCard from "./InitiativeCard";
+import InitiativeCard from "./initiativecard";
 export default function Initiatives() {
 
     return (

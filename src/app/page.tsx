@@ -7,7 +7,7 @@ import ExecutiveMembers from '@/components/executivemembers'
 import BackgroundAnimation from '@/components/backgroundanimation'
 import About from '@/components/about'
 import QuickView from '@/components/quickview'
-import Initiatives from '@/components/Initiatives'
+import Initiatives from '@/components/initiatives'
 
 function PageTitle() {
   return (

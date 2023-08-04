@@ -6,8 +6,25 @@ import * as Constants from "./constants";
 import { useEffect } from 'react';
 import EventCardLoading from "./eventcardloading";
 //Super buggy for some reason
-export default function Calendar({type}) {
-  const [data, setData] = useState({});
+
+interface Card {
+  Type: string, 
+  Important: string, 
+  Date:string, 
+  Time:string, 
+  Location: string, 
+  Link:string, 
+  Blurb:string
+  // etc
+}
+
+
+
+export default function Calendar({type}:{type:string}) {
+  if (typeof type !== 'string') {
+    throw new Error('type must be a string'); 
+  }
+  const [data, setData] = useState<Card[]>([]);
  
   useEffect(() => {
     // This code will run only once during the initial load
@@ -18,7 +35,7 @@ export default function Calendar({type}) {
       header: true,
       complete: (results) => {
           //keep only 5 most recent cards
-        const all_cards = Array.from(results.data);
+        const all_cards = Array.from(results.data) as Card[];
         const valid_cards = all_cards.filter((card) => type=="aim" || card.Type==type);
         //sort valid events by date and time
         const cards = valid_cards.sort((a, b) => {
@@ -33,19 +50,19 @@ export default function Calendar({type}) {
       },
     });
 
-  }, []); // The empty dependency array ensures that the effect runs only once
-  const cards = Array.from(data)
+  }, [type]); // The empty dependency array ensures that the effect runs only once
+  const cards = Array.from(data as ArrayLike<Card>);
   //cards.length == 0
   return (
     <div className="m-10 rounded-lg border w-full px-3 py-3 mx-auto border-gray-600 flex flex-col justify-center items-center ">
       {cards.length == 0 ? (
           
-        [0,1,2,3,4].map((data) => (
-        <EventCardLoading/>
+        [0,1,2,3,4].map((data,index) => (
+        <EventCardLoading key={index}/>
         ))
        ) : (
-        cards.map((data) => (
-          <EventCard type={data.Type} link={data.Link == "" ? Constants.links[data.Type] : data.Link} description={data.Blurb} important={data.Important=="TRUE"}/>
+        cards.map((data,index) => (
+          <EventCard key={index} type={data.Type} link={data.Link == "" ? Constants.links[data.Type] : data.Link} description={data.Blurb} important={data.Important=="TRUE"}/>
          ))
       )
     }

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export default function ProjectCard({ imageName, name, link, blurb }) {
+export default function ProjectCard({ imageName, name, link, blurb }: { imageName: string, name: string, link: string, blurb: string }) {
     return (
       <a href={link} className="m-2 group border border-transparent px-4 py-4 flex flex-col justify-center items-center">
         <div className="rounded-3xl overflow-hidden absolute -z-10 opacity-50 border-2 border-gray-500 group-hover:opacity-60 duration-60 transition">

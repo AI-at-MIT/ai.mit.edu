@@ -2,7 +2,7 @@ import Image from "next/image";
 import * as Constants from '@/components/constants'
 
 
-export default function InitiativePageTitle({type}) {
+export default function InitiativePageTitle({type}: {type: string}) {
     return (
       <div>
       <div className="section w-screen overflow-hidden flex flex-col justify-center">

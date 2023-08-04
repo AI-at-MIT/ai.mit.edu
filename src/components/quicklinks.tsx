@@ -1,6 +1,6 @@
 import * as Constants from './constants'
 
-export default function QuickLinks({type, l1_l, l1_t, l2_l, l2_t, l3_l, l3_t}) {
+export default function QuickLinks({type, l1_l, l1_t, l2_l, l2_t, l3_l, l3_t}: {type: string, l1_l: string, l1_t: string, l2_l: string, l2_t: string, l3_l: string, l3_t: string}) {
   
     return (
         <div className={`${Constants.clip_backgrounds[type]} quicklink mb-32 grid text-center md:mb-0 md:grid-cols-3 justify-center`}>

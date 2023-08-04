@@ -1,5 +1,8 @@
-export default function About({blurb}) {
+export default function About({blurb}: {blurb: string}) {
 
+    if (typeof blurb !== 'string') {
+      throw new Error('blurb must be a string'); 
+    }
 
     return (
       <div >

@@ -1,5 +1,5 @@
 
-export default function SponsorCard({ imageName }) {
+export default function SponsorCard({imageName}:{imageName: string}) {
 
     return (
       <div className="m-10">

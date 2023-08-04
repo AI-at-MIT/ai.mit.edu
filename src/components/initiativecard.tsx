@@ -1,8 +1,8 @@
 
 import * as Constants from './constants'
-import React, {useCallback, useEffect, useRef, useState } from 'react';
-
-export default function InitiativeCard({ type}) {
+import React, {useEffect, useRef, useState } from 'react';
+import Image from 'next/image'
+export default function InitiativeCard({type} : {type: string}) {
   const [expanded, setExpanded] = useState(true);
   const [seen, setSeen] = useState(false);
 
@@ -12,9 +12,11 @@ export default function InitiativeCard({ type}) {
 
 
 
-const cardRef = useRef();
+const cardRef = useRef(null);
 const handleScroll = () =>  {
-  const rect = cardRef.current.getBoundingClientRect();
+  if(!cardRef.current) return;
+  const rect = (cardRef.current as HTMLDivElement).getBoundingClientRect();
+
   const elemTop = rect.top;
   const elemBottom = rect.bottom;
   
@@ -48,7 +50,7 @@ return (
         onClick={handleCardClick}
         className={`desktop overflow-hidden transition-all max-h-[250px] max-w-[250px] m-5 group rounded-2xl border border-transparent px-5 py-4 hover:border-neutral-700 hover:bg-neutral-800/30 flex flex-row justify-start items-center ${expanded ? "max-w-[800px] max-h-[350px]":""}`}
       >
-        <img alt="Initiative" src={Constants.icons[type]} width={200} height={200} quality={100} />
+        <Image className="" alt="Initiative" src={Constants.icons[type]} width={200} height={200} quality={100} />
 
         {
         (
@@ -79,7 +81,7 @@ return (
         className={`mobile overflow-hidden transition-all max-h-[250px] max-w-[250px] m-10 group rounded-2xl border border-transparent px-5 py-4 hover:border-neutral-700 hover:bg-neutral-800/30 justify-center items-center ${expanded ? "max-w-[800px] max-h-[800px]":""}`}
       >
         <div className="flex justify-center items-center">
-        <img alt="Initiative"  src={Constants.icons[type]} width={200} height={200} quality={100} />
+        <Image alt="Initiative"  src={Constants.icons[type]} width={200} height={200} quality={100} />
 
         </div>
 
