@@ -4,11 +4,11 @@ import Papa from "papaparse";
 import * as Constants from "./constants";
 //Sheet link: https://docs.google.com/spreadsheets/d/1Xq2jDe4WCoUbhofKGVxhZVEL9slOFG1ASPl-wrL8Wjs/edit#gid=0
 import { useEffect } from 'react';
-
+import EventCardLoading from "./eventcardloading";
 //Super buggy for some reason
 export default function Calendar({type}) {
   const [data, setData] = useState({});
-
+ 
   useEffect(() => {
     // This code will run only once during the initial load
     console.log('Calendar Data Loaded');
@@ -35,11 +35,22 @@ export default function Calendar({type}) {
 
   }, []); // The empty dependency array ensures that the effect runs only once
   const cards = Array.from(data)
+  //cards.length == 0
   return (
     <div className="m-10 rounded-lg border w-full px-3 py-3 mx-auto border-gray-600 flex flex-col justify-center items-center ">
-      {cards.map((data) => (
-              <EventCard type={data.Type} link={data.Link == "" ? Constants.links[data.Type] : data.Link} description={data.Blurb} important={data.Important=="TRUE"}/>
-      ))}
+      {cards.length == 0 ? (
+          
+        [0,1,2,3,4].map((data) => (
+        <EventCardLoading/>
+        ))
+       ) : (
+        cards.map((data) => (
+          <EventCard type={data.Type} link={data.Link == "" ? Constants.links[data.Type] : data.Link} description={data.Blurb} important={data.Important=="TRUE"}/>
+         ))
+      )
+    }
+
+
     </div>
   );
   
