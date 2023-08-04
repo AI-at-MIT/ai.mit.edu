@@ -51,7 +51,7 @@ export default function ExecutiveMembers() {
           position="Marketing Lead"
         />
         <ExecutiveCard
-          imageName="/exec/david_headshot.jpg"
+          imageName="/exec/erick_headshot.png"
           name="Erick Gbordzoe"
           position="Social Director"
         />
