@@ -52,7 +52,8 @@
   
   --permeate-grad: linear-gradient(45deg, rgb(var(--permeate-c1)), rgb(var(--permeate-c2)), rgb(var(--permeate-c3)));
   --permeate-grad-transparent: linear-gradient(45deg, rgba(var(--permeate-c1),var(--transparency)), rgba(var(--permeate-c2),var(--transparency)), rgba(var(--permeate-c3),var(--transparency)));
-
+  --fast-rad-x: 100px;
+  --fast-rad-y: 100px;
 }
 
 body {
@@ -286,3 +287,15 @@ p {
     display: none;
   }
 }
+
+.bg-grad-fast {
+  background: radial-gradient(circle at 50% 50%, #FFFFFF30, #FFFFFF10) top right/200% 200%;
+  animation: colorChange 1.5s infinite alternate;
+}
+@keyframes colorChange {
+  to {
+    background-position:top left;
+  }
+ }
+
+

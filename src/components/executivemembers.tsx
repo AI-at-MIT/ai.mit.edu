@@ -16,11 +16,6 @@ export default function ExecutiveMembers() {
         />
 
         <ExecutiveCard
-          imageName="/exec/jimin_headshot.png"
-          name="Jimin Lee"
-          position="Co-President"
-        />
-        <ExecutiveCard
           imageName="/exec/nithya_headshot.png"
           name="Nithya Attaluri"
           position="Treasurer"

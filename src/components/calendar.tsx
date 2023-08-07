@@ -18,7 +18,13 @@ interface Card {
   // etc
 }
 
+function EventLoading() {
 
+  return (
+    <div className="bg-grad-fast event-card h-[4.5rem] m-1 group rounded-lg border border-transparent w-full px-5 py-4 flex flex-col"></div>
+
+  )
+}
 
 export default function Calendar({type}:{type:string}) {
   if (typeof type !== 'string') {
@@ -52,18 +58,18 @@ export default function Calendar({type}:{type:string}) {
 
   }, [type]); // The empty dependency array ensures that the effect runs only once
   const cards = Array.from(data as ArrayLike<Card>);
-  //cards.length == 0
   return (
     <div className="m-10 rounded-lg border w-full px-3 py-3 mx-auto border-gray-600 flex flex-col justify-center items-center ">
       {cards.length == 0 ? (
           
         [0,1,2,3,4].map((data,index) => (
-        <EventCardLoading key={index}/>
+        <EventLoading key={index}/>
         ))
        ) : (
         cards.map((data,index) => (
           <EventCard key={index} type={data.Type} link={data.Link == "" ? Constants.links[data.Type] : data.Link} description={data.Blurb} important={data.Important=="TRUE"}/>
-         ))
+          
+          ))
       )
     }
 
