@@ -71,6 +71,13 @@ function EventLoading() {
         <div className="ml-4 transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
           <p className="text-transparent">{"Loading"}</p>
         </div>
+        <div className="transition-transform group-hover:translate-x-4 w-[75px] mr-3 transition-transform flex flex-col justify-center items-end">
+          <p className="gray-text text-sm font-extrabold">{ <br></br>}</p>
+          <p className="gray-text text-sm">{ <br></br>}</p>
+          <p className="gray-text text-sm">{ <br></br>}</p>
+
+        </div>
+ 
       </div>
 
     </a>
