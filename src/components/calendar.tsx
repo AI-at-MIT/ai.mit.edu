@@ -14,36 +14,44 @@ interface Card {
   Location: string, 
   Link:string, 
   Blurb:string
-  // etc
 }
-function EventCard({type, link, description, important} : {type: string, link: string, description: string, important: boolean}) {
-  const isTypeL = important;
-  let classnames = `${Constants.border_class[type]} border-2 event-card m-1 group rounded-lg border border-transparent w-full px-5 py-4 flex flex-col ${
+function EventCard({Type, Link, Blurb, Important, Date, Time, Location} : Card) {
+  const isTypeL = Important=="TRUE";
+  let classnames = `${Constants.border_class[Type]} border-2 event-card m-1 group rounded-lg border border-transparent w-full px-5 py-4 flex flex-col ${
     isTypeL ? "relative" : ""
   }`;
 
   return (
-    <a href={link} className={classnames}>
+    <a href={Link} className={classnames}>
 
       
       <div className="event-info flex items-center w-full">
         <Image
           alt="icon"
-          src={Constants.icons[type]}
+          src={Constants.icons[Type]}
           width={40}
           height={40}
           quality={100}
         />
-        <div className="ml-4 transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-          <p>{description}</p>
+        <div className=" ml-4 w-[550px] mr-auto transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+          <p>{Blurb}</p>
+
         </div>
-        
+        <div className="transition-transform group-hover:translate-x-2 w-[75px] mr-3 transition-transform flex flex-col justify-center items-end">
+          <p className="gray-text text-sm">{Date}</p>
+          <p className="gray-text text-sm">{Time}</p>
+          <p className="gray-text text-sm">{Location}</p>
+
+        </div>
+ 
+
       {isTypeL && (
-      <div className="group-hover:opacity-0 duration-100 transition group-hover:translate-x-1 motion-reduce:transform-none absolute top-9 right-2 transform -translate-x-1/2 -translate-y-1/2">
-      <div className={`${Constants.backgrounds[type]} event-card w-3 h-3 rounded-full `}></div>
+      <div className="group-hover:opacity-0 duration-100 transition group-hover:translate-x-1 motion-reduce:transform-none absolute top-auto right-1 transform -translate-x-1/2">
+      <div className={`${Constants.backgrounds[Type]} event-card w-3 h-3 rounded-full `}></div>
       </div>
       )}
       </div>
+
 
     </a>
   );
@@ -61,21 +69,13 @@ function EventLoading() {
 
         <div className="w-[40px] h-[40px]"></div>
         <div className="ml-4 transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-        <p className="text-transparent">{"Loading"}</p>
+          <p className="text-transparent">{"Loading"}</p>
         </div>
-
-      
-   
-        
-     
       </div>
 
     </a>
   );
-  return (
-    <div className="bg-grad-fast event-card h-[4.5rem] m-1 group rounded-lg border border-transparent w-full px-5 py-4 flex flex-col"></div>
-
-  )
+  
 }
 
 export default function Calendar({type}:{type:string}) {
@@ -111,7 +111,7 @@ export default function Calendar({type}:{type:string}) {
   }, [type]); // The empty dependency array ensures that the effect runs only once
   const cards = Array.from(data as ArrayLike<Card>);
   return (
-    <div className="m-10 rounded-lg border w-full px-3 py-3 mx-auto border-gray-600 flex flex-col justify-center items-center ">
+    <div className="m-4 rounded-lg border w-full px-3 py-3 mx-auto border-gray-600 flex flex-col justify-center items-center ">
       {cards.length == 0 ? (
           
         [0,1,2,3,4].map((data,index) => (
@@ -119,7 +119,7 @@ export default function Calendar({type}:{type:string}) {
         ))
        ) : (
         cards.map((data,index) => (
-          <EventCard key={index} type={data.Type} link={data.Link == "" ? Constants.links[data.Type] : data.Link} description={data.Blurb} important={data.Important=="TRUE"}/>
+          <EventCard key={index} Type={data.Type} Link={data.Link == "" ? Constants.links[data.Type] : data.Link} Blurb={data.Blurb} Important={data.Important} Date={data.Date} Time={data.Time} Location={data.Location}/>
           
           ))
       )
