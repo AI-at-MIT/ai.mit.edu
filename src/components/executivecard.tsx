@@ -1,7 +1,7 @@
 import Image from "next/image";
 export default function ExecutiveCard({ imageName, name, position } : {imageName: string, name: string, position: string}) {
   return (
-    <div className="m-10 group rounded-full border border-transparent px-4 py-4 flex flex-col justify-center items-center">
+    <div className="m-10 group rounded-full border border-transparent px-4 py-4 flex flex-col items-center w-[250px] h-[350px]">
       <div className="rounded-full overflow-hidden">
         <Image
           alt="Executive"
