@@ -3,7 +3,7 @@ import InitiativePageTitle from "@/components/initiativepagetitle";
 import Sponsors from "@/components/sponsors";
 import About from "@/components/about";
 import BackgroundAnimation from "@/components/backgroundanimation";
-import QuickView from "@/components/quickview";
+import QuickView from "@/components/glance";
 
 const type = "s";
 

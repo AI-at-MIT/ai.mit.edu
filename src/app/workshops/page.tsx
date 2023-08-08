@@ -3,8 +3,9 @@ import InitiativePageTitle from "@/components/initiativepagetitle";
 import Sponsors from "@/components/sponsors";
 import About from "@/components/about";
 import BackgroundAnimation from "@/components/backgroundanimation";
-import QuickView from "@/components/quickview";
-
+import QuickView from "@/components/glance";
+import Showcase from "@/components/showcase";
+import ExecutiveMembers from "@/components/executivemembers";
 const type = "w";
 
 export default function Home() {
@@ -29,6 +30,33 @@ export default function Home() {
       "
       />
 
+      <Showcase heading = {"Highlighted Workshops"} projects ={[
+  {
+    imageName: "/workshops_highlights/pytorch_lightning.png",
+    name: "Pytorch Lightning",
+    link: "https://colab.research.google.com/drive/12o9rI6EHu1CJPwwftcZVexCFGQYO7sI4?usp=sharing",
+    blurb: ""
+  },
+  {
+    imageName: "/workshops_highlights/cnns.png",
+    name: "Convolutional Neural Networks",
+    link: "https://docs.google.com/presentation/d/1e7BMYyVt9IDNWG1Mk4PwzbSR_vrWIYvQ/edit#slide=id.p1",
+    blurb: ""
+  },
+  {
+    imageName: "/exec/david_headshot.jpg",
+    name: "Stylish Videos",
+    link: "https://www.google.com/",
+    blurb: "Applying custom neural style transfers to generate unique effects on images and videos"
+  },
+  {
+    imageName: "/exec/david_headshot.jpg",
+    name: "Stylish Videos",
+    link: "https://www.google.com/",
+    blurb: "Applying custom neural style transfers to generate unique effects on images and videos"
+  }
+      ]}/>
+      <ExecutiveMembers title="Workshop Lead" type="w"/>
       <Sponsors />
     </main>
   );

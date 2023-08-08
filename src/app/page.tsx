@@ -6,7 +6,7 @@ import Sponsors from '@/components/sponsors'
 import ExecutiveMembers from '@/components/executivemembers'
 import BackgroundAnimation from '@/components/backgroundanimation'
 import About from '@/components/about'
-import QuickView from '@/components/quickview'
+import QuickView from '@/components/glance'
 import Initiatives from '@/components/initiatives'
 
 function PageTitle() {
@@ -73,7 +73,7 @@ export default function Home() {
       AI@MIT is a community of undergraduates aimed at promoting and fostering the growing interest around machine intelligence on campus. We hold weekly discussions on the latest papers in the field, organize workshops, host speakers, and arrange competitions around machine intelligence at MIT.
       "/>
       <Initiatives />
-      <ExecutiveMembers />
+      <ExecutiveMembers title="Executive Members" type="aim"/>
       <Sponsors />
 
     </main>

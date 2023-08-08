@@ -75,3 +75,75 @@ export const clip_backgrounds: {[key: string]: string} = {
 };
 
 
+export const execMembers = [
+  {
+    name: "David Koplow", 
+    position: "Co-President",
+    imageSource: "/exec/david_headshot.jpg", 
+    link: "https://www.linkedin.com/in/david-koplow/",
+    type: ["aim"],
+  },
+  {
+    name: "Zack Ankner", 
+    position: "Co-President",
+    imageSource: "/exec/zack_headshot.png", 
+    link: "https://www.linkedin.com/in/zack-ankner/",
+    type: ["aim"],
+  },
+  {
+    name: "Nithya Attaluri", 
+    position: "Treasurer",
+    imageSource: "/exec/nithya_headshot.png", 
+    link: "https://www.linkedin.com/in/nithya-attaluri/",
+    type: ["aim"],
+  },
+  {
+    name: "Sejal Gupta", 
+    position: "Labs Lead",
+    imageSource: "/exec/sejal_headshot.jpeg", 
+    link: "",
+    type: ["aim","l"],
+  },
+  {
+    name: "Jose Ricardo Ramos", 
+    position: "Reading Group Co-Lead",
+    imageSource: "/exec/jose_headshot.jpeg", 
+    link: "",
+    type: ["aim","s"],
+  },
+  {
+    name: "Shayda Moezzi",
+    position: "Reading Group Co-Lead",
+    imageSource: "/exec/shayda_headshot.png",
+    link: "",
+    type: ["aim","s"],
+  },
+  {
+    name: "Kevin Meng",
+    position: "Workshops Lead",
+    imageSource: "/exec/kevin_headshot.png",
+    link: "",
+    type: ["aim","w"],
+  },
+  {
+    name: "Anika Puri",
+    position: "Marketing Lead",
+    imageSource: "/exec/anika_headshot.jpeg",
+    link: "",
+    type: ["aim"],
+  },
+  {
+    name: "Erick Gbordzoe",
+    position: "Social Director",
+    imageSource: "/exec/erick_headshot.png",
+    link: "",
+    type: ["aim"],
+  },
+  {
+    name: "Will Guilhermo Costa",
+    position: "Webmaster",
+    imageSource: "/exec/will_headshot.png",
+    link: "",
+    type: ["aim"],
+  }
+]

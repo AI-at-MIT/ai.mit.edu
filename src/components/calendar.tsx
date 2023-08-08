@@ -47,7 +47,7 @@ function EventCard({Type, Link, Blurb, Important, Date, Time, Location} : Card) 
 
       {isTypeL && (
       <div className="group-hover:opacity-0 duration-100 transition group-hover:translate-x-1 motion-reduce:transform-none absolute top-auto right-1 transform -translate-x-1/2">
-      <div className={`${Constants.backgrounds[Type]} event-card w-3 h-3 rounded-full `}></div>
+        <div className={`${Constants.backgrounds[Type]} event-card w-3 h-3 rounded-full `}></div>
       </div>
       )}
       </div>

@@ -1,9 +1,9 @@
 import * as Constants from './constants'
 
-export default function QuickLinks({type, l1_l, l1_t, l2_l, l2_t, l3_l, l3_t}: {type: string, l1_l: string, l1_t: string, l2_l: string, l2_t: string, l3_l: string, l3_t: string}) {
+export default function ImportantLinks({type, l1_l, l1_t, l2_l, l2_t, l3_l, l3_t}: {type: string, l1_l: string, l1_t: string, l2_l: string, l2_t: string, l3_l: string, l3_t: string}) {
   
     return (
-        <div className={`${Constants.clip_backgrounds[type]} quicklink mb-32 grid text-center md:mb-0 md:grid-cols-3 justify-center`}>
+        <div className={`${Constants.clip_backgrounds[type]} quicklink grid text-center md:mb-0 md:grid-cols-3 justify-center`}>
         <a
           href={l1_l}
           className={`quicklink-text w-56 m-5 group border border-transparent px-5 py-4 flex flex-col justify-center items-center`}
