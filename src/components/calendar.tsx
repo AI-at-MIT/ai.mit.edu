@@ -6,6 +6,8 @@ import { useEffect } from 'react';
 //Super buggy for some reason
 import Image from 'next/image'
 
+const max_cards = 6;
+
 interface Card {
   Type: string, 
   Important: string, 
@@ -101,16 +103,19 @@ export default function Calendar({type}:{type:string}) {
       complete: (results) => {
           //keep only 5 most recent cards
         const all_cards = Array.from(results.data) as Card[];
-        const valid_cards = all_cards.filter((card) => type=="aim" || card.Type==type);
+        const valid_cards = all_cards.filter((card) => type=="aim" || card.Type==type || card.Type=="aim");
         //sort valid events by date and time
         const cards = valid_cards.sort((a, b) => {
-          if (a.Date == b.Date) {
+          const dateA = a.Date!="" ? a.Date : "0/0/0";
+          console.log(dateA)
+          const dateB = b.Date!="" ? b.Date : "0/0/0";
+          if (dateA == dateB) {
             return a.Time < b.Time ? -1 : 1;
           } else {
-            return a.Date < b.Date ? -1 : 1;
+            return dateA < dateB ? -1 : 1;
           }
         });
-        cards.splice(5, cards.length - 5);
+        cards.splice(max_cards, cards.length - max_cards);
         setData(cards);
       },
     });
@@ -121,7 +126,7 @@ export default function Calendar({type}:{type:string}) {
     <div className="m-4 rounded-lg border w-full px-3 py-3 mx-auto border-gray-600 flex flex-col justify-center items-center ">
       {cards.length == 0 ? (
           
-        [0,1,2,3,4].map((data,index) => (
+        Array.from({length: max_cards}, (_, index) => index + 1).map((data,index) => (
         <EventLoading key={index}/>
         ))
        ) : (
