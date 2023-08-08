@@ -5,16 +5,18 @@ import * as Constants from './constants'
 function ExecutiveCard({ imageName, name, position, link } : {imageName: string, name: string, position: string, link: string}) {
   return (
     <a href={link} className="m-10 group rounded-full border border-transparent px-4 py-4 flex flex-col items-center w-[250px] h-[350px] ">
-      <div className="rounded-full overflow-hidden hover">
+
+      <div className="w-[150px] relative h-[150px] rounded-full overflow-hidden hover ">
         <Image
           alt="Executive"
           src={imageName}
-          width={150}
-          height={150}
           quality={100}
+          layout="fill"
+          objectFit="cover"
           className="grayscale group-hover:grayscale-0 group-active:scale-110 transition duration-500 ease-in-out"
           />
-      </div>
+
+        </div>
       <div className="mt-4 text-center">
         <h3 className="text-xxl font-semibold">{name}</h3>
         <p className="text-xl text-gray-500">{position}</p>
