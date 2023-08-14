@@ -42,7 +42,7 @@ export default function Home() {
       "/>
     
       <Showcase 
-      heading="Recent Projects"
+      heading="Example Projects"
       projects={[
         {
           imageName: "/labs_highlights/styletransfer.png",
