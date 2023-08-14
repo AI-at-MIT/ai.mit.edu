@@ -43,7 +43,7 @@ export const links: {[key: string]: string} = {
 export const taglines: {[key: string]: string} = {
   l: "Our project incubator.",
   w: "Our tutorials.",
-  g: "Our AI research competition.",
+  g: "Our research competition.",
   s: "Our lecture series.",
   p: "Our consulting service.",
 };
@@ -51,7 +51,7 @@ export const taglines: {[key: string]: string} = {
 export const descriptions: {[key: string]: string} = {
   l: "A community of hackers at MIT building innovative projects to bring cutting-edge artificial intelligence techniques to others.",
   w: "Each introductory workshop is comprised of a brief theory lecture and an interactive coding-based lab. Occurring bi-weekly and available for all MIT students regardless of experience.",
-  g: "Annual research competition available to all Boston area undergraduates. Prizes range from $500-$2000.",
+  g: "Annual artificial intelligence research competition available to all Boston area undergraduates. Prizes range from $500-$2000.",
   s: "Speakers from industry and academy sharing their contributions to the most recent advances in artificial intelligence.",
   p: "Implementing critical state of the art AI solutions for non-profits free of charge. All while ensuring job security for their employees.",
 };

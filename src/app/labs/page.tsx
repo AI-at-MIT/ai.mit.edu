@@ -45,28 +45,28 @@ export default function Home() {
       heading="Recent Projects"
       projects={[
         {
-          imageName: "/exec/david_headshot.jpg",
+          imageName: "/labs_highlights/styletransfer.png",
           name: "Stylish Videos",
-          link: "https://www.google.com/",
+          link: "https://github.com/zephyrys/stylish-flask-backend",
           blurb: "Applying custom neural style transfers to generate unique effects on images and videos"
         },
         {
-          imageName: "/exec/david_headshot.jpg",
-          name: "Stylish Videos",
-          link: "https://www.google.com/",
-          blurb: "Applying custom neural style transfers to generate unique effects on images and videos"
+          imageName: "/labs_highlights/posenet-art.png",
+          name: "PoseNet Body Art",
+          link: "https://posenet-art.netlify.app/",
+          blurb: "Combining your body's movements with PoseNet to create an interactive visual and auditory artistic experience"
         },
         {
-          imageName: "/exec/david_headshot.jpg",
-          name: "Stylish Videos",
-          link: "https://www.google.com/",
-          blurb: "Applying custom neural style transfers to generate unique effects on images and videos"
+          imageName: "/labs_highlights/paths.png",
+          name: "Intra Building Maps",
+          link: "https://docs.google.com/presentation/d/1f8R8GOi87zCLnFAymnKqLtxwwc3MA_MNzKXpoHVfEe8/edit?usp=sharing/",
+          blurb: "Ever get lost walking through campus? Get directions from any room in MIT to any other."
         },
         {
-          imageName: "/exec/david_headshot.jpg",
-          name: "Stylish Videos",
-          link: "https://www.google.com/",
-          blurb: "Applying custom neural style transfers to generate unique effects on images and videos"
+          imageName: "/labs_highlights/lecshort.png",
+          name: "Lecture Shortener",
+          link: "http://www.lecshort.com/",
+          blurb: "This ML pipeline extracts the most important visual and auditory components of lectures."
         }
       ]}
       />

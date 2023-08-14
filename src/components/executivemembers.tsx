@@ -6,7 +6,7 @@ function ExecutiveCard({ imageName, name, position, link } : {imageName: string,
   return (
     <a href={link} className="m-10 group rounded-full border border-transparent px-4 py-4 flex flex-col items-center w-[250px] h-[350px] ">
 
-      <div className="w-[150px] relative h-[150px] rounded-full overflow-hidden hover ">
+      <div className="w-[170px] relative h-[170px] rounded-full overflow-hidden hover ">
         <Image
           alt="Executive"
           src={imageName}
@@ -35,7 +35,8 @@ export default function ExecutiveMembers({title, type} : {title: string, type: s
       <h1>{title}</h1>
       <div className="flex flex-wrap gap-4 justify-center m-10 max-w-[1200px]">
         {display_profiles.map((member,index) => (
-          <ExecutiveCard
+          <ExecutiveCard 
+            key={index}
             imageName={member.imageSource}
             name={member.name}
             position={member.position}

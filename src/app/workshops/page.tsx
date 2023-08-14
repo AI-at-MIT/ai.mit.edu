@@ -44,16 +44,16 @@ export default function Home() {
     blurb: ""
   },
   {
-    imageName: "/exec/david_headshot.jpg",
-    name: "Stylish Videos",
-    link: "https://www.google.com/",
-    blurb: "Applying custom neural style transfers to generate unique effects on images and videos"
+    imageName: "/workshops_highlights/styletransfer.png",
+    name: "Style Transfer",
+    link: "https://docs.google.com/presentation/d/1mVLIWk3Ok93JxLGD2Wb2Qy7HEPkqRs_n4vZ0aYwkxsM/edit#slide=id.g842d541dd1_0_204/",
+    blurb: ""
   },
   {
-    imageName: "/exec/david_headshot.jpg",
-    name: "Stylish Videos",
-    link: "https://www.google.com/",
-    blurb: "Applying custom neural style transfers to generate unique effects on images and videos"
+    imageName: "/workshops_highlights/metalearning.png",
+    name: "Meta Learning",
+    link: "https://drive.google.com/file/d/1L6ESEo6NmJcce48DIbBpdAe3RnVUG5QH/view",
+    blurb: ""
   }
       ]}/>
       <ExecutiveMembers title="Workshop Lead" type="w"/>
