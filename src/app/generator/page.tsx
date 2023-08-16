@@ -4,7 +4,7 @@ import Sponsors from "@/components/sponsors";
 import About from "@/components/about";
 import BackgroundAnimation from "@/components/backgroundanimation";
 import QuickView from "@/components/glance";
-
+import Join from "@/components/join";
 const type = "g";
 
 export default function Home() {
@@ -25,9 +25,17 @@ export default function Home() {
       <About
         blurb="
         We understand that doing research is a large commitment, so we want to empower and reward students for their endeavors. To this end we host an annual research competition for any students in the Boston area to submit their work.
-      "
+        "
       />
+      <Join 
+      type={type}
+      heading="How to Join?"
 
+      blurb_recruiting={["Applications for this cohort are open now!","Second round interviews will be conducted the following week."]}
+      blurb_notrecruiting={["Applications are closed for this cohort of Labs.","Check back at the beginning of next semester!"]}
+      isrecruiting={false}
+      link="https://mit.us16.list-manage.com/subscribe/post?u=b71b58fc01f0404f5bfaffe4d&id=f1d937193c"
+      />
       <Sponsors />
     </main>
   );

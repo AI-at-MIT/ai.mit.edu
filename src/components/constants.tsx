@@ -1,3 +1,19 @@
+//Links
+export const links: {[key: string]: string} = {
+  l: "labs",
+  w: "workshops",
+  g: "generator",
+  s: "speakers",
+  p: "permeate",
+  exec_email: "mailto:aim-exec@mit.edu",
+  mailing_list: "https://mit.us16.list-manage.com/subscribe/post?u=b71b58fc01f0404f5bfaffe4d&id=f1d937193c",
+  calendar: "https://calendar.google.com/calendar/u/0/r?cid=o2l92fc80naot7nh8fmc4iklh8@group.calendar.google.com",
+  labs_application: "",
+  generator_application: "",
+};
+
+
+//Assets
 export const icons: {[key: string]: string} = {
   l: "icons/labs-icon.svg",
   w: "icons/workshops-icon.svg",
@@ -14,6 +30,7 @@ export const backdrops: {[key: string]: string} = {
   s: "backdrops/speakers-backdrop.svg",
   p: "backdrops/permeate-backdrop.svg",
 };
+
 
 export const border_class: {[key: string]: string} = {
   aim: "border-aim",
@@ -32,13 +49,7 @@ export const initiative_names: {[key: string]: string} = {
   p: "Permeate",
 };
 
-export const links: {[key: string]: string} = {
-  l: "labs",
-  w: "workshops",
-  g: "generator",
-  s: "speakers",
-  p: "permeate",
-};
+
 
 export const taglines: {[key: string]: string} = {
   l: "Our project incubator.",

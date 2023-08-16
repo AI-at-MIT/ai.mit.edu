@@ -66,9 +66,9 @@ export default function Home() {
 
       <QuickView 
         type="aim" 
-        l1_t="Mailing List" l1_l="https://mit.us16.list-manage.com/subscribe/post?u=b71b58fc01f0404f5bfaffe4d&id=f1d937193c"
-        l2_t="Calendar" l2_l="https://calendar.google.com/calendar/u/0/r?cid=o2l92fc80naot7nh8fmc4iklh8@group.calendar.google.com"
-        l3_t="Contact" l3_l="mailto:aim-exec@mit.edu"/>
+        l1_t="Mailing List" l1_l={Constants.links["mailing_list"]}
+        l2_t="Calendar" l2_l={Constants.links["calendar"]}
+        l3_t="Contact" l3_l={Constants.links["exec_email"]}/>
       <About blurb="
       AI@MIT is a community of undergraduates aimed at promoting and fostering the growing interest around machine intelligence on campus. We hold weekly discussions on the latest papers in the field, organize workshops, host speakers, and arrange competitions around machine intelligence at MIT.
       "/>

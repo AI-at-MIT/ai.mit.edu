@@ -66,6 +66,8 @@ body {
   overflow: auto;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
+  color: #E1E1E1;
+
 }
 
 body::-webkit-scrollbar {
@@ -245,6 +247,8 @@ body::-webkit-scrollbar {
 }
 
 h1 {
+  color: #FFFFFF;
+
   font-size: xxx-large;
   margin: 30px 0 30px 0;
   text-align: center;
@@ -261,7 +265,6 @@ h3 {
 }
 p {
   font-size: x-large;
-  color: #E1E1E1;
 }
 .section {
   min-height: 100vh;

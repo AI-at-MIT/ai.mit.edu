@@ -8,9 +8,8 @@ import QuickView from '@/components/glance'
 import Stats from '@/components/stats'
 import {faUniversity, faUsers, faRocket} from "@fortawesome/free-solid-svg-icons";
 import Showcase from '@/components/showcase'
-
+import Join from '@/components/join'
 const type = "l";
-
 
 
 export default function Home() {
@@ -69,6 +68,16 @@ export default function Home() {
           blurb: "This ML pipeline extracts the most important visual and auditory components of lectures."
         }
       ]}
+      />
+
+      <Join 
+      type={type}
+      heading="How to Join?"
+
+      blurb_recruiting={["Applications for this cohort are open now!","Second round interviews will be conducted the following week."]}
+      blurb_notrecruiting={["Applications are closed for this cohort of Labs.","Check back at the beginning of next semester!"]}
+      isrecruiting={false}
+      link="https://mit.us16.list-manage.com/subscribe/post?u=b71b58fc01f0404f5bfaffe4d&id=f1d937193c"
       />
       <Sponsors/>
 
