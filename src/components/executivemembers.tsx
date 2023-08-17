@@ -13,7 +13,7 @@ function ExecutiveCard({ imageName, name, position, link } : {imageName: string,
           quality={100}
           layout="fill"
           objectFit="cover"
-          className="grayscale group-hover:grayscale-0 group-active:scale-110 transition duration-500 ease-in-out"
+          className="grayscale group-hover:grayscale-0 group-active:scale-125 transition duration-500 ease-in-out"
           />
 
         </div>

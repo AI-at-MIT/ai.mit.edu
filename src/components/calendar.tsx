@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import Papa from "papaparse";
 import * as Constants from "./constants";
-//Sheet link: https://docs.google.com/spreadsheets/d/1Xq2jDe4WCoUbhofKGVxhZVEL9slOFG1ASPl-wrL8Wjs/edit#gid=0
 import { useEffect } from 'react';
-//Super buggy for some reason
 import Image from 'next/image'
 
 const max_cards = 6;
@@ -96,7 +94,7 @@ export default function Calendar({initiative}:{initiative:Constants.InitiativeIn
     // This code will run only once during the initial load
     console.log('Calendar Data Loaded');
   
-    Papa.parse("https://docs.google.com/spreadsheets/d/e/2PACX-1vR_7bB8qLii0K4mYOVNqucZD9-DNTbqQ98re6pIl6RtDNUaTf2bE9hBwmTwKl1bXj5Te2U7xrrS_N8i/pub?output=csv", {
+    Papa.parse(Constants.links["calendar_sheet_published"], {
       download: true,
       header: true,
       complete: (results) => {
@@ -130,7 +128,7 @@ export default function Calendar({initiative}:{initiative:Constants.InitiativeIn
         ))
        ) : (
         cards.map((data,index) => (
-          <EventCard key={index} Type={data.Type} Link={data.Link == "" ? Constants.links[data.Type] : data.Link} Blurb={data.Blurb} Important={data.Important} Date={data.Date} Time={data.Time} Location={data.Location}/>
+          <EventCard key={index} Type={data.Type} Link={data.Link == "" ? Constants.initiative_data[data.Type].url : data.Link} Blurb={data.Blurb} Important={data.Important} Date={data.Date} Time={data.Time} Location={data.Location}/>
           
           ))
       )
