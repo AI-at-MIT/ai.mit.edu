@@ -4,7 +4,7 @@ import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 export default function Stats({content}: {content: {icon: IconDefinition, number: string, text: string}[]}) {
     return (
-        <div className = "section flex flex-row gap-x-20 "> 
+        <div className = " section grid grid-flow-col auto-cols-fr gap-x-20 "> 
           {content.map((data,index) => (
                     
                 <div key={index} className="flex flex-col items-center justify-center">

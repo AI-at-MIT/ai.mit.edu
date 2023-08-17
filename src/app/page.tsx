@@ -8,6 +8,8 @@ import BackgroundAnimation from '@/components/backgroundanimation'
 import About from '@/components/about'
 import QuickView from '@/components/glance'
 import InitiativeSection from '@/components/initiativesection'
+import Stats from '@/components/stats'
+import {faPeopleGroup, faCircleNodes, faUsers, faBolt, faPlus, faUsersBetweenLines, faPeopleRoof, faRocket} from "@fortawesome/free-solid-svg-icons";
 
  
 function PageTitle() {
@@ -75,6 +77,11 @@ export default function Home() {
       <About blurb="
       AI@MIT is a community of undergraduates aimed at promoting and fostering the growing interest around machine intelligence on campus. We hold weekly discussions on the latest papers in the field, organize workshops, host speakers, and arrange competitions around machine intelligence at MIT.
       "/>
+      <Stats content={[
+        {icon: faPeopleGroup, number: "600+", text: "Associate Members"},
+        {icon: faUsersBetweenLines, number: "60+", text: "General Members"},  
+        {icon: faCircleNodes, number: "5", text: "Initiatives"}
+      ]}/>
       <InitiativeSection />
       <ExecutiveMembers title="Executive Members" initiative={initiative}/>
       <Sponsors />

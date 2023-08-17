@@ -9,7 +9,7 @@ export default function About({blurb}: {blurb: string}) {
   
         <h1>About</h1>
   
-        <div className="snap-always snap-center mb-32 max-w-[1000px]  center-text w-3/4 mx-auto">
+        <div className="snap-always snap-center  max-w-[1000px]  center-text w-3/4 mx-auto">
   
           
           <p className="gray-text ">
