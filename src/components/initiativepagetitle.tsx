@@ -17,8 +17,9 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
           />
         </div>
   
-        <div className="max-w-[70vw]">
-          <div className="flex flex-wrap gap-4 items-center">
+        <div className={initiative.key != "aim" ? "max-w-[70vw] m-10" : "max-w-[60vw]  m-10"}>
+
+          {initiative.key != "aim" ? <div className="flex flex-wrap gap-4 items-center">
             <div className='w-64'>
               <Image
                 alt="labs-icon"
@@ -28,12 +29,21 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
                 height={100}
                 quality={100}
               />
-  
             </div>
+
             <div className="title-text">
               {initiative.name}
             </div>
-          </div>
+          </div> 
+          :
+          <Image
+             alt="aim-logo-full"
+             src="/icons/aim-icon-full.svg"
+             layout="responsive"
+             width={500}
+             height={500}
+             quality={100}
+           />}
   
           <p className="title-tag-text">
             {initiative.tagline}
@@ -42,8 +52,9 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
           <p className="title-desc-text max-w-[700px]">
             {initiative.description}
           </p>
-          <div className="w-48 ml-6 z-100">
-
+          
+          { initiative.key != "aim" ?
+            <div className="w-48 ml-6 z-100">
               <a href="./" >
                   <Image
                       alt="aim-logo-full"
@@ -54,10 +65,11 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
                       quality={100}
                       className="transition duration-100 hover:opacity-50 active:scale-95"
                     />
-              
               </a>
-            </div>
+            </div> : ""
+          }
           </div>
+          
       </div>
       <div className="bg-gray-700 w-full h-[1px] opacity-50"></div></div>
     );

@@ -10,54 +10,7 @@ import QuickView from '@/components/glance'
 import InitiativeSection from '@/components/initiativesection'
 import Stats from '@/components/stats'
 import {faPeopleGroup, faCircleNodes, faUsers, faBolt, faPlus, faUsersBetweenLines, faPeopleRoof, faRocket} from "@fortawesome/free-solid-svg-icons";
-
- 
-function PageTitle() {
-  return (
-    <div>
-    
-
-    <div className="section-full w-screen overflow-hidden -z-10 flex flex-col justify-center">
-     
-      <div className="absolute inset-0">
-        <Image
-          alt="aim-backdrop"
-          src="backdrops/aim-backdrop.svg"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-        />
-      </div>
-
-        <div className="max-w-[60vw]  m-10">
-          <Image
-            alt="aim-logo-full"
-            src="/icons/aim-icon-full.svg"
-            layout="responsive"
-            width={500}
-            height={500}
-            quality={100}
-          />
-
-
-        <p className="title-tag-text">
-        Teaching you to build what learns.
-        </p>
-
-        <p className="title-desc-text">
-          MIT’s premier artificial intelligence student organization.        
-        </p>
-      
-        </div>
-
-        </div>
-          <div className="bg-gray-700 w-full h-[1px] opacity-50"></div>
-    </div>
-
-  );
-}
-
-
+import InitiativePageTitle from '@/components/initiativepagetitle'
 
 export default function Home() {
   
@@ -67,8 +20,8 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
 
-      <PageTitle />
-
+      
+      <InitiativePageTitle initiative={initiative} />
       <QuickView 
         initiative={initiative}
         l1_t="Mailing List" l1_l={Constants.links["mailing_list"]}

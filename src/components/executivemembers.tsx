@@ -13,6 +13,7 @@ function ExecutiveCard({ imageName, name, position, link } : {imageName: string,
           quality={100}
           layout="fill"
           objectFit="cover"
+          style={{ userSelect: 'none' }} 
           className="grayscale group-hover:grayscale-0 group-active:scale-125 transition duration-500 ease-in-out"
           />
 

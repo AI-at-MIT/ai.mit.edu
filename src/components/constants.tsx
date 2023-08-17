@@ -27,8 +27,8 @@ export const initiative_data : {[key: string]: InitiativeInterface} = {
   aim: {
     key: "aim",
     name: "AIM",
-    tagline: "Our community.",
-    description: "The Artificial Intelligence at MIT (AIM) initiative is a student-led organization that aims to foster a community of hackers at MIT building innovative projects to bring cutting-edge artificial intelligence techniques to others.",
+    tagline: "Teaching you to build what learns.",
+    description: "MIT’s premier artificial intelligence student organization.",
     url: "/",
     icon: "icons/aim-icon-at.svg",
     backdrop: "backdrops/aim-backdrop.svg",

@@ -6,6 +6,9 @@ import Image from 'next/image'
 function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterface}) {
   const [expanded, setExpanded] = useState(true);
   const [seen, setSeen] = useState(false);
+  const handleButtonClick = (event) => {
+    event.stopPropagation();
+};
 
   const handleCardClick = () => {
     setExpanded(!expanded);
@@ -43,7 +46,7 @@ function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterfac
               <h2>{initiative.name}</h2>
               <p>{initiative.description}</p>
               <div className="flex justify-end">
-                  <a href={initiative.url}>
+                  <a href={initiative.url} onClick={handleButtonClick}>
                   <div className={`transition duration-100 active:scale-95 ${initiative.border_class} border-2  text-xl w-48 h-16 mt-8 rounded-full border border-transparent px-5 py-3 flex items-center justify-center `}>
 
                     Learn More
@@ -75,7 +78,7 @@ function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterfac
               <h2>{initiative.name}</h2>
               <p>{initiative.description}</p>
               <div className="flex justify-center">
-                  <a href={initiative.url} >
+                  <a href={initiative.url} onClick={handleButtonClick}>
                     <div className={`transition duration-100 active:scale-95 ${initiative.border_class} border-2 text-xl w-48 h-16 mt-8 mb-8 rounded-full border border-transparent px-5 py-3 flex items-center justify-center `}>
 
                         Learn More

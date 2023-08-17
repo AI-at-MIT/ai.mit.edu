@@ -34,7 +34,7 @@ export default function Home() {
       heading="How to Join?"
 
       blurb_recruiting={`Applications for this cohort are open now! \n Second round interviews will be conducted the following week.`}
-      blurb_notrecruiting={`Applications are closed for this cohort of Labs. \n Check back at the beginning of next semester!`}
+      blurb_notrecruiting={`Generator does not run in the Fall. \n Check back at the beginning of the Spring semester!`}
       isrecruiting={false}
       link={Constants.links["generator_application"]}
       />
