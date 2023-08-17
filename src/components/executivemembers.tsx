@@ -1,5 +1,5 @@
 import Image from "next/image";
-import * as Constants from './constants'
+import {execMembers, InitiativeInterface} from './constants'
 
 
 function ExecutiveCard({ imageName, name, position, link } : {imageName: string, name: string, position: string, link: string}) {
@@ -26,10 +26,9 @@ function ExecutiveCard({ imageName, name, position, link } : {imageName: string,
 }
 
 
-export default function ExecutiveMembers({title, type} : {title: string, type: string}) {
+export default function ExecutiveMembers({title, initiative} : {title: string, initiative: InitiativeInterface}) {
 
-  const display_profiles = Constants.execMembers.filter((member) =>  member.type.includes(type)) 
-
+  const display_profiles = execMembers.filter((member) =>  member.type.includes(initiative.key)) 
   return (
     <div className="section">
       <h1>{title}</h1>

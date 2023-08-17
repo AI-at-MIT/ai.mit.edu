@@ -1,10 +1,5 @@
 //Links
 export const links: {[key: string]: string} = {
-  l: "labs",
-  w: "workshops",
-  g: "generator",
-  s: "speakers",
-  p: "permeate",
   exec_email: "mailto:aim-exec@mit.edu",
   mailing_list: "https://mit.us16.list-manage.com/subscribe/post?u=b71b58fc01f0404f5bfaffe4d&id=f1d937193c",
   calendar: "https://calendar.google.com/calendar/u/0/r?cid=o2l92fc80naot7nh8fmc4iklh8@group.calendar.google.com",
@@ -13,76 +8,93 @@ export const links: {[key: string]: string} = {
 };
 
 
-//Assets
-export const icons: {[key: string]: string} = {
-  l: "icons/labs-icon.svg",
-  w: "icons/workshops-icon.svg",
-  g: "icons/generator-icon.svg",
-  s: "icons/speakers-icon.svg",
-  p: "icons/permeate-icon.svg",
-  aim: "icons/aim-icon-at.svg",
-};
+export interface InitiativeInterface {
+  key: string;
+  name: string;
+  tagline: string;
+  description: string;
+  url: string;
+  icon: string;
+  backdrop: string;
+  border_class: string;
+  background: string;
+  clip_background: string;
+}
 
-export const backdrops: {[key: string]: string} = {
-  l: "backdrops/labs-backdrop.svg",
-  w: "backdrops/workshops-backdrop.svg",
-  g: "backdrops/generator-backdrop.svg",
-  s: "backdrops/speakers-backdrop.svg",
-  p: "backdrops/permeate-backdrop.svg",
-};
-
-
-export const border_class: {[key: string]: string} = {
-  aim: "border-aim",
-  l: "border-labs",
-  w: "border-workshops",
-  g: "border-generator",
-  s: "border-speakers",
-  p: "border-permeate",
-};
-
-export const initiative_names: {[key: string]: string} = {
-  l: "Labs",
-  w: "Workshops",
-  g: "Generator",
-  s: "Speakers",
-  p: "Permeate",
-};
-
-
-
-export const taglines: {[key: string]: string} = {
-  l: "Our project incubator.",
-  w: "Our tutorials.",
-  g: "Our research competition.",
-  s: "Our lecture series.",
-  p: "Our consulting service.",
-};
-
-export const descriptions: {[key: string]: string} = {
-  l: "A community of hackers at MIT building innovative projects to bring cutting-edge artificial intelligence techniques to others.",
-  w: "Each introductory workshop is comprised of a brief theory lecture and an interactive coding-based lab. Occurring bi-weekly and available for all MIT students regardless of experience.",
-  g: "Annual artificial intelligence research competition available to all Boston area undergraduates. Prizes range from $500-$2000.",
-  s: "Speakers from industry and academy sharing their contributions to the most recent advances in artificial intelligence.",
-  p: "Implementing critical state of the art AI solutions for non-profits free of charge. All while ensuring job security for their employees.",
-};
-
-export const backgrounds: {[key: string]: string} = {
-  aim: "background-aim",
-  l: "background-labs",
-  w: "background-workshops",
-  g: "background-generator",
-  s: "background-speakers",
-  p: "background-permeate",
-};
-
-export const clip_backgrounds: {[key: string]: string} = {
-  aim: "clip-background-aim",
-  l: "clip-background-labs",
-  w: "clip-background-workshops",
-  g: "clip-background-generator",
-  s: "clip-background-speakers",
-  p: "clip-background-permeate",
+export const initiative_data : {[key: string]: InitiativeInterface} = {
+  aim: {
+    key: "aim",
+    name: "AIM",
+    tagline: "Our community.",
+    description: "The Artificial Intelligence at MIT (AIM) initiative is a student-led organization that aims to foster a community of hackers at MIT building innovative projects to bring cutting-edge artificial intelligence techniques to others.",
+    url: "/",
+    icon: "icons/aim-icon-at.svg",
+    backdrop: "backdrops/aim-backdrop.svg",
+    border_class: "border-aim",
+    background: "background-aim",
+    clip_background: "clip-background-aim",
+  },
+  l: {
+    key: "l",
+    name: "Labs",
+    tagline: "Our project incubator.",
+    description: "A community of hackers at MIT building innovative projects to bring cutting-edge artificial intelligence techniques to others.",
+    url: "labs",
+    icon: "icons/labs-icon.svg",
+    backdrop: "backdrops/labs-backdrop.svg",
+    border_class: "border-labs",
+    background: "background-labs",
+    clip_background: "clip-background-labs",
+  },
+  w: {
+    key: "w",
+    name: "Workshops",
+    tagline: "Our tutorials.",
+    description: "Each introductory workshop is comprised of a brief theory lecture and an interactive coding-based lab. Occurring bi-weekly and available for all MIT students regardless of experience.",
+    url: "workshops",
+    icon: "icons/workshops-icon.svg",
+    backdrop: "backdrops/workshops-backdrop.svg",
+    border_class: "border-workshops",
+    background: "background-workshops",
+    clip_background: "clip-background-workshops",
+  },
+  g: {
+    key: "g",
+    name: "Generator",
+    tagline: "Our research competition.",
+    description: "Annual artificial intelligence research competition available to all Boston area undergraduates. Prizes range from $500-$2000.",
+    url: "generator",
+    icon: "icons/generator-icon.svg",
+    backdrop: "backdrops/generator-backdrop.svg",
+    border_class: "border-generator",
+    background: "background-generator",
+    clip_background: "clip-background-generator",
+  },
+  s: {
+    key: "s",
+    name: "Speakers",
+    tagline: "Our lecture series.",
+    description: "Speakers from industry and academy sharing their contributions to the most recent advances in artificial intelligence.",
+    url: "speakers",
+    icon: "icons/speakers-icon.svg",
+    backdrop: "backdrops/speakers-backdrop.svg",
+    border_class: "border-speakers",
+    background: "background-speakers",
+    clip_background: "clip-background-speakers",
+  },
+  p: {
+    key: "p",
+    name: "Permeate",
+    tagline: "Our consulting service.",
+    description: "Implementing critical state of the art AI solutions for non-profits free of charge. All while ensuring job security for their employees.",
+    url: "permeate",
+    icon: "icons/permeate-icon.svg",
+    backdrop: "backdrops/permeate-backdrop.svg",
+    border_class: "border-permeate",
+    background: "background-permeate",
+    clip_background: "clip-background-permeate",
+  },
+    
 };
 
 

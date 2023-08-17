@@ -3,18 +3,20 @@ import InitiativePageTitle from "@/components/initiativepagetitle";
 import Sponsors from "@/components/sponsors";
 import About from "@/components/about";
 import BackgroundAnimation from "@/components/backgroundanimation";
-import QuickView from "@/components/glance";
+import Glance from "@/components/glance";
 import Join from "@/components/join";
-const type = "g";
+import * as Constants from "@/components/constants";
+
+const initiative = Constants.initiative_data["g"];
 
 export default function Home() {
   BackgroundAnimation();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <InitiativePageTitle type={type} />
-      <QuickView
-        type={type}
+      <InitiativePageTitle initiative={initiative} />
+      <Glance
+        initiative={initiative}
         l1_t="Apply"
         l1_l="mailto:aim-exec@mit.edu"
         l2_t="Mailing List"
@@ -28,13 +30,13 @@ export default function Home() {
         "
       />
       <Join 
-      type={type}
+      initiative={initiative}
       heading="How to Join?"
 
       blurb_recruiting={["Applications for this cohort are open now!","Second round interviews will be conducted the following week."]}
       blurb_notrecruiting={["Applications are closed for this cohort of Labs.","Check back at the beginning of next semester!"]}
       isrecruiting={false}
-      link="https://mit.us16.list-manage.com/subscribe/post?u=b71b58fc01f0404f5bfaffe4d&id=f1d937193c"
+      link={Constants.links["generator_application"]}
       />
       <Sponsors />
     </main>

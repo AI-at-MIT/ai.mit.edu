@@ -3,19 +3,22 @@ import InitiativePageTitle from "@/components/initiativepagetitle";
 import Sponsors from "@/components/sponsors";
 import About from "@/components/about";
 import BackgroundAnimation from "@/components/backgroundanimation";
-import QuickView from "@/components/glance";
+import Glance from "@/components/glance";
 import Showcase from "@/components/showcase";
 import ExecutiveMembers from "@/components/executivemembers";
-const type = "w";
+import * as Constants from "@/components/constants";
+
+const initiative = Constants.initiative_data["w"];
+
 
 export default function Home() {
   BackgroundAnimation();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <InitiativePageTitle type={type} />
-      <QuickView
-        type={type}
+      <InitiativePageTitle initiative={initiative} />
+      <Glance
+        initiative={initiative}
         l1_t="Past Topics"
         // Need to add a 404 page
         l1_l=""
@@ -56,7 +59,7 @@ export default function Home() {
     blurb: ""
   }
       ]}/>
-      <ExecutiveMembers title="Workshop Lead" type="w"/>
+      <ExecutiveMembers title="Workshops Lead" initiative={initiative}/>
       <Sponsors />
     </main>
   );

@@ -7,8 +7,9 @@ import ExecutiveMembers from '@/components/executivemembers'
 import BackgroundAnimation from '@/components/backgroundanimation'
 import About from '@/components/about'
 import QuickView from '@/components/glance'
-import Initiatives from '@/components/initiatives'
+import InitiativeSection from '@/components/initiativesection'
 
+ 
 function PageTitle() {
   return (
     <div>
@@ -58,6 +59,7 @@ function PageTitle() {
 export default function Home() {
   
   BackgroundAnimation();
+  const initiative = Constants.initiative_data["aim"]
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
@@ -65,15 +67,15 @@ export default function Home() {
       <PageTitle />
 
       <QuickView 
-        type="aim" 
+        initiative={initiative}
         l1_t="Mailing List" l1_l={Constants.links["mailing_list"]}
         l2_t="Calendar" l2_l={Constants.links["calendar"]}
         l3_t="Contact" l3_l={Constants.links["exec_email"]}/>
       <About blurb="
       AI@MIT is a community of undergraduates aimed at promoting and fostering the growing interest around machine intelligence on campus. We hold weekly discussions on the latest papers in the field, organize workshops, host speakers, and arrange competitions around machine intelligence at MIT.
       "/>
-      <Initiatives />
-      <ExecutiveMembers title="Executive Members" type="aim"/>
+      <InitiativeSection />
+      <ExecutiveMembers title="Executive Members" initiative={initiative}/>
       <Sponsors />
 
     </main>

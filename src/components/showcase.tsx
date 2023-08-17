@@ -2,8 +2,8 @@ import Image from 'next/image'
 
 function ProjectCard({ imageName, name, link, blurb }: { imageName: string, name: string, link: string, blurb: string }) {
     return (
-      <a href={link} className="m-2 group border border-transparent px-4 py-4 flex flex-col justify-center items-center transform active:scale-95">
-        <div className="w-[300px] h-[300px] rounded-3xl overflow-hidden absolute -z-10 opacity-30 border-2 border-gray-500 group-hover:opacity-60 duration-60 transition">
+      <a href={link} className="duration-100 m-2 group border border-transparent px-4 py-4 flex flex-col justify-center items-center transform active:scale-95">
+        <div className="duration-100 w-[300px] h-[300px] rounded-3xl overflow-hidden absolute -z-10 opacity-30 border-2 border-gray-500 group-hover:opacity-60 duration-60 transition">
           <Image
             alt="Executive"
             src={imageName}
