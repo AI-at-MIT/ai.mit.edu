@@ -23,7 +23,7 @@ function ProjectCard({ imageName, name, link, blurb }: { imageName: string, name
   }
 export default function Showcase({heading, projects} : {heading: string, projects: {imageName: string, name: string, link: string, blurb: string}[]}){
     return (
-      <div>
+      <div className="section">
         <h1>{heading}</h1>
         <div className="flex flex-wrap justify-center gap-5 max-w-[1000px] mt-16 mb-16">
           {

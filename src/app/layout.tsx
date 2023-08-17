@@ -24,7 +24,7 @@ export default function RootLayout({
         <link rel="shortcut icon" href="icons/aim-icon-at.svg"  />
       </head>
       <body className={mainfont.className}>
-  
+        
    
         {children}
         </body>

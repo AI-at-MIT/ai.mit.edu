@@ -5,17 +5,17 @@ export default function About({blurb}: {blurb: string}) {
     }
 
     return (
-      <div >
+      <div className="">
   
         <h1>About</h1>
   
-        <div className="mb-32 max-w-[1000px]  center-text w-3/4 mx-auto">
+        <div className="snap-always snap-center mb-32 max-w-[1000px]  center-text w-3/4 mx-auto">
   
           
-        <p>
-          {blurb}
-  
-        </p>
+          <p className="gray-text ">
+            {blurb}
+    
+          </p>
         </div>
   
       </div>

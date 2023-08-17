@@ -13,8 +13,9 @@ import InitiativeSection from '@/components/initiativesection'
 function PageTitle() {
   return (
     <div>
+    
 
-    <div className="section w-screen overflow-hidden -z-10 flex flex-col justify-center">
+    <div className="section-full w-screen overflow-hidden -z-10 flex flex-col justify-center">
      
       <div className="absolute inset-0">
         <Image

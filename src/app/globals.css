@@ -74,6 +74,7 @@ body::-webkit-scrollbar {
   display: none; /* Chrome, Safari, and Opera */
 }
 
+
 .quicklink {
  
   color: transparent;
@@ -86,10 +87,14 @@ body::-webkit-scrollbar {
 
 .quicklink-text:hover {
   color: #00000060;
-
 }
+
+.quicklink-text:active {
+  color: #00000085;
+}
+
 .container {
-  background: var(--background-gradient);
+  background: var(--background-gradient);https://mit.us16.list-manage.com/subscribe/post?u=b71b58fc01f0404f5bfaffe4d&id=f1d937193c
 
 }
 
@@ -266,9 +271,14 @@ h3 {
 p {
   font-size: x-large;
 }
-.section {
+
+.section-full {
   min-height: 100vh;
   padding: 20px;
+}
+
+.section {
+  padding: 50px;
 }
 
 .title-text {

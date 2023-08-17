@@ -9,7 +9,7 @@ import Stats from '@/components/stats'
 import {faUniversity, faUsers, faRocket} from "@fortawesome/free-solid-svg-icons";
 import Showcase from '@/components/showcase'
 import Join from '@/components/join'
-
+import ExecutiveMembers from '@/components/executivemembers'
 import * as Constants from '@/components/constants'
 
 export default function Home() {
@@ -29,17 +29,17 @@ export default function Home() {
         l2_t="Slides" l2_l="https://calendar.google.com/calendar/u/0/r?cid=o2l92fc80naot7nh8fmc4iklh8@group.calendar.google.com"
         l3_t="Contact" l3_l="mailto:aim-exec@mit.edu"
         />
+
+
+      <About blurb="
+          AIM Labs is MIT’s premier undergraduate artificial intelligence project incubator. Every semester we recruit a diverse cohort of talented students and provide them funding, mentorship, and resources to build services that bring recent advances in artificial intelligence to you.
+      "/>
       <Stats content={[
         {icon: faUniversity, number: "6", text: "Semesters"},  
         {icon: faUsers, number: "120+", text: "Alumni"},
         {icon: faRocket, number: "24", text: "Projects"}
       ]}/>
 
-
-      <About blurb="
-          AIM Labs is MIT’s premier undergraduate artificial intelligence project incubator. Every semester we recruit a diverse cohort of talented students and provide them funding, mentorship, and resources to build services that bring recent advances in artificial intelligence to you.
-      "/>
-    
       <Showcase 
       heading="Example Projects"
       projects={[
@@ -70,11 +70,13 @@ export default function Home() {
       ]}
       />
 
+
+      <ExecutiveMembers title="Labs Lead" initiative={initiative}/>
       <Join 
       initiative={initiative}
       heading="How to Join?"
 
-      blurb_recruiting={["Applications for this cohort are open now!","Second round interviews will be conducted the following week."]}
+      blurb_recruiting={["Applications for this cohort are open from 9/1-9/15.","Second round interviews will be conducted the following week."]}
       blurb_notrecruiting={["Applications are closed for this cohort of Labs.","Check back at the beginning of next semester!"]}
       isrecruiting={true}
       link={Constants.links["labs_application"]}

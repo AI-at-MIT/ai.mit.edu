@@ -5,7 +5,7 @@ import * as Constants from '@/components/constants'
 export default function InitiativePageTitle({initiative}: {initiative: Constants.InitiativeInterface}) {
     return (
       <div>
-      <div className="section w-screen overflow-hidden flex flex-col justify-center">
+      <div className="section-full w-screen overflow-hidden flex flex-col justify-center">
 
         <div className="absolute inset-0 -z-50">
           <Image

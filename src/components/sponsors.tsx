@@ -17,7 +17,7 @@ function SponsorCard({imageName}:{imageName: string}) {
 
 export default function Sponsors() {
     return (
-      <div>
+      <div className="section">
         <h1>Past Sponsors</h1>
         <div className="flex flex-col items-center">
         <p className="gray-text ">Interested in becoming a sponsor? <FancyLink type="" href="mailto:aim-exec@mit.edu" text="Email us"/>.</p>

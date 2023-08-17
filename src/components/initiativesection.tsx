@@ -98,7 +98,7 @@ function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterfac
 export default function InitiativeSection() {
 
     return (
-      <div className="section">
+      <div className="section-full">
         <h1>Initiatives</h1>
   
         <div className="flex flex-wrap gap-4 justify-center m-10 max-w-[900px]">
