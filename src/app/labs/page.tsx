@@ -76,8 +76,8 @@ export default function Home() {
       initiative={initiative}
       heading="How to Join?"
 
-      blurb_recruiting={["Applications for this cohort are open from 9/1-9/15.","Second round interviews will be conducted the following week."]}
-      blurb_notrecruiting={["Applications are closed for this cohort of Labs.","Check back at the beginning of next semester!"]}
+      blurb_recruiting={`Applications for this cohort are open from 9/1-9/15. \n Second round interviews will be conducted the following week.`}
+      blurb_notrecruiting={`Applications are closed for this cohort of Labs. \n Check back at the beginning of next semester!`}
       isrecruiting={true}
       link={Constants.links["labs_application"]}
       />

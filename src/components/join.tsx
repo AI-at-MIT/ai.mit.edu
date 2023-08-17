@@ -27,15 +27,19 @@ function JoinMailingList({initiative} : {initiative: Constants.InitiativeInterfa
     )
 } 
 
-export default function Join({initiative, heading, blurb_recruiting, blurb_notrecruiting, isrecruiting, link} : {initiative: Constants.InitiativeInterface, heading: string, blurb_recruiting: string[], blurb_notrecruiting: string[], isrecruiting: boolean, link: string}) {
+export default function Join({initiative, heading, blurb_recruiting, blurb_notrecruiting, isrecruiting, link} : {initiative: Constants.InitiativeInterface, heading: string, blurb_recruiting: string, blurb_notrecruiting: string, isrecruiting: boolean, link: string}) {
   
     const sourcetext = isrecruiting ? blurb_recruiting : blurb_notrecruiting
     const button = isrecruiting ? (<ApplyNow initiative={initiative} href={link}/>) : (<JoinMailingList initiative={initiative}/>)
     return (
         <div className="section flex flex-col items-center justify-center w-full h-96 gray-text">
             <h1 className="">{heading}</h1>
+            <p className="text-center ">
+            {sourcetext.split('\n').map((str, index, array) => 
+              index === array.length - 1 ? str : <> {str}<br /></>
+            )}
+            </p>
 
-            {sourcetext.map((item,index) => (item == "" ? (<br />) : (<p>{item}</p>)))}
             
             {button}
             

@@ -13,7 +13,12 @@ export default function About({blurb}: {blurb: string}) {
   
           
           <p className="gray-text ">
-            {blurb}
+            {blurb.split('\n').map((str, index, array) => 
+              index === array.length - 1 ? str : <>
+                {str}<br />
+              </>
+            )}
+
     
           </p>
         </div>
