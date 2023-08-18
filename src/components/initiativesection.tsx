@@ -21,6 +21,7 @@ function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterfac
   };
   const cardRef = useRef(null);
   const handleScroll = () =>  {
+
     if(!cardRef.current) return;
     const rect = (cardRef.current as HTMLDivElement).getBoundingClientRect();
     const isVisible = (rect.bottom <= window.innerHeight/2);
@@ -39,13 +40,12 @@ function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterfac
   
 
   const [windowSize, setWindowSize] = useState({
-    width: 0,
-    height: 0,
+    width: 1000,
+    height: 1000,
   });
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-
     // Call handler right aw
     return () => {
       window.removeEventListener('scroll', handleScroll);
