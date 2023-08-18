@@ -51,7 +51,7 @@ function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterfac
       window.removeEventListener('scroll', handleScroll);
     };
 
-  }, []);  
+  }, [handleScroll]);  
   useEffect(() => {
     // Add event listener
     window.addEventListener("resize", handleResize);
