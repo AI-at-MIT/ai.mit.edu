@@ -28,7 +28,7 @@ function Membership() {
             How: <span className="gray-text">Open to anyone—just join our <FancyLink initiative={initiative} href={Constants.links["mailing_list"]} text="mailing list"/>!</span>
           </p>
           <p>
-            Why: <span className="gray-text">You'll be alerted about our public events, opportunities, and announcement. </span>
+            Why: <span className="gray-text">You&apos;ll be alerted about our public events, opportunities, and announcement. </span>
           </p>
         </div>
         <div className="mt-16">
@@ -37,7 +37,7 @@ function Membership() {
             How: <span className="gray-text">By application and participation in any of our initiatives.</span>
           </p>
           <p>
-            Why: <span className="gray-text">You'll have access to funding for private projects, our alumni network, and exclusive events such as our retreat, private lunches with prominent speakers, and more. </span>
+            Why: <span className="gray-text">You&apos;ll have access to funding for private projects, our alumni network, and exclusive events such as our retreat, private lunches with prominent speakers, and more. </span>
           </p>
           </div>
       </div>

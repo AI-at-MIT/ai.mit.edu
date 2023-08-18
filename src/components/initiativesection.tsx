@@ -8,9 +8,9 @@ function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterfac
   const [seen, setSeen] = useState(false);
   const [buttonHovered, setButtonHovered] = useState(false);
 
-  const handleButtonClick = (event) => {
+  const handleButtonClick = (event: React.MouseEvent) => {
     event.stopPropagation();
-};
+  };
 
   const handleCardClick = () => {
     if (!buttonHovered) {
