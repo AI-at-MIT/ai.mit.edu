@@ -38,7 +38,7 @@ function EventCard({Type, Link, Blurb, Important, Date, Time, Location} : Card) 
           <p>{Blurb}</p>
 
         </div>
-        <div className="transition-transform group-hover:translate-x-4 w-[75px] mr-3 transition-transform flex flex-col justify-center items-end">
+        <div className="transition-transform group-hover:translate-x-4 min-w-[70px] mr-3 transition-transform flex flex-col justify-center items-end">
           <p className="gray-text text-sm font-extrabold">{Date ? Date : <br></br>}</p>
           <p className="gray-text text-sm">{Time ? Time : <br></br>}</p>
           <p className="gray-text text-sm">{Location ? Location : <br></br>}</p>

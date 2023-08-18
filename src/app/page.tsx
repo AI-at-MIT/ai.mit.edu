@@ -11,6 +11,9 @@ import InitiativeSection from '@/components/initiativesection'
 import Stats from '@/components/stats'
 import {faPeopleGroup, faCircleNodes, faUsers, faBolt, faPlus, faUsersBetweenLines, faPeopleRoof, faRocket} from "@fortawesome/free-solid-svg-icons";
 import InitiativePageTitle from '@/components/initiativepagetitle'
+import FancyLink from '@/components/fancylink'
+
+const initiative = Constants.initiative_data["aim"]
 
 function Membership() {
   return (
@@ -18,28 +21,26 @@ function Membership() {
   
       <h1>Membership</h1>
 
-      <div className="snap-always snap-center  max-w-[1000px]  center-text w-3/4 mx-auto">
-
-      <div className="mt-16">
-        <h2>Associate Member</h2>
-        <p className="mb-4">
-          How: <span className="gray-text">Open to anyone—just join our mailing list!</span>
-        </p>
-        <p>
-          Why: <span className="gray-text">You'll be alerted for all public events we host, opportunities, and announcement. </span>
-        </p>
-      </div>
-      <div className="mt-16">
-        <h2>General Member</h2>
-        <p className="mb-4">
-          How: <span className="gray-text">By application only and participation in any of our initiatives.</span>
-        </p>
-        <p>
-          Why: <span className="gray-text">You'll have access to funding for private projects, our alumni network, and exclusive events such as our retreat, private lunches with prominent speakers, and more. </span>
-        </p>
+      <div className="snap-always snap-center  max-w-[800px]  center-text mx-auto">
+        <div className="mt-16">
+          <h2>Associate Member</h2>
+          <p className="mb-4">
+            How: <span className="gray-text">Open to anyone—just join our <FancyLink initiative={initiative} href={Constants.links["mailing_list"]} text="mailing list"/>!</span>
+          </p>
+          <p>
+            Why: <span className="gray-text">You'll be alerted about our public events, opportunities, and announcement. </span>
+          </p>
         </div>
+        <div className="mt-16">
+          <h2>General Member</h2>
+          <p className="mb-4">
+            How: <span className="gray-text">By application and participation in any of our initiatives.</span>
+          </p>
+          <p>
+            Why: <span className="gray-text">You'll have access to funding for private projects, our alumni network, and exclusive events such as our retreat, private lunches with prominent speakers, and more. </span>
+          </p>
+          </div>
       </div>
-
   </div>
   )
 }
@@ -49,7 +50,6 @@ function Membership() {
 export default function Home() {
   
   BackgroundAnimation();
-  const initiative = Constants.initiative_data["aim"]
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
