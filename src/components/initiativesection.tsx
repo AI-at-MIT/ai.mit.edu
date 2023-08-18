@@ -87,7 +87,7 @@ function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterfac
             <div className={`ml-4 transition-all   ${expanded ? "opacity-100 delay-300" : "opacity-0 delay-0"}`}>
               <h2>{initiative.name}</h2>
               <p className="gray-text ">{initiative.description}</p>
-              <div className={`flex justify-${mobile ? "center" : "end"}`}>
+              <div className={`flex w-full ${mobile ? "justify-center" : "justify-end"}`}>
                   <a 
                   href={initiative.url} 
                   onClick={handleButtonClick}
