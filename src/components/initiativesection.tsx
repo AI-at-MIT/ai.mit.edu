@@ -65,7 +65,6 @@ function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterfac
   }, []);  
   
   let mobile = windowSize.width<800
-  console.log(mobile)
 
   return (
       <div ref={cardRef}>
