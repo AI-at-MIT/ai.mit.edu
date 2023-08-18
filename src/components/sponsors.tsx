@@ -7,7 +7,7 @@ function SponsorCard({imageName, href}:{imageName: string, href:string}) {
       <img
           alt="Initiative"
           src={imageName}
-          style={{"width": "auto",  "height" : "122px","max-width": "475px"}}
+          style={{"width": "auto",  "height" : "122px","maxWidth": "475px"}}
           className="transition duration-100 hover:opacity-50 active:scale-95"
         />
       </a>
@@ -22,7 +22,7 @@ export default function Sponsors() {
       <div className="section">
         <h1>Past Sponsors</h1>
         <div className="flex flex-col items-center">
-        <p className="gray-text ">Interested in becoming a sponsor? <FancyLink type="" href="mailto:aim-exec@mit.edu" text="Email us"/>.</p>
+        <p className="gray-text ">Interested in becoming a sponsor? <FancyLink initiative={undefined} href="mailto:aim-exec@mit.edu" text="Email us"/>.</p>
         </div>
         
         <div className="flex flex-wrap gap-4 justify-center mt-4 mb-20 max-w-[1200px]">
