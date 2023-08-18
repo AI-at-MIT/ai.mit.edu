@@ -17,7 +17,7 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
           />
         </div>
   
-        <div className={initiative.key != "aim" ? "max-w-[70vw] m-10" : "max-w-[60vw]  m-10"}>
+        <div className={initiative.key != "aim" ? "max-w-[70vw]" : "max-w-[60vw]  m-10"}>
 
           {initiative.key != "aim" ? <div className="flex flex-wrap gap-4 items-center">
             <div className='w-64'>

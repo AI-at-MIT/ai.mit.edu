@@ -17,7 +17,6 @@ function SponsorCard({imageName, href}:{imageName: string, href:string}) {
 }
 
 
-
 export default function Sponsors() {
     return (
       <div className="section">

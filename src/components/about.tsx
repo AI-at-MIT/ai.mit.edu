@@ -1,24 +1,17 @@
 export default function About({blurb}: {blurb: string}) {
 
-    if (typeof blurb !== 'string') {
-      throw new Error('blurb must be a string'); 
-    }
-
     return (
-      <div className="">
+      <div className="section">
   
         <h1>About</h1>
   
-        <div className="snap-always snap-center  max-w-[1000px]  center-text w-3/4 mx-auto">
-  
-          
+        <div className="max-w-[600px] w-auto text-left mx-auto">
           <p className="gray-text ">
             {blurb.split('\n').map((str, index, array) => 
               index === array.length - 1 ? str : <>
                 {str}<br />
               </>
             )}
-
     
           </p>
         </div>
