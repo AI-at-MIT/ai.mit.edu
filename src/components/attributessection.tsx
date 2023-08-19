@@ -74,21 +74,21 @@ function AttributeCard({icon, text, blurb} : {icon:IconDefinition, text:string, 
           className={
             `
             flex  items-center duration-100 transition-all 
-            overflow-hidden m-5 p-10 group  border border-transparent hover:border-neutral-700 hover:bg-neutral-800/30 
+            overflow-hidden m-5 p-5 group  border border-neutral-700/70 hover:bg-neutral-800/30 
             ${buttonHovered ? "" : "active:scale-95"}  
-            min-h-[300px] min-w-[300px]
+            min-h-[200px] min-w-[200px]
             max-w-[800px] max-h-[600px]
             justify-center
             ${mobile ? `flex-col rounded-3xl` : `flex-row rounded-full`} `
           }
         >
-          <div className="flex flex-col p-5">
-            <FontAwesomeIcon icon={icon} className="fa-5x pb-2"></FontAwesomeIcon>
-            <h2>{text}</h2>
-
+          <div className="min-w-[200px] min-h-[200px] max-w-[200px] max-h-[200px] flex flex-col items-center justify-center">
+            <FontAwesomeIcon icon={icon} className="fa-5x pb-5"></FontAwesomeIcon>
+            <p className="text-3xl">{text}</p>
           </div>
-          <div className={`transition-all duration-500 ${expanded ? " max-w-[1000px] max-h-[1000px]" : "max-w-[0px] max-h-[0px] delay-300 "}`}>
-          <p className={`p-5 gray-text transition-all  duration-300 ${expanded ? " opacity-100 delay-300" : "opacity-0 delay-0"}`}>{blurb}</p>
+
+          <div className={`transition-all duration-500 ${expanded ? "max-w-[1000px] max-h-[1000px]" : "max-w-[0px] max-h-[0px] delay-300 "}`}>
+          <p className={`pr-10 gray-text transition-all  duration-300 ${expanded ? " opacity-100 delay-300" : "opacity-0 delay-0"}`}>{blurb}</p>
 
           </div>
 

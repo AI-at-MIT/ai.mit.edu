@@ -48,9 +48,11 @@ export default function Home() {
         l3_t="Contact" l3_l={"/email/contact"}/>
 
       <About
-        blurb="
-          AIM Labs is MIT's premier undergraduate artificial intelligence project incubator. Every semester we recruit a diverse cohort of talented students and provide them funding, mentorship, and resources to build services that bring recent advances in artificial intelligence to you. All projects are shipped and presented at Demo Day.
-      "
+        blurb={`
+          AIM Labs is MIT's premier undergraduate artificial intelligence project incubator. Every semester we recruit a diverse cohort of talented students and provide them funding, mentorship, and resources to build services that bring recent advances in artificial intelligence to you. 
+          
+          The semester begins with ideation and team formation. The following weeks focus on project and skill development. All projects are presented at our Demo Day near the end of the semester.
+          `}
       />
       <Stats
         content={[
@@ -100,7 +102,7 @@ export default function Home() {
       heading="Why Labs?"
       projects={[
         { icon: faHandHoldingDollar, text: "Funding", blurb: "Cover hosting, deployment, and other costs of project. Additionally each team gets $400 stipend at the end of the semester after successful deployment. " },
-        { icon: faScrewdriverWrench, text: "Tutorials", blurb: "AIM Labs specific tutorials for skills import for AI project development such as PyTorch, Next.js, and more."},
+        { icon: faScrewdriverWrench, text: "Tutorials", blurb: "AIM Labs specific tutorials covering important techniques for real-world artificial intelligence deployment and development such as PyTorch, Next.js, and more."},
         { icon: faUserSecret, text: "Mentors", blurb: "Very knowledgeable mentors to help quickly resolve technical issues you're facing in machine learning or web-dev."},
         { icon: faPeopleRoof, text: "Community", blurb: "Weekly meetings, monthly social outings, regular coffee chats, and an active alumni network. Labs is a place for you to build both projects and relationships."},
 
@@ -109,8 +111,14 @@ export default function Home() {
       <Join
         initiative={initiative}
         heading="How to Join?"
-        blurb_recruiting={`Applications for this cohort are open from 9/1-9/15. \n Second round interviews will be conducted the following week.`}
-        blurb_notrecruiting={`Applications are closed for this cohort of Labs. \n Check back at the beginning of next semester!`}
+        blurb_recruiting={
+        `Applications for this cohort are open from 9/1-9/15.
+        Second round interviews will be conducted the following week.`
+        }
+        blurb_notrecruiting={
+        `Applications are closed for this cohort of Labs.
+        Check back at the beginning of next semester!`
+        }
         isrecruiting={true}
         link="labs/apply"
       />
