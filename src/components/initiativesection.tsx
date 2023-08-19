@@ -1,5 +1,5 @@
 import * as Constants from './constants'
-import React, {useEffect, useRef, useState } from 'react';
+import React, {useEffect,useCallback, useRef, useState } from 'react';
 import Image from 'next/image'
 
 
@@ -20,8 +20,7 @@ function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterfac
 
   };
   const cardRef = useRef(null);
-  const handleScroll = () =>  {
-
+  const handleScroll = useCallback(() =>  {
     if(!cardRef.current) return;
     const rect = (cardRef.current as HTMLDivElement).getBoundingClientRect();
     const isVisible = (rect.bottom <= window.innerHeight/2);
@@ -29,14 +28,14 @@ function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterfac
       setSeen(true);
       setExpanded(false); 
     } 
-  };
-  const handleResize = () => {
+  },[seen]);
+  const handleResize = useCallback(() => {
     // Set window width/height to state
     setWindowSize({
       width: window.innerWidth,
       height: window.innerHeight,
     });
-  }
+  },[]);
   
 
   const [windowSize, setWindowSize] = useState({
@@ -62,7 +61,7 @@ function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterfac
       window.removeEventListener("resize", handleResize);
     };
 
-  }, []);  
+  }, [handleResize]);  
   
   let mobile = windowSize.width<800
 

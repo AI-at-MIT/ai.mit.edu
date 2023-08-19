@@ -13,7 +13,7 @@ export default function Home() {
         <h1>Page Not Found</h1>
         <div className="max-w-[600px] w-auto text-left mx-auto">
           <p className="gray-text ">
-            The page you're trying to reach doesn't exist. Perhaps there's a typo in the URL you've entered. If you believe this to be an error <FancyLink initiative={undefined} href="/email/contact" text="contact us"/>.
+            {`The page you're trying to reach doesn't exist. Perhaps there's a typo in the URL you've entered. If you believe this to be an error`} <FancyLink initiative={undefined} href="/email/contact" text="contact us"/>.
           </p>
         </div>
         <div className="w-64 mt-12 z-100">
