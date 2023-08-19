@@ -6,15 +6,33 @@ import BackgroundAnimation from "@/components/backgroundanimation";
 import Glance from "@/components/glance";
 
 import Stats from "@/components/stats";
-import {
-  faUniversity,
-  faUsers,
-  faRocket,
-} from "@fortawesome/free-solid-svg-icons";
+
 import Showcase from "@/components/showcase";
 import Join from "@/components/join";
 import ExecutiveMembers from "@/components/executivemembers";
 import * as Constants from "@/components/constants";
+
+
+import Image from 'next/image'
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+
+
+import {
+  faUniversity,
+  faUsers,
+  faRocket,
+  faUserSecret,
+  faPeopleRoof,
+  faScrewdriverWrench,
+  faHandHoldingDollar
+} from "@fortawesome/free-solid-svg-icons";
+
+
+import AttributeSection from "@/components/attributessection";
+
+
 
 export default function Home() {
   BackgroundAnimation();
@@ -31,7 +49,7 @@ export default function Home() {
 
       <About
         blurb="
-          AIM Labs is MIT's premier undergraduate artificial intelligence project incubator. Every semester we recruit a diverse cohort of talented students and provide them funding, mentorship, and resources to build services that bring recent advances in artificial intelligence to you.
+          AIM Labs is MIT's premier undergraduate artificial intelligence project incubator. Every semester we recruit a diverse cohort of talented students and provide them funding, mentorship, and resources to build services that bring recent advances in artificial intelligence to you. All projects are shipped and presented at Demo Day.
       "
       />
       <Stats
@@ -45,6 +63,7 @@ export default function Home() {
       <Showcase
         heading="Example Projects"
         projects={[
+ 
           {
             imageName: "/labs_highlights/styletransfer.png",
             name: "Stylish Videos",
@@ -77,6 +96,16 @@ export default function Home() {
       />
 
       <ExecutiveMembers title="Labs Lead" initiative={initiative} />
+      <AttributeSection
+      heading="Why Labs?"
+      projects={[
+        { icon: faHandHoldingDollar, text: "Funding", blurb: "Cover hosting, deployment, and other costs of project. Additionally each team gets $400 stipend at the end of the semester after successful deployment. " },
+        { icon: faScrewdriverWrench, text: "Tutorials", blurb: "AIM Labs specific tutorials for skills import for AI project development such as PyTorch, Next.js, and more."},
+        { icon: faUserSecret, text: "Mentors", blurb: "Very knowledgeable mentors to help quickly resolve technical issues you're facing in machine learning or web-dev."},
+        { icon: faPeopleRoof, text: "Community", blurb: "Weekly meetings, monthly social outings, regular coffee chats, and an active alumni network. Labs is a place for you to build both projects and relationships."},
+
+      ]}
+      />
       <Join
         initiative={initiative}
         heading="How to Join?"
