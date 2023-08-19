@@ -1,5 +1,3 @@
-Copyright © 2023 AI@MIT
+Website for AI@MIT.
 
-All Rights Reserved
-
-Created by David Koplow
+The main branch is in active deployment. 
