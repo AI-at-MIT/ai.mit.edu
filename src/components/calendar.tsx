@@ -94,7 +94,7 @@ export default function Calendar({initiative}:{initiative:Constants.InitiativeIn
     // This code will run only once during the initial load
     console.log('Calendar Data Loaded');
   
-    Papa.parse(Constants.links["calendar_sheet_published"], {
+    Papa.parse("/calendar/csv", {
       download: true,
       header: true,
       complete: (results) => {

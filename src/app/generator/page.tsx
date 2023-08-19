@@ -18,7 +18,7 @@ export default function Home() {
       <Glance
         initiative={initiative}
         l1_t="Apply"
-        l1_l="mailto:aim-exec@mit.edu"
+        l1_l="/generator/apply"
         l2_t="Mailing List"
         l2_l="https://mit.us16.list-manage.com/subscribe/post?u=b71b58fc01f0404f5bfaffe4d&id=f1d937193c"
         l3_t="Calendar"
@@ -36,7 +36,7 @@ export default function Home() {
       blurb_recruiting={`Applications for this cohort are open now! \n Second round interviews will be conducted the following week.`}
       blurb_notrecruiting={`Generator does not run in the Fall. \n Check back at the beginning of the Spring semester!`}
       isrecruiting={false}
-      link={Constants.links["generator_application"]}
+      link="/generator/apply"
       />
       <Sponsors />
     </main>

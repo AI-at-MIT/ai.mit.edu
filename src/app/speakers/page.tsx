@@ -16,15 +16,12 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <InitiativePageTitle initiative={initiative} />
-      <Glance
+      <Glance 
         initiative={initiative}
-        l1_t="Mailing List"
-        l1_l="https://mit.us16.list-manage.com/subscribe/post?u=b71b58fc01f0404f5bfaffe4d&id=f1d937193c"
-        l2_t="Calendar"
-        l2_l="https://calendar.google.com/calendar/u/0/r?cid=o2l92fc80naot7nh8fmc4iklh8@group.calendar.google.com"
-        l3_t="Request Speaker"
-        l3_l="mailto:aim-exec@mit.edu"
-      />
+        l1_t="Mailing List" l1_l={"/email/list"}
+        l2_t="Calendar" l2_l={"/calendar/gcal"}
+        l3_t="Contact" l3_l={"/email/contact"}/>
+
       <About
         blurb="
         We aim to provide students opportunities to learn about the latest research and applications in AI and machine learning. We host talks by researchers and industry professionals, as well as panels to help students learn about the field and how to get involved.

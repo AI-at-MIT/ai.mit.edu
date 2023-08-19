@@ -23,16 +23,11 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <InitiativePageTitle initiative={initiative} />
-
-      <Glance
+      <Glance 
         initiative={initiative}
-        l1_t="Apply"
-        l1_l="https://mit.us16.list-manage.com/subscribe/post?u=b71b58fc01f0404f5bfaffe4d&id=f1d937193c"
-        l2_t="Slides"
-        l2_l="https://calendar.google.com/calendar/u/0/r?cid=o2l92fc80naot7nh8fmc4iklh8@group.calendar.google.com"
-        l3_t="Contact"
-        l3_l="mailto:aim-exec@mit.edu"
-      />
+        l1_t="Mailing List" l1_l={"/email/list"}
+        l2_t="Calendar" l2_l={"/calendar/gcal"}
+        l3_t="Contact" l3_l={"/email/contact"}/>
 
       <About
         blurb="
@@ -88,7 +83,7 @@ export default function Home() {
         blurb_recruiting={`Applications for this cohort are open from 9/1-9/15. \n Second round interviews will be conducted the following week.`}
         blurb_notrecruiting={`Applications are closed for this cohort of Labs. \n Check back at the beginning of next semester!`}
         isrecruiting={true}
-        link={Constants.links["labs_application"]}
+        link="labs/apply"
       />
       <Sponsors />
     </main>

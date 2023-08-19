@@ -1,13 +1,4 @@
 //Links
-export const links: {[key: string]: string} = {
-  exec_email: "mailto:aim-exec@mit.edu",
-  mailing_list: "https://mit.us16.list-manage.com/subscribe/post?u=b71b58fc01f0404f5bfaffe4d&id=f1d937193c",
-  calendar: "https://calendar.google.com/calendar/u/0/r?cid=o2l92fc80naot7nh8fmc4iklh8@group.calendar.google.com",
-  //calendar_sheet_published source: https://docs.google.com/spreadsheets/d/1Xq2jDe4WCoUbhofKGVxhZVEL9slOFG1ASPl-wrL8Wjs/edit#gid=0
-  calendar_sheet_published: "https://docs.google.com/spreadsheets/d/e/2PACX-1vR_7bB8qLii0K4mYOVNqucZD9-DNTbqQ98re6pIl6RtDNUaTf2bE9hBwmTwKl1bXj5Te2U7xrrS_N8i/pub?output=csv",
-  labs_application: "",
-  generator_application: "",
-};
 
 
 export interface InitiativeInterface {

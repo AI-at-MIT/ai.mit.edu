@@ -17,16 +17,12 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <InitiativePageTitle initiative={initiative} />
-      <Glance
+      <Glance 
         initiative={initiative}
-        l1_t="Past Topics"
-        // Need to add a 404 page
-        l1_l=""
-        l2_t="Mailing List"
-        l2_l="https://mit.us16.list-manage.com/subscribe/post?u=b71b58fc01f0404f5bfaffe4d&id=f1d937193c"
-        l3_t="Calendar"
-        l3_l="https://calendar.google.com/calendar/u/0/r?cid=o2l92fc80naot7nh8fmc4iklh8@group.calendar.google.com"
-      />
+        l1_t="Mailing List" l1_l={"/email/list"}
+        l2_t="Calendar" l2_l={"/calendar/gcal"}
+        l3_t="Contact" l3_l={"/email/contact"}/>
+
       <About
         blurb="
         We believe that anyone can excel in AI, and we want to help provide the education to get there. Workshops are bi-weekly learning sessions covering full-stack deep learning development. No prior experience is required and over the course of the year workshops will build from introduction to deep learning frameworks to implementing and serving the most recent models.

@@ -22,7 +22,7 @@ function ApplyNow({initiative, href} : {initiative: Constants.InitiativeInterfac
 function JoinMailingList({initiative} : {initiative: Constants.InitiativeInterface}) {
     return (
         <p className="mt-10 mb-10">
-            Join our <FancyLink initiative={initiative} href={Constants.links["mailing_list"]} text={"mailing list"}/> to be notified!
+            Join our <FancyLink initiative={initiative} href="/email/list" text={"mailing list"}/> to be notified!
         </p>
     )
 } 

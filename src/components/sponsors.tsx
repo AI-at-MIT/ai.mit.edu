@@ -22,7 +22,7 @@ export default function Sponsors() {
       <div className="section">
         <h1>Past Sponsors</h1>
         <div className="flex flex-col items-center">
-        <p className="gray-text ">Interested in becoming a sponsor? <FancyLink initiative={undefined} href="mailto:aim-exec@mit.edu" text="Email us"/>.</p>
+        <p className="gray-text ">Interested in becoming a sponsor? <FancyLink initiative={undefined} href="/email/contact" text="Email us"/>.</p>
         </div>
         
         <div className="flex flex-wrap gap-4 justify-center mt-4 mb-20 max-w-[1200px]">
