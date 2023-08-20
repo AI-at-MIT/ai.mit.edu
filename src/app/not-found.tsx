@@ -7,7 +7,7 @@ export default function Home() {
   BackgroundAnimation();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
+    <main>
 
       <div className="section">
         <h1>Page Not Found</h1>

@@ -39,7 +39,7 @@ export default function Home() {
 
   const initiative = Constants.initiative_data["l"];
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main>
       <InitiativePageTitle initiative={initiative} />
       <Glance 
         initiative={initiative}

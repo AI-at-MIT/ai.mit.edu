@@ -2,16 +2,14 @@ import FancyLink from "./fancylink";
 
 function SponsorCard({imageName, href}:{imageName: string, href:string}) {
   return (
-    <div className="m-10">
+    <div className="m-10 h-[122px]" style={{ maxWidth: 'min(475px, 100vw)' }}>
       <a href={href}>
-      <img
+        <img
           alt="Initiative"
           src={imageName}
-          style={{"width": "auto",  "height" : "122px","maxWidth": "475px"}}
-          className="transition duration-100 hover:opacity-50 active:scale-95"
+          className="w-full h-full transition duration-100 hover:opacity-50 active:scale-95"
         />
       </a>
-
     </div>
   );
 }

@@ -14,7 +14,7 @@ export default function Home() {
   BackgroundAnimation();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main>
       <InitiativePageTitle initiative={initiative} />
       <Glance 
         initiative={initiative}
