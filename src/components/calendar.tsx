@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
 
-const max_cards = 6;
+const max_cards = 12;
 
 interface Card {
   Type: string, 
@@ -21,61 +21,74 @@ function EventCard({Type, Link, Blurb, Important, Date, Time, Location} : Card) 
   const mobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   const isTypeL = Important=="TRUE";
+
+  
   return (
     <a href={Link} className={`${initiative.border_class} border-2 event-card m-1 group rounded-lg border border-transparent w-full px-3 py-2 md:px-5 md:py-4 flex flex-col ${isTypeL ? "relative" : ""}`}>
 
-      {
-        !mobile ? 
+      
         <div className="event-info flex items-center w-full">
-        <Image
-          alt="icon"
-          src={initiative.icon}
-          width={40}
-          height={40}
-          quality={100}
-        />
-        <div className=" ml-4 w-[550px] mr-auto transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-          <p>{Blurb}</p>
+          <div className="relative">
+            <Image
+              alt="icon"
+              src={initiative.icon}
+              width={60}
+              height={60}
+              quality={100}
+            />
+            {isTypeL && (
+              <div className="absolute -top-[0.5rem] -right-[0.5rem] duration-100 transition transform group-hover:scale-90">
+                
+                <div className="bg-dark rounded-full p-[3px]">
 
-        </div>
-        <div className="transition-transform group-hover:translate-x-4 min-w-[70px] mr-3 transition-transform flex flex-col justify-center items-end">
-          <p className="gray-text text-sm font-extrabold">{Date ? Date : <br></br>}</p>
-          <p className="gray-text text-sm">{Time ? Time : <br></br>}</p>
-          <p className="gray-text text-sm">{Location ? Location : <br></br>}</p>
+                <div className="relative">
+                  <div className={`absolute relative w-6 h-6 rounded-full ${initiative.border_class} border-2 border border-transparent`}>
+                  </div>
+                  <div className={`top-0 absolute w-6 h-6 quicklink ${initiative.clip_background}  quicklink`}>
+                    <p className="font-extrabold w-full h-full text-[1.10rem] flex flex-col justify-center items-center">!</p>
+                  </div>
+                </div>
 
-        </div>
+                </div>
 
-        {isTypeL && (
-        <div className="group-hover:opacity-0 duration-100 transition group-hover:translate-x-1 motion-reduce:transform-none absolute top-auto right-1 transform -translate-x-1/2">
-          <div className={`${initiative.background} event-card w-3 h-3 rounded-full `}></div>
-        </div>
-        )}
-      </div>
+              </div>
+
+
+              )}
+          </div>
+          {
+        !mobile ? 
+        <>
+          <div className=" ml-4 w-[550px] mr-auto transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+            <p>{Blurb}</p>
+
+          </div>
+          <div className="transition-transform group-hover:translate-x-4 min-w-[70px] mr-3 transition-transform flex flex-col justify-center items-end">
+            <p className="gray-text text-sm font-extrabold">{Date ? Date : <br></br>}</p>
+            <p className="gray-text text-sm">{Time ? Time : <br></br>}</p>
+            <p className="gray-text text-sm">{Location ? Location : <br></br>}</p>
+
+          </div>
+
+          </>
       :
-      <div className="flex items-center w-full">
-        <Image
-          alt="icon"
-          src={initiative.icon}
-          width={40}
-          height={40}
-          quality={100}
-        />
 
-
-        {isTypeL && (
-        <div className="group-hover:opacity-0 duration-100 transition group-hover:translate-x-1 motion-reduce:transform-none absolute top-auto right-0 transform -translate-x-1/2">
-          <div className={`${initiative.background} event-card w-3 h-3 rounded-full `}></div>
-        </div>
-        )}
-        
-        <div className=" ml-3 mr-5 w-full mr-auto transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-          <p>{Blurb}</p>
-          <p className="gray-text text-sm">{Date ? "on "+Date : ""} {Time ? "at "+Time : ""} {Location ? "in"+Location : ""}</p>
-
+      <div className="ml-3 mr-5 w-full mr-auto transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+        <p className="text-sm xs:text-lg">{Blurb}</p>
+        <div className="flex items-center">
+          { Date=="" && Time=="" && Location==""  ?
+          <p className="align-middle gray-text text-sm">note</p>
+          :
+          <p className="align-middle gray-text text-sm">{Date ? "on "+Date : ""} {Time ? "at "+Time : ""} {Location ? "in"+Location : ""}</p>
+          }
         </div>
 
       </div>
       }
+
+
+      </div>
+      
 
 
 
@@ -93,7 +106,7 @@ function EventLoading() {
 
         <div className="w-[40px] h-[40px]"></div>
         <div className="ml-4 w-[550px] mr-auto transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-          <p className="text-transparent">{"Loading"}</p>
+          <p className="text-sm xs:text-lg text-transparent">{"Loading"}</p>
           <p className="md:hidden text-sm text-transparent">{"on date at time in location"}</p>
 
         </div>

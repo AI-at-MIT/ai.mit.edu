@@ -8,11 +8,10 @@
 
   --b-x-offset: 0%;
   --b-y-offset: 80%;
-  
-  --background-gradient: radial-gradient(circle at var(--b-x-offset) var(--b-y-offset), #1D1D1D, #0D0D0D);
+  --background-dark: #0D0D0D;
+  --background-light: #1D1D1D;
+  --background-gradient: radial-gradient(circle at var(--b-x-offset) var(--b-y-offset), var(--background-light), var(--background-dark));
 
-  --aim-grad: linear-gradient(45deg, #FC5836, #CB2455, #9317C1, #24CBF3, #30E548, #DCFF01);
-  --aim-grad-transparent: linear-gradient(45deg, #FC583650, #CB245550, #9317C150, #24CBF350, #30E54850, #DCFF0150);
 
 
   --off-white: 225, 225, 225;
@@ -35,7 +34,19 @@
   --permeate-c2: 255, 122, 0;
   --permeate-c3: 255, 6, 116;
 
-  --transparency: 0.2;
+  --transparency: 0.3;
+
+  --aim-c1: 252, 88, 54;
+  --aim-c2: 203, 36, 85;
+  --aim-c3: 147, 23, 193;
+  --aim-c4: 36, 203, 243;
+  --aim-c5: 48, 229, 72;
+  --aim-c6: 220, 255, 1;
+
+
+  --aim-grad: linear-gradient(45deg, rgb(var(--aim-c1)), rgb(var(--aim-c2)), rgb(var(--aim-c3)), rgb(var(--aim-c4)), rgb(var(--aim-c5)), rgb(var(--aim-c6)));
+  --aim-grad-transparent: linear-gradient(45deg, rgba(var(--aim-c1),var(--transparency)), rgba(var(--aim-c2),var(--transparency)), rgba(var(--aim-c3),var(--transparency)), rgba(var(--aim-c4),var(--transparency)), rgba(var(--aim-c5),var(--transparency)), rgba(var(--aim-c6),var(--transparency)));
+
 
   --labs-grad: linear-gradient(45deg, rgb(var(--labs-c1)), rgb(var(--labs-c2)));
   --labs-grad-transparent: linear-gradient(45deg, rgba(var(--labs-c1),var(--transparency)), rgba(var(--labs-c2),var(--transparency)));
@@ -73,6 +84,13 @@ body::-webkit-scrollbar {
   display: none; /* Chrome, Safari, and Opera */
 }
 
+.bg-dark {
+  background: var(--background-dark);
+}
+
+.border-bg-dark {
+  border-color: var(--background-dark);
+}
 
 .quicklink {
  
@@ -271,6 +289,19 @@ p {
   p {
     font-size: large;
   }
+  h3 {
+    font-size: large;
+  }
+  h2 {
+    font-size: x-large;
+    margin: 10px 0 10px 0;
+  
+   }
+   h1 {
+    font-size: xx-large;
+    margin: 20px 0 20px 0;
+  
+   }
 }
 
 
