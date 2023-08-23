@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
 
-const max_cards = 12;
+const max_cards = 6;
 
 interface Card {
   Type: string, 
