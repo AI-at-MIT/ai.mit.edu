@@ -1,16 +1,14 @@
 import ImportantLinks from "./importantlinks";
 import Calendar from "./calendar";
 import * as Constants from "./constants";
-import useMediaQuery from "react-responsive";
 
 
 export default function Glance({initiative, l1_t, l1_l, l2_t, l2_l, l3_t, l3_l} : {initiative: Constants.InitiativeInterface, l1_t: string, l1_l: string, l2_t: string, l2_l: string, l3_t: string, l3_l: string}) {
-  const mobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   return (
-      <div className="section-full" style={mobile ? {} : {"padding":"20px"}}>
+      <div className="section-full w-screen max-w-[800px]" >
         
-      <div className = " flex flex-col justify-center mx-auto  max-w-[100vw]">
+      <div className = "flex flex-col justify-center mx-0  ">
         <h1>At a Glance</h1>
         <div className="mt-5 flex flex-col items-center">
         <p className="gray-text ">Important Links</p>

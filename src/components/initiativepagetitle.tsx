@@ -45,7 +45,7 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
              width={500}
              height={500}
              quality={100}
-             className="mb-[30px] md:mb-[0]"
+             className="mb-[30px] md:mb-0"
            />}
   
           <p className="title-tag-text text-3xl md:text-4xl m-[10px] md:m-[30px]">

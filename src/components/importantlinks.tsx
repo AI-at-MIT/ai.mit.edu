@@ -7,7 +7,7 @@ export default function ImportantLinks({initiative, l1_l, l1_t, l2_l, l2_t, l3_l
         <div className={`${initiative.clip_background} quicklink grid text-center m-8 md:grid-cols-3 justify-center`}>
         <a href={l1_l} className={`quicklink-text w-56`}>
 
-          <h2 className=" font-semibold">{l1_t}</h2>
+          <h2 className=" text-center font-semibold">{l1_t}</h2>
 
         </a>
 
