@@ -99,14 +99,10 @@ body::-webkit-scrollbar {
 
 .title-tag-text {
   color: rgb(var(--off-white));
-  font-size: xx-large;
-  margin: 30px;
 }
 
 .title-desc-text {
   color: rgb(var(--gray));
-  font-size: x-large;
-  margin: 30px;
 }
 
 
@@ -267,9 +263,16 @@ h3 {
   font-size: x-large;
   margin: 10px 0 10px 0;
 }
+
 p {
   font-size: x-large;
 }
+@media only screen and (max-width: 700px) {
+  p {
+    font-size: large;
+  }
+}
+
 
 main {
   width: 100vw;
@@ -284,17 +287,15 @@ main {
 
 .section-full {
   min-height: 100vh;
-  padding: 20px 20px;
+  padding: 20px 30px;
 }
 
 .section {
-  padding: 80px 20px;
+  padding: 80px 30px;
 }
 
 .title-text {
   color: #E1E1E1;
-  font-size: 6rem;
-  margin: 30px;
   font-family: 'Inter', sans-serif;
 
 }

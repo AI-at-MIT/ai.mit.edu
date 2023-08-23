@@ -2,9 +2,10 @@ import * as Constants from '@/components/constants'
 import FancyLink from '@/components/fancylink'
 
 function ApplyNow({initiative, href} : {initiative: Constants.InitiativeInterface, href: string}) {
+
     return (
       <div className="m-20">
-      <a href={href} className={`${initiative.border_class} border-4 event-card group rounded-full border border-transparent w-96 h-32 px-5 py-4 flex items-center transition duration-100 active:opacity-50 active:scale-95`}>
+      <a href={href} className={`${initiative.border_class} border-4 event-card group rounded-full border border-transparent w-72 h-28 md:w-96 md:h-32 px-5 py-4 flex items-center transition duration-100 active:opacity-50 active:scale-95`}>
       <div className={`${initiative.clip_background} transition-transform group-hover:scale-125 motion-reduce:transform-none quicklink w-full`}>
           <div className="event-info flex-1 flex items-center justify-center">
               <div className="">

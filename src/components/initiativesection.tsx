@@ -1,6 +1,7 @@
 import * as Constants from './constants'
 import React, {useEffect,useCallback, useRef, useState } from 'react';
 import Image from 'next/image'
+import { useMediaQuery } from 'react-responsive'
 
 
 function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterface}) {
@@ -13,7 +14,7 @@ function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterfac
   };
 
   const handleCardClick = () => {
-    if (!buttonHovered) {
+    if (!buttonHovered && !mobile) {
       setExpanded(!expanded);
 
     }
@@ -29,41 +30,22 @@ function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterfac
       setExpanded(false); 
     } 
   },[seen]);
-  const handleResize = useCallback(() => {
-    // Set window width/height to state
-    setWindowSize({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    });
-  },[]);
-  
 
-  const [windowSize, setWindowSize] = useState({
-    width: 1000,
-    height: 1000,
-  });
+
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     // Call handler right aw
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
 
   }, [handleScroll]);  
-  useEffect(() => {
-    // Add event listener
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    // Call handler right aw
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-
-  }, [handleResize]);  
   
-  let mobile = windowSize.width<800
+
+  let mobile = useMediaQuery({ query: `(max-width: 760px)` });
+
 
   return (
       <div ref={cardRef}>
@@ -72,21 +54,24 @@ function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterfac
           className={
             `
             flex  justify-start items-center duration-300 transition-all 
-            overflow-hidden m-5 group rounded-2xl border border-transparent px-5 py-4 hover:border-neutral-700 hover:bg-neutral-800/30 
-            ${buttonHovered ? "" : "active:scale-95"}  
-            max-h-[250px] max-w-[250px]
-            ${mobile ? 
-              `flex-col ${expanded ? "max-w-[800px] max-h-[800px]":""}` 
-              :
-              `flex-row ${expanded ? "max-w-[800px] max-h-[450px]":""}`}
+            overflow-hidden group rounded-2xl border border-transparent px-5 py-4 
+            
+            
+            ${!buttonHovered && "md:active:scale-95"}  
+            
+            flex-col max-w-[800px] max-h-[800px]
+            md:flex-row md:max-h-[250px] md:max-w-[250px]
+            md:hover:border-neutral-700 md:hover:bg-neutral-800/30 
+
+            ${expanded && "md:max-w-[800px] md:max-h-[450px]"}
             `
           }
         >
           <Image className="pt-2 pb-2" alt="Initiative" src={initiative.icon} width={200} height={200} quality={100} />
-            <div className={`ml-4 transition-all   ${expanded ? "opacity-100 delay-300" : "opacity-0 delay-0"}`}>
+            <div className={`ml-4 transition-all   ${expanded  || mobile ? "opacity-100 delay-300" : "opacity-0 delay-0"}`}>
               <h2>{initiative.name}</h2>
               <p className="gray-text ">{initiative.description}</p>
-              <div className={`flex w-full ${mobile ? "justify-center" : "justify-end"}`}>
+              <div className={`flex w-full justify-center md:justify-end`}>
                   <a 
                   href={initiative.url} 
                   onClick={handleButtonClick}
@@ -117,7 +102,7 @@ export default function InitiativeSection() {
       <div className="section-full">
         <h1>Initiatives</h1>
   
-        <div className="flex flex-wrap gap-4 justify-center m-10 max-w-[900px]">
+        <div className="flex flex-wrap gap-20 justify-center max-w-[900px]">
           <InitiativeCard initiative={Constants.initiative_data["l"]}/>
           <InitiativeCard initiative={Constants.initiative_data["w"]}/>
           <InitiativeCard initiative={Constants.initiative_data["s"]}/>

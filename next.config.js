@@ -36,7 +36,7 @@ const nextConfig = {
             source,
             destination,
             permanent: false,
-            basePath: false,
+            basePath: undefined,
         }));
     },
     
