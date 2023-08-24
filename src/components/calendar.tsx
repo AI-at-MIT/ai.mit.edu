@@ -7,11 +7,22 @@ import { useMediaQuery } from 'react-responsive'
 import PublicGoogleSheetsParser from "public-google-sheets-parser";
 const max_cards = 6;
 
+interface Event {
+  Type: string, 
+  Important: string, 
+  DateTime:string, 
+  DateTime_obj:object, 
+
+  Location: string, 
+  Link:string, 
+  Blurb:string
+}
+
 interface Card {
   Type: string, 
   Important: string, 
   Date:string, 
-  Time:string, 
+  Time: string,
   Location: string, 
   Link:string, 
   Blurb:string
@@ -19,6 +30,7 @@ interface Card {
 function EventCard({Type, Link, Blurb, Important, Date, Time, Location} : Card) {
   const initiative = Constants.initiative_data[Type];
   const mobile = useMediaQuery({ query: `(max-width: 760px)` });
+
 
   return (
     <a href={Link} className={`${initiative.border_class} border-2 event-card m-1 group rounded-lg border border-transparent w-full px-3 py-2 md:px-5 md:py-4 flex flex-col relative`}>
@@ -32,7 +44,7 @@ function EventCard({Type, Link, Blurb, Important, Date, Time, Location} : Card) 
               height={60}
               quality={100}
             />
-            {Important=="TRUE" && (
+            {Important && (
               <div className="bg-dark rounded-full p-[3px] absolute -top-[0.5rem] -right-[0.5rem] duration-100 transition transform group-hover:scale-90">
                 <div className="relative">
                   <div className={`absolute relative w-6 h-6 rounded-full ${initiative.border_class} border-2 border border-transparent`}>
@@ -96,25 +108,50 @@ function EventLoading() {
   
 }
 
-function filter_sort_parse(data: Card[], initiative: Constants.InitiativeInterface){
-  const valid_cards = data.filter((card) => initiative.key=="aim" || card.Type==initiative.key || card.Type=="aim");
+function ParseDateTime(DateTime: string){
+  if( DateTime == undefined ){
+    return new Date(0);
+  }
+  const vals = DateTime.substring(5,DateTime.length-1).split(",").map((val)=>parseInt(val));
+  const date = new Date(vals[0],vals[1],vals[2],vals[3],vals[4],vals[5]);
+
+  return date;
+}
+function filter_sort_parse(data: Event[], initiative: Constants.InitiativeInterface){
+  //add the DateTime_obj field to the data by using the ParseDateTime function
+  
+  const data_with_dateobj = data.map((card) => {return {...card, DateTime_obj: ParseDateTime(card.DateTime)}});
+
+  const today = new Date();
+  const first_day = new Date(0);
+  const valid_cards = data_with_dateobj.filter((card,index) => (initiative.key=="aim" || card.Type==initiative.key || card.Type=="aim") && (card.DateTime_obj > today || card.DateTime_obj.getTime()===first_day.getTime()));
+  if (valid_cards.length == 0){
+    return valid_cards;
+  }
+
   //sort valid events by date and time
   const cards = valid_cards.sort((a, b) => {
-    const dateA = a.Date!="" ? a.Date : "0/0/0";
-    const dateB = b.Date!="" ? b.Date : "0/0/0";
-    if (dateA == dateB) {
-      return a.Time < b.Time ? -1 : 1;
-    } else {
-      return dateA < dateB ? -1 : 1;
-    }
+    const dateA = a.DateTime_obj.getTime();
+    const dateB = b.DateTime_obj.getTime();
+    return dateA < dateB ? -1 : 1;
+
   });
+
   cards.splice(max_cards, cards.length - max_cards);
-  return cards;
+
+  const event_cards = cards.map((card) => {return {
+    Type:card.Type, 
+    Important:card.Important, 
+    Date:(card.DateTime_obj.getTime()!=first_day.getTime() ? card.DateTime_obj.toLocaleDateString("en-US", {month: 'numeric', day: 'numeric'}) : ""), 
+    Time:(card.DateTime_obj.getTime()!=first_day.getTime() ? card.DateTime_obj.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}):""), 
+    Location:card.Location, 
+    Link:card.Link, 
+    Blurb:card.Blurb}});
+
+  return event_cards;
 }
 
 const spreadsheetId = '1Xq2jDe4WCoUbhofKGVxhZVEL9slOFG1ASPl-wrL8Wjs'
-    //'1Xq2jDe4WCoUbhofKGVxhZVEL9slOFG1ASPl-wrL8Wj'
-// 1. You can pass spreadsheetId when instantiating the parser:
 
 export default function Calendar({initiative}:{initiative:Constants.InitiativeInterface}) {
 
@@ -125,23 +162,12 @@ export default function Calendar({initiative}:{initiative:Constants.InitiativeIn
     console.log('Calendar Data Loaded');
     const parser = new PublicGoogleSheetsParser(spreadsheetId)
       parser.parse().then((results) => {
-        console.log(results)
-        const all_cards = Array.from(results) as Card[];
-        const cards = filter_sort_parse(all_cards, initiative);        
+        const all_cards = Array.from(results) as Event[];
+        const cards = filter_sort_parse(all_cards, initiative) as Card[];   
         setData(cards);
-        // items should be [{"a":1,"b":2,"c":3},{"a":4,"b":5,"c":6},{"a":7,"b":8,"c":9}]
       })
 
- /*   Papa.parse("https://docs.google.com/spreadsheets/d/e/2PACX-1vR_7bB8qLii0K4mYOVNqucZD9-DNTbqQ98re6pIl6RtDNUaTf2bE9hBwmTwKl1bXj5Te2U7xrrS_N8i/pub?output=csv", {
-      download: true,
-      header: true,
-      complete: (results) => {
-        const all_cards = Array.from(results.data) as Card[];
-        const cards = filter_sort_parse(all_cards, initiative);        
-        setData(cards);
-      },
-      
-    });*/
+ 
 
   }, []); //initiative
 
