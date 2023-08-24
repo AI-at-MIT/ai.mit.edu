@@ -67,7 +67,7 @@ function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterfac
             `
           }
         >
-          <Image className="pt-2 pb-2" alt="Initiative" src={initiative.icon} width={200} height={200} quality={100} />
+          <Image className="pt-2 pb-2" alt="Initiative" src={initiative.icon} width={200} height={200} />
             <div className={`ml-4 transition-all   ${expanded  || mobile ? "opacity-100 delay-300" : "opacity-0 delay-0"}`}>
               <h2>{initiative.name}</h2>
               <p className="gray-text ">{initiative.description}</p>

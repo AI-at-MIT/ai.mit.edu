@@ -13,7 +13,6 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
             src={initiative.backdrop}
             layout="fill"
             objectFit="cover"
-            quality={100}
             className= ""
           />
         </div>
@@ -29,7 +28,6 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
                 layout="responsive"
                 width={100}
                 height={100}
-                quality={100}
               />
             </div>
 
@@ -44,7 +42,6 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
              layout="responsive"
              width={500}
              height={500}
-             quality={100}
              className="mb-[30px] md:mb-0"
            />}
   
@@ -65,7 +62,6 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
                       layout="responsive"
                       width={100}
                       height={100}
-                      quality={100}
                       className="transition duration-100 hover:opacity-50 active:scale-95"
                     />
               </a>
