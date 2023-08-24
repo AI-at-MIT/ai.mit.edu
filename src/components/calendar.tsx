@@ -42,7 +42,6 @@ function EventCard({Type, Link, Blurb, Important, Date, Time, Location} : Card) 
               src={initiative.icon}
               width={60}
               height={60}
-              quality={100}
             />
             {Important && (
               <div className="bg-dark rounded-full p-[3px] absolute -top-[0.5rem] -right-[0.5rem] duration-100 transition transform group-hover:scale-90">

@@ -69,11 +69,11 @@ export default function Home() {
       ]}/>
       <Membership/>
       <InitiativeSection />
-
+      <ExecutiveMembers title="Executive Members" initiative={initiative}/>
       <Sponsors />
 
     </main>
     
-  )//      <ExecutiveMembers title="Executive Members" initiative={initiative}/>
+  )//      
 
 }
