@@ -144,7 +144,7 @@ function filter_sort_parse(data: Event[], initiative: Constants.InitiativeInterf
     Date:(card.DateTime_obj.getTime()!=first_day.getTime() ? card.DateTime_obj.toLocaleDateString("en-US", {month: 'numeric', day: 'numeric'}) : ""), 
     Time:(card.DateTime_obj.getTime()!=first_day.getTime() ? card.DateTime_obj.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}):""), 
     Location:card.Location, 
-    Link:card.Link, 
+    Link:(card.Link==undefined ? Constants.initiative_data[card.Type].url : card.Link), 
     Blurb:card.Blurb}});
 
   return event_cards;
