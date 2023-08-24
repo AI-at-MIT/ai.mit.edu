@@ -1,5 +1,12 @@
 //Links
 
+export const emails : {[key: string]: string} = {
+  "contact":"mailto:aim-exec@mit.edu",
+  "website":"mailto:aim-exec@mit.edu",
+
+  "exec":"mailto:aim-exec@mit.edu",
+  "sponsor":"mailto:aim-exec@mit.edu",
+}
 
 export interface InitiativeInterface {
   key: string;

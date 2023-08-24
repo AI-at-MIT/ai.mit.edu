@@ -8,7 +8,6 @@ const redirect_links = {
     "/calendar/gcal":'https://calendar.google.com/calendar/u/0/r?cid=o2l92fc80naot7nh8fmc4iklh8@group.calendar.google.com',
 
     "/email/list": "https://mit.us16.list-manage.com/subscribe/post?u=b71b58fc01f0404f5bfaffe4d&id=f1d937193c",
-    "/email/contact": "mailto:aim-exec@mit.edu",
 
     "/generator/apply":'/soon', //Generator application link
 

@@ -2,6 +2,7 @@
 import BackgroundAnimation from "@/components/backgroundanimation";
 import FancyLink from "@/components/fancylink";
 import Image from "next/image";
+import * as Constants from "@/components/constants";
 
 export default function Home() {
   BackgroundAnimation();
@@ -13,7 +14,7 @@ export default function Home() {
         <h1>Coming Soon</h1>
         <div className="max-w-[600px] w-auto text-left mx-auto">
           <p className="gray-text ">
-            {`The link you've pressed leads to a page that isn't yet active. It's likely you're trying to reach a page that is only active during a certain period of time (i.e. an application) or service that is still being developed. Check again soon for the desired page. If you believe this to be an error`} <FancyLink initiative={undefined} href="/email/contact" text="contact us"/>.
+            {`The link you've pressed leads to a page that isn't yet active. It's likely you're trying to reach a page that is only active during a certain period of time (i.e. an application) or service that is still being developed. Check again soon for the desired page. If you believe this to be an error`} <FancyLink initiative={undefined} href={Constants.emails["website"]} text="contact us"/>.
           </p>
         </div>
         <div className="w-64 mt-12 z-100">

@@ -1,5 +1,7 @@
 import FancyLink from "./fancylink";
 import Image from 'next/image'
+import * as Constants from "./constants"
+
 function SponsorCard({imageName, href}:{imageName: string, href:string}) {
   return (
     <div className="h-[125px] max-w-[450px]" >
@@ -23,7 +25,7 @@ export default function Sponsors() {
       <div className="section">
         <h1>Past Sponsors</h1>
         <div className="flex flex-col items-center">
-        <p className="gray-text ">Interested in becoming a sponsor? <FancyLink initiative={undefined} href="/email/contact" text="Email us"/>.</p>
+        <p className="gray-text ">Interested in becoming a sponsor? <FancyLink initiative={undefined} href={Constants.emails["sponsor"]} text="Email us"/>.</p>
         </div>
         
         <div className="flex flex-wrap gap-16 justify-center mt-4 mb-20 max-w-[1200px]">

@@ -60,7 +60,7 @@ export default function Home() {
         initiative={initiative}
         l1_t="Mailing List" l1_l={"/email/list"}
         l2_t="Calendar" l2_l={"/calendar/gcal"}
-        l3_t="Contact" l3_l={"/email/contact"}/>
+        l3_t="Contact" l3_l={Constants.emails["contact"]}/>
       <About blurb={`AI@MIT is a community of undergraduates aimed at promoting and fostering the growing interest around machine intelligence on campus. We hold weekly discussions on the latest papers in the field, organize workshops, host speakers, and arrange competitions around machine intelligence at MIT.`}/>
       <Stats content={[
         {icon: faPeopleGroup, number: "500+", text: "Associate Members"},
@@ -69,11 +69,11 @@ export default function Home() {
       ]}/>
       <Membership/>
       <InitiativeSection />
-      <ExecutiveMembers title="Executive Members" initiative={initiative}/>
 
       <Sponsors />
 
     </main>
     
-  )
+  )//      <ExecutiveMembers title="Executive Members" initiative={initiative}/>
+
 }

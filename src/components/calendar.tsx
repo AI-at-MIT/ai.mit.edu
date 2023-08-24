@@ -4,7 +4,7 @@ import * as Constants from "./constants";
 import { useEffect } from 'react';
 import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
-
+import PublicGoogleSheetsParser from "public-google-sheets-parser";
 const max_cards = 6;
 
 interface Card {
@@ -96,6 +96,26 @@ function EventLoading() {
   
 }
 
+function filter_sort_parse(data: Card[], initiative: Constants.InitiativeInterface){
+  const valid_cards = data.filter((card) => initiative.key=="aim" || card.Type==initiative.key || card.Type=="aim");
+  //sort valid events by date and time
+  const cards = valid_cards.sort((a, b) => {
+    const dateA = a.Date!="" ? a.Date : "0/0/0";
+    const dateB = b.Date!="" ? b.Date : "0/0/0";
+    if (dateA == dateB) {
+      return a.Time < b.Time ? -1 : 1;
+    } else {
+      return dateA < dateB ? -1 : 1;
+    }
+  });
+  cards.splice(max_cards, cards.length - max_cards);
+  return cards;
+}
+
+const spreadsheetId = '1Xq2jDe4WCoUbhofKGVxhZVEL9slOFG1ASPl-wrL8Wjs'
+    //'1Xq2jDe4WCoUbhofKGVxhZVEL9slOFG1ASPl-wrL8Wj'
+// 1. You can pass spreadsheetId when instantiating the parser:
+
 export default function Calendar({initiative}:{initiative:Constants.InitiativeInterface}) {
 
   const [data, setData] = useState<Card[]>([]);
@@ -103,31 +123,27 @@ export default function Calendar({initiative}:{initiative:Constants.InitiativeIn
   useEffect(() => {
     // This code will run only once during the initial load
     console.log('Calendar Data Loaded');
-  
-    Papa.parse("/calendar/csv", {
+    const parser = new PublicGoogleSheetsParser(spreadsheetId)
+      parser.parse().then((results) => {
+        console.log(results)
+        const all_cards = Array.from(results) as Card[];
+        const cards = filter_sort_parse(all_cards, initiative);        
+        setData(cards);
+        // items should be [{"a":1,"b":2,"c":3},{"a":4,"b":5,"c":6},{"a":7,"b":8,"c":9}]
+      })
+
+ /*   Papa.parse("https://docs.google.com/spreadsheets/d/e/2PACX-1vR_7bB8qLii0K4mYOVNqucZD9-DNTbqQ98re6pIl6RtDNUaTf2bE9hBwmTwKl1bXj5Te2U7xrrS_N8i/pub?output=csv", {
       download: true,
       header: true,
       complete: (results) => {
-          //keep only 5 most recent cards
         const all_cards = Array.from(results.data) as Card[];
-        const valid_cards = all_cards.filter((card) => initiative.key=="aim" || card.Type==initiative.key || card.Type=="aim");
-        //sort valid events by date and time
-        const cards = valid_cards.sort((a, b) => {
-          const dateA = a.Date!="" ? a.Date : "0/0/0";
-          console.log(dateA)
-          const dateB = b.Date!="" ? b.Date : "0/0/0";
-          if (dateA == dateB) {
-            return a.Time < b.Time ? -1 : 1;
-          } else {
-            return dateA < dateB ? -1 : 1;
-          }
-        });
-        cards.splice(max_cards, cards.length - max_cards);
+        const cards = filter_sort_parse(all_cards, initiative);        
         setData(cards);
       },
-    });
+      
+    });*/
 
-  }, [initiative]); 
+  }, []); //initiative
 
   const cards = Array.from(data as ArrayLike<Card>);
 
