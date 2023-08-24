@@ -23,11 +23,11 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
           <div className="flex flex-wrap gap-4 items-center m-[10px] md:m-[30px] mb-[30px] md:mb-[80px]">
             <div className='w-32 md:w-64'>
               <Image
-                alt="labs-icon"
+                alt="initiative-icon"
                 src={initiative.icon}
                 width={500}
-                height={500}   
-                style={{objectFit: "cover"}} 
+                height={500}  
+                unoptimized         
               />
             </div>
 
@@ -42,8 +42,6 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
              width={1200}
              height={500}
              className="mb-[30px] md:mb-0"
-             style={{objectFit: "cover"}} 
-
            />}
   
           <p className="title-tag-text text-3xl md:text-4xl m-[10px] md:m-[30px]">
@@ -61,10 +59,8 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
                       alt="aim-logo-full"
                       src="/icons/aim-icon-full.svg"
                       width={300}
-                      height={200}
+                      height={300}
                       className="transition duration-100 hover:opacity-50 active:scale-95"
-                      style={{objectFit: "cover"}} 
-
                     />
               </a>
             </div> : ""
