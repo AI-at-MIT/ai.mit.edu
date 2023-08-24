@@ -7,7 +7,7 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
       <div>
       <div className="section-full w-screen overflow-hidden flex flex-col justify-center">
 
-        <div className="transform absolute inset-0 w-auto h-auto -z-50">
+        <div className="transform absolute inset-0 -z-50">
           <Image
             alt="aim-backdrop"
             src={initiative.backdrop}
