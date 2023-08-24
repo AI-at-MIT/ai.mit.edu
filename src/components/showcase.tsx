@@ -9,8 +9,8 @@ function ProjectCard({ imageName, name, link, blurb }: { imageName: string, name
             src={imageName}
           
             quality={100}
-            layout="fill"
-            objectFit="cover"
+            fill={true}
+            style={{objectFit: "cover"}}
     
           />
         </div>

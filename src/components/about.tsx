@@ -9,7 +9,7 @@ export default function About({blurb}: {blurb: string}) {
           <p className="gray-text ">
             {blurb.split('\n').map((str, index, array) => 
               index === array.length - 1 ? str : <>
-                {str}<br />
+                {str}<br/>
               </>
             )}
     

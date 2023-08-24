@@ -11,9 +11,8 @@ function ExecutiveCard({ imageName, name, position, link } : {imageName: string,
           alt="Executive"
           src={imageName}
           quality={100}
-          layout="fill"
-          objectFit="cover"
-          style={{ userSelect: 'none' }} 
+          fill={true}
+          style={{ userSelect: 'none' ,objectFit: "cover"}} 
           className="grayscale group-hover:grayscale-0 group-active:scale-125 transition duration-500 ease-in-out"
           />
 
