@@ -12,8 +12,6 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
             alt="aim-backdrop"
             src={initiative.backdrop}
             fill={true}
-            
-            className= ""
             style={{objectFit: "cover"}} 
 
           />
@@ -28,7 +26,8 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
                 alt="labs-icon"
                 src={initiative.icon}
                 width={500}
-                height={500}          
+                height={500}   
+                style={{objectFit: "cover"}} 
               />
             </div>
 
@@ -43,6 +42,8 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
              width={1200}
              height={500}
              className="mb-[30px] md:mb-0"
+             style={{objectFit: "cover"}} 
+
            />}
   
           <p className="title-tag-text text-3xl md:text-4xl m-[10px] md:m-[30px]">
@@ -60,8 +61,10 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
                       alt="aim-logo-full"
                       src="/icons/aim-icon-full.svg"
                       width={300}
-                      height={300}
+                      height={200}
                       className="transition duration-100 hover:opacity-50 active:scale-95"
+                      style={{objectFit: "cover"}} 
+
                     />
               </a>
             </div> : ""
