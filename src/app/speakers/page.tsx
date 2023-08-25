@@ -5,7 +5,7 @@ import About from "@/components/about";
 import BackgroundAnimation from "@/components/backgroundanimation";
 import Glance from "@/components/glance";
 import * as Constants from "@/components/constants";
-
+import ExecutiveMembers from "@/components/executivemembers";
 const initiative = Constants.initiative_data["s"];
 
 
@@ -27,6 +27,7 @@ export default function Home() {
         We aim to provide students opportunities to learn about the latest research and applications in AI and machine learning. We host talks by researchers and industry professionals, as well as panels to help students learn about the field and how to get involved.
       "
       />
+      <ExecutiveMembers title="Speakers Exec" initiative={initiative} />
 
       <Sponsors />
     </main>
