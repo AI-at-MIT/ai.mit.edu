@@ -1,5 +1,6 @@
 //Links
 
+
 export const emails : {[key: string]: string} = {
   "contact":"mailto:aim-exec@mit.edu",
   "website":"mailto:aim-exec@mit.edu",
@@ -86,7 +87,7 @@ export const initiative_data : {[key: string]: InitiativeInterface} = {
     key: "p",
     name: "Permeate",
     tagline: "Our consulting service.",
-    description: "Implementing critical state of the art AI solutions for non-profits free of charge. All while ensuring job security for their employees.",
+    description: "Implementing critical state of the art AI solutions for non-profits. All while ensuring job security for their employees.",
     url: "permeate",
     icon: "icons/permeate-icon.svg",
     backdrop: "backdrops/permeate-backdrop.svg",
@@ -104,7 +105,7 @@ export const execMembers = [
     position: "Co-President",
     imageSource: "/exec/david_headshot.jpg", 
     link: "https://www.linkedin.com/in/david-koplow/",
-    type: ["aim"],
+    type: ["aim","p"],
   },
   {
     name: "Zack Ankner", 
@@ -114,12 +115,13 @@ export const execMembers = [
     type: ["aim"],
   },
   {
-    name: "Nithya Attaluri", 
+    name: "Jimin Lee", 
     position: "Treasurer",
-    imageSource: "/exec/nithya_headshot.png", 
-    link: "https://www.linkedin.com/in/nithya-attaluri/",
+    imageSource: "/exec/jimin_headshot.png", 
+    link: "https://www.linkedin.com/in/jimin24/",
     type: ["aim"],
   },
+
   {
     name: "Sejal Gupta", 
     position: "Labs Lead",
@@ -129,14 +131,14 @@ export const execMembers = [
   },
   {
     name: "Jose Ricardo Ramos", 
-    position: "Reading Group Co-Lead",
+    position: "Speakers Co-Lead",
     imageSource: "/exec/jose_headshot.jpeg", 
     link: "",
     type: ["aim","s"],
   },
   {
     name: "Shayda Moezzi",
-    position: "Reading Group Co-Lead",
+    position: "Speakers Co-Lead",
     imageSource: "/exec/shayda_headshot.png",
     link: "",
     type: ["aim","s"],
