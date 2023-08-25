@@ -20,8 +20,8 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
         <div className={initiative.key != "aim" ? "md:max-w-[70vw]" : "md:max-w-[60vw]  md:m-10"}>
 
           {initiative.key != "aim" ? 
-          <div className="flex flex-wrap gap-4 items-center m-[10px] md:m-[30px] mb-[30px] md:mb-[80px]">
-            <div className='w-32 md:w-64'>
+          <div className="flex flex-wrap gap-4 items-center m-[10px] md:m-[30px] mb-[50px] md:mb-[70px]">
+            <div className='w-32 md:w-64 my-[20px] md:my-0 '>
               <Image
                 alt="initiative-icon"
                 src={initiative.icon}
