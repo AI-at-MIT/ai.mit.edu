@@ -31,6 +31,8 @@ export default function Sponsors() {
         <div className="flex flex-wrap gap-16 justify-center mt-4 mb-20 max-w-[1200px]">
             <SponsorCard imageName="sponsors/logo-nvidia-bw.svg" href="https://www.nvidia.com/"/>
             <SponsorCard imageName="sponsors/logo-wb-bw.svg" href="https://wandb.ai/"/>
+            <SponsorCard imageName="sponsors/logo-scale-bw.svg" href="https://scale.com/"/>
+
             <SponsorCard imageName="sponsors/logo-quantco-bw.svg" href="https://www.quantco.com/"/>
             <SponsorCard imageName="sponsors/logo-covariant-bw.svg" href="https://covariant.ai/"/>
             <SponsorCard imageName="sponsors/logo-cerebras-bw.svg" href="https://www.cerebras.net/"/>
