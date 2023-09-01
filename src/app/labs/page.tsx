@@ -97,7 +97,7 @@ export default function Home() {
         ]}
       />
 
-      <ExecutiveMembers title="Labs Lead" initiative={initiative} />
+      <ExecutiveMembers title="Labs Exec" initiative={initiative} />
       <AttributeSection
       heading="Why Labs?"
       projects={[

@@ -11,7 +11,7 @@ const redirect_links = {
 
     "/generator/apply":'/soon', //Generator application link
 
-    "/labs/apply":'/soon',  //Labs application link
+    "/labs/apply":'https://docs.google.com/forms/d/e/1FAIpQLSe07r2iSYgP1_RlvRIvH8k-w5Fsp1MbvV1JAK7T3TgL7r9e7g/viewform',  //Labs application link
     "/labs/info":'/soon', //info session slides
     "/labs/m1":'/soon', //Important link for first meeting
     "/labs/m2":'/soon',
