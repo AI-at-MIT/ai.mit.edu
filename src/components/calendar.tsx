@@ -60,7 +60,7 @@ function EventCard({Type, Link, Blurb, Important, Date, Time, Location} : Card) 
               <div className=" ml-4 w-[550px] mr-auto transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                 <p>{Blurb}</p>
               </div>
-              <div className="transition-transform group-hover:translate-x-4 min-w-[70px] mr-3 transition-transform flex flex-col justify-center items-end">
+              <div className="transition-transform group-hover:translate-x-4 min-w-[70px] mr-3 transition-transform flex flex-col justify-center items-end text-right">
                 <p className="gray-text text-sm font-extrabold">{Date ? Date : <br></br>}</p>
                 <p className="gray-text text-sm">{Time ? Time : <br></br>}</p>
                 <p className="gray-text text-sm">{Location ? Location : <br></br>}</p>
@@ -70,7 +70,7 @@ function EventCard({Type, Link, Blurb, Important, Date, Time, Location} : Card) 
             <div className="ml-3 mr-5 w-full mr-auto transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               <p className="text-sm xs:text-lg">{Blurb}</p>
               <div className="flex items-center"> 
-                <p className="align-middle gray-text text-sm">{ Date=="" && Time=="" && Location==""  ? "note" : (Date ? "on "+Date : "")+(Time ? " at "+Time : "")+(Location ? " in"+Location : "")}</p>
+                <p className="align-middle gray-text text-sm">{ Date=="" && Time=="" && Location==""  ? "note" : (Date ? "on "+Date : "")+(Time ? " at "+Time : "")+(Location ? " in "+Location : "")}</p>
               </div>
             </div>
           }
@@ -121,17 +121,17 @@ function filter_sort_parse(data: Event[], initiative: Constants.InitiativeInterf
   
   const data_with_dateobj = data.map((card) => {return {...card, DateTime_obj: ParseDateTime(card.DateTime)}});
 
-  const today = new Date();
+  const today = new Date().getTime();
   const first_day = new Date(0);
-  const valid_cards = data_with_dateobj.filter((card,index) => (initiative.key=="aim" || card.Type==initiative.key || card.Type=="aim") && (card.DateTime_obj > today || card.DateTime_obj.getTime()===first_day.getTime()));
+  const valid_cards = data_with_dateobj.filter((card,index) => (initiative.key=="aim" || card.Type==initiative.key || card.Type=="aim") ); //(card.DateTime_obj > today || card.DateTime_obj.getTime()===first_day.getTime())
   if (valid_cards.length == 0){
     return valid_cards;
   }
 
   //sort valid events by date and time
   const cards = valid_cards.sort((a, b) => {
-    const dateA = a.DateTime_obj.getTime();
-    const dateB = b.DateTime_obj.getTime();
+    const dateA = (a.DateTime_obj.getTime());
+    const dateB = (b.DateTime_obj.getTime());
     return dateA < dateB ? -1 : 1;
 
   });
@@ -142,7 +142,7 @@ function filter_sort_parse(data: Event[], initiative: Constants.InitiativeInterf
     Type:card.Type, 
     Important:card.Important, 
     Date:(card.DateTime_obj.getTime()!=first_day.getTime() ? card.DateTime_obj.toLocaleDateString("en-US", {month: 'numeric', day: 'numeric'}) : ""), 
-    Time:(card.DateTime_obj.getTime()!=first_day.getTime() ? card.DateTime_obj.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}):""), 
+    Time:(card.DateTime_obj.getTime()!=first_day.getTime() ? card.DateTime_obj.toLocaleTimeString([], {hour: 'numeric', minute:'2-digit'}):""), 
     Location:card.Location, 
     Link:(card.Link==undefined ? Constants.initiative_data[card.Type].url : card.Link), 
     Blurb:card.Blurb}});

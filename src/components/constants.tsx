@@ -114,20 +114,27 @@ export const execMembers = [
     link: "https://www.linkedin.com/in/zack-ankner/",
     type: ["aim"],
   },
-  {
-    name: "Jimin Lee", 
-    position: "Treasurer",
-    imageSource: "/exec/jimin_headshot.png", 
-    link: "https://www.linkedin.com/in/jimin24/",
-    type: ["aim"],
-  },
 
   {
-    name: "Sejal Gupta", 
-    position: "Labs Lead",
-    imageSource: "/exec/sejal_headshot.jpeg", 
-    link: "",
+    name: "Emily Zhou", 
+    position: "Labs Co-Lead",
+    imageSource: "/exec/emily_headshot.jpg", 
+    link: "https://www.linkedin.com/in/emilyzhouprofile/",
     type: ["aim","l"],
+  },
+  {
+    name: "Sagnik Anupam", 
+    position: "Labs Co-Lead",
+    imageSource: "/exec/sagnik_headshot.png", 
+    link: "https://www.linkedin.com/in/sagnik-anupam/",
+    type: ["aim","l"],
+  },
+  {
+    name: "Rishab Parthasarathy",
+    position: "Workshops Lead",
+    imageSource: "/exec/rishab_headshot.jpg",
+    link: "https://www.linkedin.com/in/rishab-parthasarathy-57b33424b/",
+    type: ["aim","w"],
   },
   {
     name: "Jose Ricardo Ramos", 
@@ -144,12 +151,28 @@ export const execMembers = [
     type: ["aim","s"],
   },
   {
-    name: "Kevin Meng",
-    position: "Workshops Lead",
-    imageSource: "/exec/kevin_headshot.png",
-    link: "",
-    type: ["aim","w"],
+    name: "John Yang", 
+    position: "Generator Lead",
+    imageSource: "/exec/john_headshot.png", 
+    link: "https://www.linkedin.com/in/johnyang101/",
+    type: ["aim","g"],
   },
+  {
+    name: "Raunak Chowdhuri", 
+    position: "Permeate Lead",
+    imageSource: "/exec/raunak_headshot.jpg", 
+    link: "https://www.linkedin.com/in/sauhaarda/",
+    type: ["aim","p"],
+  },
+
+  {
+    name: "Jimin Lee", 
+    position: "Treasurer",
+    imageSource: "/exec/jimin_headshot.png", 
+    link: "https://www.linkedin.com/in/jimin24/",
+    type: ["aim"],
+  },
+
   {
     name: "Anika Puri",
     position: "Marketing Lead",
