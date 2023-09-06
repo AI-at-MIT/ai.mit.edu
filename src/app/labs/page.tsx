@@ -90,7 +90,7 @@ export default function Home() {
           {
             imageName: "/labs_highlights/lecshort.png",
             name: "Lecture Shortener",
-            link: "http://www.lecshort.com/",
+            link: "https://docs.google.com/presentation/d/1CVe4tKPrfCCDGWzN09YelMaWXWEGWOFQC851n7JmbuE/edit?usp=sharing",//"http://www.lecshort.com/",
             blurb:
               "This ML pipeline extracts the most important visual and auditory components of lectures.",
           },
