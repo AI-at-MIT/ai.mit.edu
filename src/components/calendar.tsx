@@ -128,6 +128,7 @@ function filter_sort_parse(data: Event[], initiative: Constants.InitiativeInterf
     return valid_cards;
   }
 
+  //show events that are about to happen and events that have hapend recently. 
   //sort valid events by date and time
   const cards = valid_cards.sort((a, b) => {
     const dateA = (a.DateTime_obj.getTime());
