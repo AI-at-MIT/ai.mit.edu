@@ -8,6 +8,7 @@ import Showcase from "@/components/showcase";
 import ExecutiveMembers from "@/components/executivemembers";
 import * as Constants from "@/components/constants";
 
+
 const initiative = Constants.initiative_data["w"];
 
 

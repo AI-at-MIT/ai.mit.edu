@@ -7,6 +7,7 @@ config.autoAddCss = false;
 
 const sharpfont = Inter({ subsets: ['latin'] })
 const mainfont = Nunito({ subsets: ['latin'] })
+import Navbar from '@/components/navbar'
 
 export const metadata: Metadata = {
   title: 'AI@MIT',
@@ -25,7 +26,7 @@ export default function RootLayout({
       </head>
       <body className={mainfont.className}>
         
-   
+        <Navbar/>
         {children}
         </body>
     </html>

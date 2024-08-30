@@ -77,7 +77,12 @@ body {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   color: #E1E1E1;
+  
 
+  
+}
+html {
+  scroll-behavior: smooth;
 }
 
 body::-webkit-scrollbar {
