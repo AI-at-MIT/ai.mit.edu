@@ -179,7 +179,6 @@ function parseAirTableRow(fields:Airtable.FieldSet){
       timeZone: 'America/New_York',
       month: '2-digit' as const,
       day: '2-digit' as const,
-      year: 'numeric' as const
     };
     const dateInEST = date.toLocaleDateString('en-US', dateOptions);
 
@@ -340,7 +339,7 @@ export default function Calendar({initiative}:{initiative:Constants.InitiativeIn
   useEffect(() => {
     // This code will run only once during the initial load
     console.log('Calendar Data Loaded');
-    var base = new Airtable({apiKey: 'patFpf4HORCUtqmYd.244272abd249fe7554105865ba5cececd451afa529b13e6acb689fbfaf8714df'}).base('appwsdSUA3MAMj2SW');
+    var base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('appwsdSUA3MAMj2SW');
 
     base('AIM 2024/25').select({
       // Selecting the first 3 records in Grid view:

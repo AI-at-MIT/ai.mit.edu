@@ -38,6 +38,11 @@ const nextConfig = {
             basePath: undefined,
         }));
     },
+    env: {
+        
+        AIRTABLE_API_KEY:"patFpf4HORCUtqmYd.244272abd249fe7554105865ba5cececd451afa529b13e6acb689fbfaf8714df",
+      },
+    
 
     
     
