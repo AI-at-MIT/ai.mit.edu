@@ -3,13 +3,14 @@ import BackgroundAnimation from "@/components/backgroundanimation";
 import FancyLink from "@/components/fancylink";
 import Image from "next/image";
 import * as Constants from "@/components/constants";
+import Navbar from '@/components/navbar'
 
 export default function Home() {
   BackgroundAnimation();
 
   return (
     <main>
-
+      <Navbar/>
       <div className="section">
         <h1>Coming Soon</h1>
         <div className="max-w-[600px] w-auto text-left mx-auto">

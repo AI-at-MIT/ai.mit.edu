@@ -21,7 +21,6 @@ export interface InitiativeInterface {
   background: string;
   clip_background: string;
 }
-
 export const initiative_data : {[key: string]: InitiativeInterface} = {
   aim: {
     key: "aim",
