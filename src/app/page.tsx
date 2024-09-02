@@ -29,7 +29,7 @@ function Membership() {
         <div className="mt-16">
           <h2>Associate Member</h2>
           <p className="mb-4">
-            How: <span className="gray-text">Open to anyone—just join our <FancyLink initiative={initiative} href={"/email/list"} text="mailing list"/>!</span>
+            How: <span className="gray-text">Open to anyone—just join our <FancyLink initiative={initiative} href="https://forms.gle/dCEFRMa2KPJJMMsE8" text="mailing list"/>!</span>
           </p>
           <p>
             Why: <span className="gray-text">You&apos;ll be alerted about our public events, opportunities, and announcement. </span>
