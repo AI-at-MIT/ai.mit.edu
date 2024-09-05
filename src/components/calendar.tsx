@@ -1,47 +1,12 @@
 
 'use client'
 import React, { useState } from "react";
-//import Papa from "papaparse";
 import * as Constants from "./constants";
 import { useEffect } from 'react';
 import Image from 'next/image'
-import { useMediaQuery } from 'react-responsive'
-//import PublicGoogleSheetsParser from "public-google-sheets-parser";
 import DOMPurify from 'dompurify';
 
 
-const HtmlRenderer: React.FC = () => {
-  const [htmlContent, setHtmlContent] = useState<string>('');
-
-  // Function to handle changes in the textarea
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setHtmlContent(event.target.value);
-  };
-
-  // Function to sanitize the HTML input using DOMPurify
-  const sanitizeHtml = (html: string): string => {
-    return DOMPurify.sanitize(html);
-  };
-
-  return (
-    <div>
-      <h1>HTML Renderer</h1>
-      <textarea
-        value={htmlContent}
-        onChange={handleChange}
-        placeholder="Enter your HTML content here..."
-        rows={10}
-        cols={50}
-      ></textarea>
-      <h2>Rendered HTML</h2>
-      <div
-        // Using `dangerouslySetInnerHTML` to render sanitized HTML content
-        dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlContent) }}
-        style={{ border: '1px solid #ccc', padding: '10px', marginTop: '10px' }}
-      ></div>
-    </div>
-  );
-};
 
 
 const max_cards = 8;
@@ -108,13 +73,6 @@ function EventCard({Type, Link, Title, Description, Important, Date, Time, Locat
   const toggleExpansion = () => {
     setIsExpanded(!isExpanded); // Toggle the expansion state
   };
-  const Expand = () => {
-    setIsExpanded(true);
-  }
-  const Contract = () => {
-    setIsExpanded(false);
-
-}
   const html_desc = sanitizeHtml(Description)
 
 
@@ -155,11 +113,11 @@ function EventCard({Type, Link, Title, Description, Important, Date, Time, Locat
 function CardInfo({Date, Time, Location}:{Date: string, Time:string, Location: string}){
   const InfoStr_hor = Date=="" && Time=="" && Location==""  ? "note" : (Date ? "on "+Date : "")+(Time ? " at "+Time : "")+(Location ? " in "+Location : "")
   const InfoStr_ver = (<>{Date ? Date : <br/>} <br/> {Time ? Time : <br/>} <br/> {Location ? Location : <br/>}</>)
-  
+  //transition-transform group-hover:translate-x-1 motion-reduce:transform-none
   return(
     
     <>
-    <div className="sm:flex sm:flex-col sm:justify-center sm:items-end sm:text-right sm:transition-transform sm:group-hover:translate-x-4 min-w-[70px] sm:mr-3 sm:transition-transform ">
+    <div className="min-w-[70px] sm:mr-3 sm:flex sm:flex-col sm:justify-center sm:items-end sm:text-right transition-transform sm:group-hover:translate-x-4 group-hover:translate-x-1">
       <p className="gray-text text-sm hidden sm:inline-block"> {InfoStr_ver} </p>
       <p className="gray-text text-sm inline-block sm:hidden"> {InfoStr_hor} </p>
 
@@ -170,66 +128,6 @@ function CardInfo({Date, Time, Location}:{Date: string, Time:string, Location: s
 
   )
 }
-
-/*
-          {!mobile ? 
-            <>
-              <div className=" ml-4 w-[550px] mr-auto transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                <p>{Blurb}</p>
-              </div>
-              <div className="transition-transform group-hover:translate-x-4 min-w-[70px] mr-3 transition-transform flex flex-col justify-center items-end text-right">
-                <p className="gray-text text-sm font-extrabold">{Date ? Date : <br></br>}</p>
-                <p className="gray-text text-sm">{Time ? Time : <br></br>}</p>
-                <p className="gray-text text-sm">{Location ? Location : <br></br>}</p>
-              </div>
-            </>
-          :
-            <div className="ml-3 mr-5 w-full mr-auto transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              <p className="text-sm xs:text-lg">{Blurb}</p>
-              <div className="flex items-center"> 
-                <p className="align-middle gray-text text-sm">{ Date=="" && Time=="" && Location==""  ? "note" : (Date ? "on "+Date : "")+(Time ? " at "+Time : "")+(Location ? " in "+Location : "")}</p>
-              </div>
-            </div>
-          }
-*/
-
-/*
-function EventCard({Type, Link, Blurb, Important, Date, Time, Location, DateTimeStr} : Card) {
-  const [isExpanded, setIsExpanded] = useState(false); // State to manage expansion
-  const initiative = Constants.initiative_data[Type];
-  const mobile = useMediaQuery({ query: `(max-width: 760px)` });
-
-  const toggleExpansion = () => {
-    setIsExpanded(!isExpanded); // Toggle the expansion state
-  };
-
-  return (
-    <div
-      onClick={toggleExpansion} 
-      className={`${initiative.border_class} border-2 event-card m-1 group rounded-lg border border-transparent w-full px-3 py-2 md:px-5 md:py-4 flex flex-col relative cursor-pointer transition-all duration-300 ease-in-out`}
-      style={{ maxHeight: isExpanded ? "500px" : "60px", overflow: "hidden" }} // Adjust the maxHeight based on the expansion state
-    >
-      <div className="event-info flex items-center w-full">
-        <EventIcon Important={Important} Type={Type}/>
-        <div className="ml-3 mr-5 w-full mr-auto transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-          <p className="text-sm xs:text-lg font-bold">{Type}</p> {
-          //Show only title when collapsed
-          
-          }
-          {isExpanded && ( // Conditionally render the description based on the expansion state
-            <>
-              <p className="text-sm xs:text-lg">{Blurb}</p>
-              <div className="flex items-center"> 
-                <p className="align-middle gray-text text-sm">{ Date=="" && Time=="" && Location==""  ? "note" : (Date ? "on "+Date : "")+(Time ? " at "+Time : "")+(Location ? " in "+Location : "")}</p>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
-*/
 
 function EventIcon({Type, Important} : {Type: string, Important: String}) {
   const initiative = Constants.initiative_data[Type];
@@ -539,13 +437,6 @@ export default function Calendar({initiative}:{initiative:Constants.InitiativeIn
 }, function done(err) {
     if (err) { console.error(err); return; }
 });
-
-    //const parser = new PublicGoogleSheetsParser(spreadsheetId)
-    //  parser.parse().then((results) => {
-    //    const all_cards = Array.from(results) as Event[];
-    //    const cards = filter_sort_parse(all_cards, initiative) as Card[];   
-    //    setData(cards);
-    //  })
 
  
 
