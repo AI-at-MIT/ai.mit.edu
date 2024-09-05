@@ -1,3 +1,5 @@
+
+'use client'
 import React, { useState } from "react";
 //import Papa from "papaparse";
 import * as Constants from "./constants";
@@ -5,18 +7,45 @@ import { useEffect } from 'react';
 import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
 //import PublicGoogleSheetsParser from "public-google-sheets-parser";
+import DOMPurify from 'dompurify';
+
+
+const HtmlRenderer: React.FC = () => {
+  const [htmlContent, setHtmlContent] = useState<string>('');
+
+  // Function to handle changes in the textarea
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setHtmlContent(event.target.value);
+  };
+
+  // Function to sanitize the HTML input using DOMPurify
+  const sanitizeHtml = (html: string): string => {
+    return DOMPurify.sanitize(html);
+  };
+
+  return (
+    <div>
+      <h1>HTML Renderer</h1>
+      <textarea
+        value={htmlContent}
+        onChange={handleChange}
+        placeholder="Enter your HTML content here..."
+        rows={10}
+        cols={50}
+      ></textarea>
+      <h2>Rendered HTML</h2>
+      <div
+        // Using `dangerouslySetInnerHTML` to render sanitized HTML content
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(htmlContent) }}
+        style={{ border: '1px solid #ccc', padding: '10px', marginTop: '10px' }}
+      ></div>
+    </div>
+  );
+};
+
+
 const max_cards = 8;
 
-interface Event {
-  Type: string, 
-  Important: string, 
-  DateTime:string, 
-  DateTime_obj:object, 
-
-  Location: string, 
-  Link:string, 
-  Blurb:string
-}
 
 interface Card {
   Type: string, 
@@ -25,42 +54,124 @@ interface Card {
   Time: string,
   Location: string, 
   Link:string, 
-  Blurb:string,
+  Title:string,
+  Description:string,
   DateTimeStr:string
 }
 
 
 import Airtable from 'airtable'
-//process.env.AIRTABLE_API_KEY
 
-function EventCard({Type, Link, Blurb, Important, Date, Time, Location, DateTimeStr} : Card) {
+const sanitizeHtml = (html: string): string => {
+  const cleanHtml = DOMPurify.sanitize(html, {
+    ADD_TAGS: ['a', 'p'], // Ensure a and p tags are not stripped
+    ADD_ATTR: ['target', 'rel', 'class'], // Allow specific attributes
+    ALLOWED_URI_REGEXP: /^https?:\/\//i, // Restrict URLs to http and https
+    // Use a hook to add Tailwind classes to <a> and <p> elements
+    FORBID_TAGS: ['script'], // Ensure script tags are removed
+  });
+  // Create a DOM parser to manually add Tailwind classes after sanitization
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(cleanHtml, 'text/html');
+
+  // Add Tailwind classes to <a> elements
+  doc.querySelectorAll('a').forEach((element) => {
+    element.classList.add('text-blue-500', 'underline', 'hover:text-blue-700');
+    element.setAttribute('target', '_blank'); // Open links in new tab
+    element.setAttribute('rel', 'noopener noreferrer'); // Security attributes
+  });
+
+  // Add Tailwind classes to <p> elements
+  doc.querySelectorAll('p').forEach((element) => {
+    element.classList.add( 'text-sm', 'gray-text');
+  });
+
+  Array.from(doc.body.childNodes).forEach((node) => {
+    // Check if the node is a text node and has content
+    if (node.nodeType === Node.TEXT_NODE && node.textContent?.trim()) {
+      // Create a new <p> element
+      const p = doc.createElement('p');
+      p.classList.add('text-sm', 'gray-text'); // Add Tailwind classes to <p>
+      p.textContent = node.textContent; // Set the text content
+      doc.body.replaceChild(p, node); // Replace the text node with the new <p>
+    }
+  });
+
+  // Return the modified HTML
+  return doc.body.innerHTML;
+};
+
+
+function EventCard({Type, Link, Title, Description, Important, Date, Time, Location, DateTimeStr} : Card) {
   const initiative = Constants.initiative_data[Type];
-  const mobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const [isExpanded, setIsExpanded] = useState(false); // State to manage expansion
+  const toggleExpansion = () => {
+    setIsExpanded(!isExpanded); // Toggle the expansion state
+  };
+  const Expand = () => {
+    setIsExpanded(true);
+  }
+  const Contract = () => {
+    setIsExpanded(false);
+
+}
+  const html_desc = sanitizeHtml(Description)
 
 
   return (
-    <a href={Link} className={`${initiative.border_class} border-2 event-card m-1 group rounded-lg border border-transparent w-full px-3 py-2 md:px-5 md:py-4 flex flex-col relative`}>
+    <a onClick={toggleExpansion}   className={`${initiative.border_class} border-2 event-card m-1 group rounded-lg border border-transparent w-full px-3 py-2 md:px-5 md:py-4 flex flex-col relative`}>
+      <div className="event-info flex items-center w-full ">
 
-        <div className="event-info flex items-center w-full">
-          <div className="relative">
-            <Image
-              alt="icon"
-              src={initiative.icon}
-              width={60}
-              height={60}
-            />
-            {Important && (
-              <div className="bg-dark rounded-full p-[3px] absolute -top-[0.5rem] -right-[0.5rem] duration-100 transition transform group-hover:scale-90">
-                <div className="relative">
-                  <div className={`absolute relative w-6 h-6 rounded-full ${initiative.border_class} border-2 border border-transparent`}>
-                  </div>
-                  <div className={`top-0 absolute w-6 h-6 quicklink ${initiative.clip_background}  quicklink`}>
-                    <p className="font-extrabold w-full h-full text-[1.10rem] flex flex-col justify-center items-center">!</p>
-                  </div>
-                </div>
+          <EventIcon Important={Important} Type={Type}/>
+
+          <div className="sm:flex ml-3 sm:flex-row w-full ">
+
+            <div className="mr-auto transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              <div className="h-full flex flex-col justify-center items-start">
+              <p className="text-sm sm:text-lg">{Title}</p>
+     
+              {isExpanded ? (
+                  <p className="text-sm" dangerouslySetInnerHTML={{ __html: html_desc }}></p>
+               ) : (
+               <p className="text-sm text-elipses-container" dangerouslySetInnerHTML={{ __html: html_desc }}></p>
+
+               )}
+
+
               </div>
-              )}
+            </div>
+
+            <CardInfo Date={Date} Time={Time} Location={Location}/>
+
+
           </div>
+          
+      </div>
+      
+    </a>
+  );
+}
+
+function CardInfo({Date, Time, Location}:{Date: string, Time:string, Location: string}){
+  const InfoStr_hor = Date=="" && Time=="" && Location==""  ? "note" : (Date ? "on "+Date : "")+(Time ? " at "+Time : "")+(Location ? " in "+Location : "")
+  const InfoStr_ver = (<>{Date ? Date : <br/>} <br/> {Time ? Time : <br/>} <br/> {Location ? Location : <br/>}</>)
+  
+  return(
+    
+    <>
+    <div className="sm:flex sm:flex-col sm:justify-center sm:items-end sm:text-right sm:transition-transform sm:group-hover:translate-x-4 min-w-[70px] sm:mr-3 sm:transition-transform ">
+      <p className="gray-text text-sm hidden sm:inline-block"> {InfoStr_ver} </p>
+      <p className="gray-text text-sm inline-block sm:hidden"> {InfoStr_hor} </p>
+
+    </div>
+
+    </>
+
+
+  )
+}
+
+/*
           {!mobile ? 
             <>
               <div className=" ml-4 w-[550px] mr-auto transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
@@ -80,10 +191,74 @@ function EventCard({Type, Link, Blurb, Important, Date, Time, Location, DateTime
               </div>
             </div>
           }
+*/
+
+/*
+function EventCard({Type, Link, Blurb, Important, Date, Time, Location, DateTimeStr} : Card) {
+  const [isExpanded, setIsExpanded] = useState(false); // State to manage expansion
+  const initiative = Constants.initiative_data[Type];
+  const mobile = useMediaQuery({ query: `(max-width: 760px)` });
+
+  const toggleExpansion = () => {
+    setIsExpanded(!isExpanded); // Toggle the expansion state
+  };
+
+  return (
+    <div
+      onClick={toggleExpansion} 
+      className={`${initiative.border_class} border-2 event-card m-1 group rounded-lg border border-transparent w-full px-3 py-2 md:px-5 md:py-4 flex flex-col relative cursor-pointer transition-all duration-300 ease-in-out`}
+      style={{ maxHeight: isExpanded ? "500px" : "60px", overflow: "hidden" }} // Adjust the maxHeight based on the expansion state
+    >
+      <div className="event-info flex items-center w-full">
+        <EventIcon Important={Important} Type={Type}/>
+        <div className="ml-3 mr-5 w-full mr-auto transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+          <p className="text-sm xs:text-lg font-bold">{Type}</p> {
+          //Show only title when collapsed
+          
+          }
+          {isExpanded && ( // Conditionally render the description based on the expansion state
+            <>
+              <p className="text-sm xs:text-lg">{Blurb}</p>
+              <div className="flex items-center"> 
+                <p className="align-middle gray-text text-sm">{ Date=="" && Time=="" && Location==""  ? "note" : (Date ? "on "+Date : "")+(Time ? " at "+Time : "")+(Location ? " in "+Location : "")}</p>
+              </div>
+            </>
+          )}
+        </div>
       </div>
-      
-    </a>
+    </div>
   );
+}
+*/
+
+function EventIcon({Type, Important} : {Type: string, Important: String}) {
+  const initiative = Constants.initiative_data[Type];
+  return (
+        <div className="flex items-center w-20 ">
+        <div className="relative  ">
+        <Image
+          alt="icon"
+          src={initiative.icon}
+          width={60}
+          height={60}
+        />
+        {Important && (
+          <div className="bg-dark rounded-full p-[3px] absolute -top-[0.5rem] -right-[0.5rem] duration-100 transition transform group-hover:scale-90">
+            <div className="relative">
+              <div className={`absolute relative w-6 h-6 rounded-full ${initiative.border_class} border-2 border border-transparent`}>
+              </div>
+              <div className={`top-0 absolute w-6 h-6 quicklink ${initiative.clip_background}  quicklink`}>
+                <p className="font-extrabold w-full h-full text-[1.10rem] flex flex-col justify-center items-center">!</p>
+              </div>
+            </div>
+          </div>
+          )}
+      </div>
+
+        </div>
+  
+  )
+
 }
 
 
@@ -251,14 +426,12 @@ function parseAirTableRow(fields:Airtable.FieldSet){
 
   }
 
-
-
     if(all_day){
       timeInEST=""
     }
 
     if(real_title){
-      real_title = real_title+": "
+      real_title = real_title
     }
 
 
@@ -270,7 +443,8 @@ function parseAirTableRow(fields:Airtable.FieldSet){
       Time: timeInEST ?? "",
       Location: location ?? "", // Ensure it's always a string
       Link: url_link ?? "", 
-      Blurb: real_title + real_desc ?? "",
+      Title: real_title ?? "",
+      Description: real_desc ?? "",
       DateTimeStr: start_date_time ?? "" // Ensure it's always a string
     }
   
@@ -315,7 +489,7 @@ function getSoonestEvents(cards:Card[]) {
   });
 
   // Return the first 5 events
-  let upcoming = sortedCards.slice(0, 5);
+  let upcoming = sortedCards.slice(0, max_cards);
 
   return upcoming
 }
@@ -327,7 +501,7 @@ const NoEventCard = {
   Time: "",
   Location: "", 
   Link:"", 
-  Blurb:"There are currently no upcoming public events scheduled. Check back later.",
+  Title:"There are currently no upcoming public events scheduled. Check back later.",
   DateTimeStr: ""
 } as Card
 
@@ -387,7 +561,7 @@ export default function Calendar({initiative}:{initiative:Constants.InitiativeIn
           ))
         ) : (
           cards.map((data,index) => (
-            <EventCard key={index} Type={data.Type} Link={data.Link == "" ? Constants.initiative_data[data.Type].url : data.Link} Blurb={data.Blurb} Important={data.Important} Date={data.Date} Time={data.Time} Location={data.Location} DateTimeStr={data.DateTimeStr}/>
+            <EventCard key={index} Type={data.Type} Link={data.Link == "" ? Constants.initiative_data[data.Type].url : data.Link} Title={data.Title} Description={data.Description} Important={data.Important} Date={data.Date} Time={data.Time} Location={data.Location} DateTimeStr={data.DateTimeStr}/>
           ))
         )
       }

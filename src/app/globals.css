@@ -335,6 +335,13 @@ main {
   font-family: 'Inter', sans-serif;
 
 }
+.text-elipses-container {
+  display: -webkit-box; /* Necessary for line clamping */
+  -webkit-box-orient: vertical; /* Necessary for line clamping */
+  overflow: hidden; /* Hides overflowing content */
+  text-overflow: ellipsis; /* Displays ellipsis */
+  -webkit-line-clamp: 2; /* Limits to 2 lines */
+}
 
 .mobile {
   @media screen and (min-width: 800px) {
