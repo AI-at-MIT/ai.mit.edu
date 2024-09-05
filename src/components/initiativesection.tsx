@@ -27,6 +27,7 @@ function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterfac
     const isVisible = (rect.bottom <= window.innerHeight/2);
     if(isVisible && !seen) {
       setSeen(true);
+      
     } 
   },[seen]);
 

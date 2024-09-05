@@ -21,25 +21,25 @@ export default function Navbar() {
                     </a>
 
 
-                    <div className={`mx-2 ${initiative.clip_background} flex quicklink space-x-6`}>
+                    <div className={`mx-2 ${initiative.clip_background} text-base md:text-lg font-semibold flex quicklink md:space-x-6 space-x-4`}>
 
 
                         <a href={"/#events"} className="quicklink-text group ">
-                        <span className="text-lg font-semibold">{"Events"}</span>
+                        Events
                         </a>
 
                         <a href={"/#about"} className={`quicklink-text `}>
 
-                    <span className="text-lg text-center font-semibold">{"About"}</span>
+                        About
 
                     </a>
             
                         <a href={"/#initiatives"} className="quicklink-text group">
-                        <span className="text-lg font-semibold ">{"Initiatives"}</span>
+                        Initiatives
                         </a>
 
                         <a href={"/#exec"} className="quicklink-text group">
-                        <span className="text-lg font-semibold ">{"Exec"}</span>
+                        Exec
                         </a>
                     </div>   
 
