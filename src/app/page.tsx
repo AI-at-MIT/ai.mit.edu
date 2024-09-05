@@ -29,7 +29,7 @@ function Membership() {
         <div className="mt-16">
           <h2>Associate Member</h2>
           <p className="mb-4">
-            How: <span className="gray-text">Open to anyone—just join our <FancyLink initiative={initiative} href={"/email/list"} text="mailing list"/>!</span>
+            How: <span className="gray-text">Open to anyone—just join our <FancyLink initiative={initiative} href="https://forms.gle/dCEFRMa2KPJJMMsE8" text="mailing list"/>!</span>
           </p>
           <p>
             Why: <span className="gray-text">You&apos;ll be alerted about our public events, opportunities, and announcement. </span>
@@ -65,8 +65,8 @@ export default function Home() {
       <Glance 
         
         initiative={initiative}
-        l1_t="Mailing List" l1_l={"/email/list"}
-        l2_t="Calendar" l2_l={"/calendar/gcal"}
+        l1_t="Mailing List" l1_l={"https://forms.gle/dCEFRMa2KPJJMMsE8"}
+        l2_t="Calendar" l2_l={"https://calendar.google.com/calendar/ical/c_17a0804f0b23934eca81b9e59fc82b83d2d485cd65741bc426ebdbd0c4592a5a%40group.calendar.google.com/public/basic.ics"}
         l3_t="Contact" l3_l={Constants.emails["contact"]}/>
       <div id="about" className="py-4"></div>
 
