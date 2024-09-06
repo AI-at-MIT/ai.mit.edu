@@ -1,4 +1,4 @@
-import * as Constants from './constants'
+import * as Constants from './util/constants'
 import React, {useEffect,useCallback, useRef, useState } from 'react';
 import Image from 'next/image'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

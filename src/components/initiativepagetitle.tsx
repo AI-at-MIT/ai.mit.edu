@@ -1,5 +1,5 @@
 import Image from "next/image";
-import * as Constants from '@/components/constants'
+import * as Constants from '@/components/util/constants'
 
 
 export default function InitiativePageTitle({initiative}: {initiative: Constants.InitiativeInterface}) {
@@ -39,11 +39,13 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
           <Image
              alt="aim-logo-full"
              src="/icons/aim-icon-full.svg"
-             width={1200}
-             height={500}
-             className="mb-[30px] md:mb-0"
-           />}
-  
+             width={700}
+             height={200}
+             className="mb-[30px] md:mb-0 md:ml-7  m-[10px] md:m-[30px] max-w-[90%]"
+           />
+           
+           
+           }
           <p className="title-tag-text text-3xl md:text-4xl m-[10px] md:m-[30px]">
             {initiative.tagline}
           </p>

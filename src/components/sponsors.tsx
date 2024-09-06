@@ -1,6 +1,6 @@
 import FancyLink from "./fancylink";
 import Image from 'next/image'
-import * as Constants from "./constants"
+import * as Constants from "./util/constants"
 
 function SponsorCard({imageName, href}:{imageName: string, href:string}) {
   return (

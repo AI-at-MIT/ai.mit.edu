@@ -1,4 +1,4 @@
-import * as Constants from './constants'
+import * as Constants from './util/constants'
 
 export default function ImportantLinks({initiative, l1_l, l1_t, l2_l, l2_t, l3_l, l3_t}: {initiative: Constants.InitiativeInterface, l1_l: string, l1_t: string, l2_l: string, l2_t: string, l3_l: string, l3_t: string}) {
   

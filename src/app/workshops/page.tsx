@@ -6,7 +6,7 @@ import BackgroundAnimation from "@/components/backgroundanimation";
 import Glance from "@/components/glance";
 import Showcase from "@/components/showcase";
 import ExecutiveMembers from "@/components/executivemembers";
-import * as Constants from "@/components/constants";
+import * as Constants from "@/components/util/constants";
 
 
 const initiative = Constants.initiative_data["w"];

@@ -1,80 +1,23 @@
-
 'use client'
 import React, { useState } from "react";
-import * as Constants from "./constants";
+import * as Constants from "./util/constants";
 import { useEffect } from 'react';
 import Image from 'next/image'
-import DOMPurify from 'dompurify';
+
+
+import {CalendarEventData, max_calendar_events_render} from './util/constants'
+
+import {sanitizeHtml, get_airtable_data} from './util/airtable'
 
 
 
-
-const max_cards = 8;
-
-
-interface Card {
-  Type: string, 
-  Important: string, 
-  Date:string, 
-  Time: string,
-  Location: string, 
-  Link:string, 
-  Title:string,
-  Description:string,
-  DateTimeStr:string
-}
-
-
-import Airtable from 'airtable'
-
-const sanitizeHtml = (html: string): string => {
-  const cleanHtml = DOMPurify.sanitize(html, {
-    ADD_TAGS: ['a', 'p'], // Ensure a and p tags are not stripped
-    ADD_ATTR: ['target', 'rel', 'class'], // Allow specific attributes
-    ALLOWED_URI_REGEXP: /^https?:\/\//i, // Restrict URLs to http and https
-    // Use a hook to add Tailwind classes to <a> and <p> elements
-    FORBID_TAGS: ['script'], // Ensure script tags are removed
-  });
-  // Create a DOM parser to manually add Tailwind classes after sanitization
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(cleanHtml, 'text/html');
-
-  // Add Tailwind classes to <a> elements
-  doc.querySelectorAll('a').forEach((element) => {
-    element.classList.add('text-blue-500', 'underline', 'hover:text-blue-700');
-    element.setAttribute('target', '_blank'); // Open links in new tab
-    element.setAttribute('rel', 'noopener noreferrer'); // Security attributes
-  });
-
-  // Add Tailwind classes to <p> elements
-  doc.querySelectorAll('p').forEach((element) => {
-    element.classList.add( 'text-sm', 'gray-text');
-  });
-
-  Array.from(doc.body.childNodes).forEach((node) => {
-    // Check if the node is a text node and has content
-    if (node.nodeType === Node.TEXT_NODE && node.textContent?.trim()) {
-      // Create a new <p> element
-      const p = doc.createElement('p');
-      p.classList.add('text-sm', 'gray-text'); // Add Tailwind classes to <p>
-      p.textContent = node.textContent; // Set the text content
-      doc.body.replaceChild(p, node); // Replace the text node with the new <p>
-    }
-  });
-
-  // Return the modified HTML
-  return doc.body.innerHTML;
-};
-
-
-function EventCard({Type, Link, Title, Description, Important, Date, Time, Location, DateTimeStr} : Card) {
+function EventCard({Type, Link, Title, Description, Important, Date, Time, Location, DateTimeStr} : CalendarEventData) {
   const initiative = Constants.initiative_data[Type];
   const [isExpanded, setIsExpanded] = useState(false); // State to manage expansion
   const toggleExpansion = () => {
     setIsExpanded(!isExpanded); // Toggle the expansion state
   };
   const html_desc = sanitizeHtml(Description)
-
 
   return (
     <a onClick={toggleExpansion}   className={`${initiative.border_class} border-2 event-card m-1 group rounded-lg border border-transparent w-full px-3 py-2 md:px-5 md:py-4 flex flex-col relative`}>
@@ -92,10 +35,7 @@ function EventCard({Type, Link, Title, Description, Important, Date, Time, Locat
                   <p className="text-sm" dangerouslySetInnerHTML={{ __html: html_desc }}></p>
                ) : (
                <p className="text-sm text-elipses-container" dangerouslySetInnerHTML={{ __html: html_desc }}></p>
-
                )}
-
-
               </div>
             </div>
 
@@ -120,11 +60,8 @@ function CardInfo({Date, Time, Location}:{Date: string, Time:string, Location: s
     <div className="min-w-[70px] sm:mr-3 sm:flex sm:flex-col sm:justify-center sm:items-end sm:text-right transition-transform sm:group-hover:translate-x-4 group-hover:translate-x-1">
       <p className="gray-text text-sm hidden sm:inline-block"> {InfoStr_ver} </p>
       <p className="gray-text text-sm inline-block sm:hidden"> {InfoStr_hor} </p>
-
     </div>
-
     </>
-
 
   )
 }
@@ -186,268 +123,26 @@ function EventLoading() {
   
 }
 
-/*
-function ParseDateTime(DateTime: string){
-  if( DateTime == undefined ){
-    return new Date(0);
-  }
-  const vals = DateTime.substring(5,DateTime.length-1).split(",").map((val)=>parseInt(val));
-  const date = new Date(vals[0],vals[1],vals[2],vals[3],vals[4],vals[5]);
-
-  return date;
-}
-function filter_sort_parse(data: Event[], initiative: Constants.InitiativeInterface){
-  //add the DateTime_obj field to the data by using the ParseDateTime function
-  
-  const data_with_dateobj = data.map((card) => {return {...card, DateTime_obj: ParseDateTime(card.DateTime)}});
-
-  const today = new Date().getTime();
-  const first_day = new Date(0);
-  const valid_cards = data_with_dateobj.filter((card,index) => (initiative.key=="aim" || card.Type==initiative.key || card.Type=="aim") ); //(card.DateTime_obj > today || card.DateTime_obj.getTime()===first_day.getTime())
-  if (valid_cards.length == 0){
-    return valid_cards;
-  }
-
-  //show events that are about to happen and events that have hapend recently. 
-  //sort valid events by date and time
-  const cards = valid_cards.sort((a, b) => {
-    const dateA = (a.DateTime_obj.getTime());
-    const dateB = (b.DateTime_obj.getTime());
-    return dateA < dateB ? -1 : 1;
-
-  });
-
-  cards.splice(max_cards, cards.length - max_cards);
-
-  const event_cards = cards.map((card) => {return {
-    Type:card.Type, 
-    Important:card.Important, 
-    Date:(card.DateTime_obj.getTime()!=first_day.getTime() ? card.DateTime_obj.toLocaleDateString("en-US", {month: 'numeric', day: 'numeric'}) : ""), 
-    Time:(card.DateTime_obj.getTime()!=first_day.getTime() ? card.DateTime_obj.toLocaleTimeString([], {hour: 'numeric', minute:'2-digit'}):""), 
-    Location:card.Location, 
-    Link:(card.Link==undefined ? Constants.initiative_data[card.Type].url : card.Link), 
-    Blurb:card.Blurb}});
-
-  return event_cards;
-}
-
-//const spreadsheetId = '1Xq2jDe4WCoUbhofKGVxhZVEL9slOFG1ASPl-wrL8Wjs'
-
-
-*/
-
-function parseAirTableRow(fields:Airtable.FieldSet){
-   //console.log(record.fields)
-   let title_raw = fields["Title"] as string//record.get('Title') as string ?? '';
-   let location = fields["Location"] as string //record.get?.('Location') as string ?? '';
-   
-   let description_raw = fields["Description"] as string //record.get('Description') as string ?? '';
-   let start_date_time = fields["Start"] as string //record.get('Start')
-    //let end_date_time = record.get('End')
-   let all_day = fields["All Day"] as boolean//record.get('All Day')
-
-   const date = new Date(typeof start_date_time === 'string' || typeof start_date_time === 'number' ? start_date_time : 0);
-    // Format the date part in EST
-    const dateOptions = {
-      timeZone: 'America/New_York',
-      month: '2-digit' as const,
-      day: '2-digit' as const,
-    };
-    const dateInEST = date.toLocaleDateString('en-US', dateOptions);
-
-    // Format the time part in EST with AM/PM
-    const timeOptions = {
-      timeZone: 'America/New_York',
-      hour: 'numeric' as const,
-      minute: '2-digit' as const,
-      hour12: true,
-    };
-    let timeInEST = date.toLocaleTimeString('en-US', timeOptions);
-
-
-    const regex = /\[(.*?)\]/;
-
-    
-    let isImportant = false
-    let initiative = "aim"
-    let real_title = ""
-
-    if (typeof title_raw === 'string'){
-      real_title = title_raw.replace(regex, '').trim() 
-      let title_match = title_raw.match(regex);  
-
-      if(title_match ) {
-        let title_bracket_content = title_match[1].trim()
-  
-        if (title_bracket_content){
-          let initial = title_bracket_content.replace(/!/g, '').toLowerCase()[0]
-          if (initial == "a"){
-            initial = "aim"
-          }
-          if(["aim","g","w","l","p","s"].includes(initial)){
-            initiative = initial
-          }
-    
-          isImportant = title_bracket_content.endsWith('!')
-        }
-    
-      }
-    
-
-    }
-
-
-
-    
-
-    let real_desc = ""
-    let url_link = ""
-    if (typeof description_raw === 'string'){
-      real_desc=description_raw
-      let desc_match = description_raw.match(regex);  
-      if(desc_match){
-
-        let desc_bracket_content = desc_match[1].trim()
-        if(desc_bracket_content){
-          real_desc = description_raw.replace(regex, '').trim() 
-    
-          const urlRegex = /(https?:\/\/[^\s]+)/g;
-          let url_match = desc_bracket_content.match(urlRegex)
-          if (url_match){
-            url_link = url_match[0];
-          }
-        }
-
-    }
-
-    
-
-  }
-
-    if(all_day){
-      timeInEST=""
-    }
-
-    if(real_title){
-      real_title = real_title
-    }
-
-
-    
-    let card: Card = {
-      Type: initiative ?? "", 
-      Important: isImportant ? "true" : "", // Convert boolean to string
-      Date: dateInEST ?? "", 
-      Time: timeInEST ?? "",
-      Location: location ?? "", // Ensure it's always a string
-      Link: url_link ?? "", 
-      Title: real_title ?? "",
-      Description: real_desc ?? "",
-      DateTimeStr: start_date_time ?? "" // Ensure it's always a string
-    }
-  
-    
-    return card
-
-}
-
-function getSoonestEvents(cards:Card[]) {
-  // Helper function to parse date and time into a comparable format
-  function parseDateTime(card:Card) {
-    return new Date(card.DateTimeStr);
-  }
-
-  // Get today's date and yesterday's date
-  const today = new Date();
-  const yesterday = new Date();
-  yesterday.setDate(today.getDate() - 2);
-
-  // Filter the events that are from yesterday onwards
-  const filteredCards = cards.filter(card => parseDateTime(card) >= yesterday);
-
-
-  // Sort the events based on date, importance, and type
-  const sortedCards = filteredCards.sort((a, b) => {
-    const dateA = parseDateTime(a);
-    const dateB = parseDateTime(b);
-
-    // Compare by date and time
-    if (dateA < dateB) return -1;
-    if (dateA > dateB) return 1;
-
-    // Compare by Importance ("yes" is considered more important)
-    if (a.Important === 'true' && b.Important !== 'true') return -1;
-    if (a.Important !== 'true' && b.Important === 'true') return 1;
-
-    // Compare by Type ("aim" is considered higher priority)
-    if (a.Type === 'aim' && b.Type !== 'aim') return -1;
-    if (a.Type !== 'aim' && b.Type === 'aim') return 1;
-
-    return 0;
-  });
-
-  // Return the first 5 events
-  let upcoming = sortedCards.slice(0, max_cards);
-
-  return upcoming
-}
-
-const NoEventCard = {
-  Type: "aim", 
-  Important: "false", 
-  Date:"", 
-  Time: "",
-  Location: "", 
-  Link:"", 
-  Title:"There are currently no upcoming public events scheduled. Check back later.",
-  DateTimeStr: ""
-} as Card
 
 export default function Calendar({initiative}:{initiative:Constants.InitiativeInterface}) {
 
   
-  const [data, setData] = useState<Card[]>([]);
+  const [data, setData] = useState<CalendarEventData[]>([]);
  
   useEffect(() => {
-    // This code will run only once during the initial load
-    console.log('Calendar Data Loaded');
-    var base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('appwsdSUA3MAMj2SW');
-
-    base('AIM 2024/25').select({
-      // Selecting the first 3 records in Grid view:
-      maxRecords: 1000,
-      view: "Grid view"
-  }).eachPage(function page(records, fetchNextPage) {
-
-    const cards = records.map((record) => parseAirTableRow(record.fields)) as Card[];
-
-    let upcomingEvents = getSoonestEvents(cards)
-
-    console.log(upcomingEvents)
-
-    if (upcomingEvents){
-      if(upcomingEvents.length === 0){
-        upcomingEvents = [NoEventCard] 
-      }
-    }
-  
-    setData(upcomingEvents);
-    fetchNextPage();
-
-}, function done(err) {
-    if (err) { console.error(err); return; }
-});
-
- 
-
+    const fetchData = async () => {
+      const result = await get_airtable_data(initiative);
+      setData(result);
+    };
+    fetchData();
   }, []); //initiative
 
-  const cards = Array.from(data as ArrayLike<Card>);
+  const cards = Array.from(data as ArrayLike<CalendarEventData>);
 
   return (
     <div className="mt-4 rounded-lg md:border w-full md:px-3 md:py-2 md:border-gray-600 flex flex-col justify-center items-center ">
       {cards.length == 0 ? (
-          Array.from({length: max_cards}, (_, index) => index + 1).map((data,index) => (
+          Array.from({length: max_calendar_events_render}, (_, index) => index + 1).map((data,index) => (
             <EventLoading key={index}/>
           ))
         ) : (

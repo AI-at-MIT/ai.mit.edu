@@ -10,7 +10,7 @@ import Stats from "@/components/stats";
 import Showcase from "@/components/showcase";
 import Join from "@/components/join";
 import ExecutiveMembers from "@/components/executivemembers";
-import * as Constants from "@/components/constants";
+import * as Constants from "@/components/util/constants";
 
 
 import Image from 'next/image'
