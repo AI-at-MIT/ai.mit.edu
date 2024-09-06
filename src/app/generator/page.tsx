@@ -5,7 +5,7 @@ import About from "@/components/about";
 import BackgroundAnimation from "@/components/backgroundanimation";
 import Glance from "@/components/glance";
 import Join from "@/components/join";
-import * as Constants from "@/components/constants";
+import * as Constants from "@/components/util/constants";
 
 const initiative = Constants.initiative_data["g"];
 

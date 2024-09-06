@@ -1,5 +1,5 @@
 'use client'
-import * as Constants from '@/components/constants'
+import * as Constants from '@/components/util/constants'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react';
 import Sponsors from '@/components/sponsors'

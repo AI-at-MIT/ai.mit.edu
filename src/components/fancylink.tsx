@@ -1,4 +1,4 @@
-import * as Constants from "./constants";
+import * as Constants from "./util/constants";
 
 export default function FancyLink({
   initiative,

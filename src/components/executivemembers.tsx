@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {execMembers, InitiativeInterface} from './constants'
+import {execMembers, InitiativeInterface} from './util/constants'
 
 
 function ExecutiveCard({ imageName, name, position, link } : {imageName: string, name: string, position: string, link: string}) {

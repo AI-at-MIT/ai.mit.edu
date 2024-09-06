@@ -1,5 +1,5 @@
 import Image from "next/image";
-import * as Constants from '@/components/constants'
+import * as Constants from '@/components/util/constants'
 const initiative = Constants.initiative_data["aim"]
 
 
@@ -8,7 +8,7 @@ export default function Navbar() {
         <header className="fixed w-full top-0 left-0 z-50">
             <nav className="backdrop-blur-md bg-black/30 h-20 flex items-center justify-between p-4">
                     
-                    <a href={"/"} className="quicklink-text group ">
+                    <a href={"/"} className="quicklink-text group transition hover:duration-500 active:duration-200 active:scale-90 hover:rotate-[360deg]">
 
                     <Image
                         alt="initiative-icon"
