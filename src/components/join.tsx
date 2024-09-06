@@ -1,4 +1,4 @@
-import * as Constants from '@/components/constants'
+import * as Constants from '@/components/util/constants'
 import FancyLink from '@/components/fancylink'
 
 function ApplyNow({initiative, href} : {initiative: Constants.InitiativeInterface, href: string}) {
