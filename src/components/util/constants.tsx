@@ -1,6 +1,6 @@
 //Links
 
-export const max_calendar_events_render = 8
+export const max_calendar_events_render =5
 
 export const emails : {[key: string]: string} = {
   "contact":"mailto:aim-exec@mit.edu",
@@ -19,6 +19,9 @@ export interface CalendarEventData {
   Title:string,
   Description:string,
   DateTimeStr:string
+  EndDateTimeStr:string,
+  EventStatus:string
+
 }
 
 export const NoEventData = {
@@ -30,8 +33,14 @@ export const NoEventData = {
   Link:"", 
   Title:"Check back later.",
   Description:"There are currently no upcoming public events scheduled.",
-  DateTimeStr: ""
+  DateTimeStr: "",
+  EndDateTimeStr: "",
+  EventStatus: "Note"
 } as CalendarEventData
+
+export const dateOptions = {timeZone: 'America/New_York', month: '2-digit' as const, day: '2-digit' as const,};
+export const timeOptions = {timeZone: 'America/New_York', hour: 'numeric' as const, minute: '2-digit' as const, hour12: true,};
+
 
 
 export interface InitiativeInterface {

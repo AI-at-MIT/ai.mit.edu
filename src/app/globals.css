@@ -115,6 +115,8 @@ body::-webkit-scrollbar {
   color: #00000085;
 }
 
+
+
 .container {
   background: var(--background-gradient);
 
@@ -201,6 +203,10 @@ body::-webkit-scrollbar {
   background: var(--background-gradient) padding-box,
               var(--aim-grad-transparent) border-box;  
 }
+.noHover{
+  pointer-events: none;
+}
+
 
 .border-aim:hover {
   background: var(--background-gradient) padding-box,
