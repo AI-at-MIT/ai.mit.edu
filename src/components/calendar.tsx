@@ -5,44 +5,84 @@ import { useEffect } from 'react';
 import Image from 'next/image'
 
 
-import {CalendarEventData, max_calendar_events_render} from './util/constants'
+import {CalendarEventData, max_calendar_events_render, dateOptions, timeOptions} from './util/constants'
 
 import {sanitizeHtml, get_airtable_data} from './util/airtable'
 
 
 
-function EventCard({Type, Link, Title, Description, Important, Date, Time, Location, DateTimeStr} : CalendarEventData) {
-  const initiative = Constants.initiative_data[Type];
+function EventCard({EventData}:{EventData:CalendarEventData}){//{Type, Link, Title, Description, Important, Date, Time, Location, DateTimeStr, EndDateTimeStr, EventStatus} : CalendarEventData) {
+  const initiative = Constants.initiative_data[EventData.Type];
   const [isExpanded, setIsExpanded] = useState(false); // State to manage expansion
   const toggleExpansion = () => {
     setIsExpanded(!isExpanded); // Toggle the expansion state
   };
-  const html_desc = sanitizeHtml(Description)
+  const html_desc = sanitizeHtml(EventData.Description)
+
+  const status = EventData.EventStatus
+
+  const endDate = new Date(EventData.EndDateTimeStr)
+  
+
+
+
 
   return (
     <a onClick={toggleExpansion}   className={`${initiative.border_class} border-2 event-card m-1 group rounded-lg border border-transparent w-full px-3 py-2 md:px-5 md:py-4 flex flex-col relative`}>
       <div className="event-info flex items-center w-full ">
 
-          <EventIcon Important={Important} Type={Type}/>
+          <EventIcon Important={EventData.Important} Type={EventData.Type}/>
 
-          <div className="sm:flex ml-3 sm:flex-row w-full ">
+        <div className="sm:flex ml-3 sm:flex-col w-full transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+          <div className="sm:flex  sm:flex-row w-full ">
 
-            <div className="mr-auto transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              <div className="h-full flex flex-col justify-center items-start">
-              <p className="text-sm sm:text-lg">{Title}</p>
-     
-              {isExpanded ? (
-                  <p className="text-sm" dangerouslySetInnerHTML={{ __html: html_desc }}></p>
-               ) : (
-               <p className="text-sm text-elipses-container" dangerouslySetInnerHTML={{ __html: html_desc }}></p>
-               )}
-              </div>
+          <div className="mr-auto ">
+            <div className="h-full flex flex-col justify-center items-start align-middle">
+              <p className="text-sm sm:text-lg">
+                {EventData.Title}
+
+                {status!="Future" && 
+                  <span className={`${initiative.border_class} event-card noHover border border-transparent border-2 ml-2 text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded-full align-middle`}>
+                    <span className={`${initiative.clip_background} transition-transform motion-reduce:transform-none quicklink w-full`}>
+                    {status}
+
+                    </span>
+                  </span>
+                }
+                
+
+
+
+                </p>
+                <p>
+                {/* start time */}
+                <CardDateTimePlace Event = {EventData} DisplaySide ={false}/>
+                {/* description */}
+                {isExpanded&& <EndDateTimeDisplay StartDateTimeStr={EventData.DateTimeStr} EndDateTimeStr={EventData.EndDateTimeStr}/>}
+
+
+
+                {!isExpanded &&  <p className="text-sm text-elipses-container" dangerouslySetInnerHTML={{ __html: html_desc }}></p>}
+
+                </p>
+              
+              
             </div>
-
-            <CardInfo Date={Date} Time={Time} Location={Location}/>
+          </div>
+          <CardDateTimePlace Event = {EventData} DisplaySide ={true}/>
 
 
           </div>
+         
+
+          {isExpanded && html_desc && <>
+           
+            <p className="text-sm mt-2  pr-4" dangerouslySetInnerHTML={{ __html: html_desc }}></p>
+          </>
+          }
+
+        </div>
+
           
       </div>
       
@@ -50,20 +90,52 @@ function EventCard({Type, Link, Title, Description, Important, Date, Time, Locat
   );
 }
 
-function CardInfo({Date, Time, Location}:{Date: string, Time:string, Location: string}){
-  const InfoStr_hor = Date=="" && Time=="" && Location==""  ? "note" : (Date ? "on "+Date : "")+(Time ? " at "+Time : "")+(Location ? " in "+Location : "")
-  const InfoStr_ver = (<>{Date ? Date : <br/>} <br/> {Time ? Time : <br/>} <br/> {Location ? Location : <br/>}</>)
-  //transition-transform group-hover:translate-x-1 motion-reduce:transform-none
-  return(
-    
+function CardDateTimePlace({Event, DisplaySide}:{Event:CalendarEventData, DisplaySide:boolean}) {
+  const display_text = DisplaySide ? 
+  (<>{Event.Date ? Event.Date : <br/>} <br/> {Event.Time ? Event.Time : <br/>} <br/> {Location ? Location : <br/>}</>)
+
+    :
+  (Event.Date ? "on "+Event.Date : "")+(Event.Time ? " at "+Event.Time : "")+(Event.Location ? " in "+Event.Location : "")
+
+  return (
     <>
-    <div className="min-w-[70px] sm:mr-3 sm:flex sm:flex-col sm:justify-center sm:items-end sm:text-right transition-transform sm:group-hover:translate-x-4 group-hover:translate-x-1">
-      <p className="gray-text text-sm hidden sm:inline-block"> {InfoStr_ver} </p>
-      <p className="gray-text text-sm inline-block sm:hidden"> {InfoStr_hor} </p>
-    </div>
+    {DisplaySide&&<div className="min-w-[70px] sm:mr-3 sm:flex sm:flex-col sm:justify-center sm:items-end sm:text-right transition-transform sm:group-hover:translate-x-3 ">
+      <p className="gray-text text-sm hidden sm:inline-block"> {display_text} </p>
+    </div>}
+
+    {!DisplaySide&&display_text&&<span className="gray-text text-sm inline-block sm:hidden"> {display_text} </span>}
     </>
 
   )
+  
+}
+
+function EndDateTimeDisplay({StartDateTimeStr, EndDateTimeStr} :{StartDateTimeStr: string, EndDateTimeStr:string}) {
+
+  const start_date = new Date(StartDateTimeStr)
+  const end_date = new Date(EndDateTimeStr)
+
+  const same_day = start_date.getDay()==end_date.getDay()
+  //fix wide display side translation
+
+
+  const end_day = end_date.toLocaleDateString('en-US', dateOptions);
+  const end_time = end_date.toLocaleTimeString('en-US', timeOptions);
+
+
+  const end_time_text = " at " + end_time
+  return (
+    <>
+    <span className="gray-text text-sm hidden sm:inline">
+      ends {!same_day&&("on " + end_day) } {end_time_text}
+    </span>
+    <span className="gray-text text-sm inline sm:hidden"> 
+      {" "} &rarr; {!same_day&&(end_day)} {end_time_text}
+    </span>
+    </>
+  )
+
+
 }
 
 function EventIcon({Type, Important} : {Type: string, Important: String}) {
@@ -147,7 +219,8 @@ export default function Calendar({initiative}:{initiative:Constants.InitiativeIn
           ))
         ) : (
           cards.map((data,index) => (
-            <EventCard key={index} Type={data.Type} Link={data.Link == "" ? Constants.initiative_data[data.Type].url : data.Link} Title={data.Title} Description={data.Description} Important={data.Important} Date={data.Date} Time={data.Time} Location={data.Location} DateTimeStr={data.DateTimeStr}/>
+            <EventCard key={index} EventData={data}/>
+            //Type={data.Type} Link={data.Link == "" ? Constants.initiative_data[data.Type].url : data.Link} Title={data.Title} Description={data.Description} Important={data.Important} Date={data.Date} Time={data.Time} Location={data.Location} DateTimeStr={data.DateTimeStr} EndDateTimeStr={data.EndDateTimeStr} EventStatus={data.EventStatus}
           ))
         )
       }
