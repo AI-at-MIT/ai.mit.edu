@@ -54,7 +54,8 @@ function EventCard({EventData}:{EventData:CalendarEventData}){//{Type, Link, Tit
 
 
                 </p>
-                <p>
+
+                <p className="text-sm">
                 {/* start time */}
                 <CardDateTimePlace Event = {EventData} DisplaySide ={false}/>
                 {/* description */}
@@ -77,7 +78,7 @@ function EventCard({EventData}:{EventData:CalendarEventData}){//{Type, Link, Tit
 
           {isExpanded && html_desc && <>
            
-            <p className="text-sm mt-2  pr-4" dangerouslySetInnerHTML={{ __html: html_desc }}></p>
+            <p className="text-sm mt-3  pr-4" dangerouslySetInnerHTML={{ __html: html_desc }}></p>
           </>
           }
 
@@ -123,14 +124,15 @@ function EndDateTimeDisplay({StartDateTimeStr, EndDateTimeStr} :{StartDateTimeSt
   const end_time = end_date.toLocaleTimeString('en-US', timeOptions);
 
 
-  const end_time_text = " at " + end_time
+  const end_time_text = end_time
+  const end_day_text = !same_day&&(end_day+" at ")
   return (
     <>
     <span className="gray-text text-sm hidden sm:inline">
-      ends {!same_day&&("on " + end_day) } {end_time_text}
+      ends {end_day_text} {end_time_text}
     </span>
     <span className="gray-text text-sm inline sm:hidden"> 
-      {" "} &rarr; {!same_day&&(end_day)} {end_time_text}
+      {" "} &rarr; {end_day_text} {end_time_text}
     </span>
     </>
   )
