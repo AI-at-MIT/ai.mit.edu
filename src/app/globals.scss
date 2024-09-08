@@ -1,0 +1,261 @@
+@use "sass:list";
+@use "sass:color";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+    --foreground-rgb: 255, 255, 255;
+  
+    --b-x-offset: 0%;
+    --b-y-offset: 80%;
+    --background-dark: #0D0D0D;
+    --background-light: #1D1D1D;
+    --background-gradient: radial-gradient(circle at var(--b-x-offset) var(--b-y-offset), var(--background-light), var(--background-dark));
+  
+  
+    --off-white: 225, 225, 225;
+    --gray: 126, 126, 126;
+  
+    --fast-rad-x: 100px;
+    --fast-rad-y: 100px;
+  }
+  
+  
+//define the colors for gradients of each initiative
+
+$init-transparent-opacity: 0.3;   
+
+$initiatives:
+  "reading" (rgb(66,255,0),rgb(0,163,255)),
+  "labs" (rgb(255,122,0),rgb(127,0,254)),
+  "workshops" (rgb(255, 83, 12), rgb(255,5,126)),
+  "generator" (rgb(0,255,240), rgb(173,0,255)),
+  "speakers" (rgb(0,255,178),rgb(249,255,0)),
+  "permeate" (rgb(255,230,1), rgb(255,122,0), rgb(255,6,116)),
+  "aim" (rgb(252,88,54), rgb(203,36,85), rgb(147,23,193), rgb(36,203,243), rgb(48,229,72), rgb(220,255,1))
+
+  ;
+
+
+  @function transparent_colors($colors, $opacity) {
+    $sequence: ();
+    @each $color in $colors {
+      $sequence: append($sequence, rgba($color, $opacity), comma);
+    }
+    @return $sequence;
+  }
+  
+
+//construct css classes for each iniative
+@each $init, $colors in $initiatives {
+
+    $init-grad: linear-gradient(45deg, $colors);
+    $init-grad-transparent: linear-gradient(45deg, transparent_colors($colors,$init-transparent-opacity));
+
+    .background-#{$init} {
+        background: $init-grad;
+    }
+
+    .border-#{$init} {
+        background: var(--background-gradient) padding-box,
+        $init-grad-transparent border-box;    
+
+        &:hover {
+            background: var(--background-gradient) padding-box,
+            $init-grad border-box;  
+    
+        }
+
+    }
+
+
+    .clip-background-#{$init} {
+
+        background: $init-grad;
+        -webkit-background-clip: text;
+        background-clip: text;
+
+    }
+}
+  
+
+
+//css below
+
+body {
+    color: rgb(var(--foreground-rgb));
+    background: var(--background-gradient);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    color: #E1E1E1;
+    
+  
+    
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+  }
+  
+  .bg-dark {
+    background: var(--background-dark);
+  }
+  
+  .border-bg-dark {
+    border-color: var(--background-dark);
+  }
+  
+  .quicklink {
+   
+    color: transparent;
+  
+  }
+  .quicklink-text {
+    color: transparent;
+  
+  }
+  
+  .quicklink-text:hover {
+    color: #00000060;
+  }
+  
+  .quicklink-text:active {
+    color: #00000085;
+  }
+  
+  
+  .container {
+    background: var(--background-gradient);
+  
+  }
+  
+  .title-tag-text {
+    color: rgb(var(--off-white));
+  }
+  
+  .title-desc-text {
+    color: rgb(var(--gray));
+  }
+  
+  
+  .off-white-text {
+    color: rgb(var(--off-white));
+  }
+  
+  .gray-text {
+    color: rgb(var(--gray));
+  }
+  
+  
+  
+  .event-card:active {
+  
+    transform: scale(0.99); 
+  }
+  
+  h1 {
+    color: #FFFFFF;
+  
+    font-size: xxx-large;
+    margin: 30px 0 30px 0;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+  }
+   h2 {
+    font-size: xx-large;
+    margin: 15px 0 15px 0;
+  
+   }
+  h3 {
+    font-size: x-large;
+    margin: 10px 0 10px 0;
+  }
+  
+  p {
+    font-size: x-large;
+  }
+  @media only screen and (max-width: 700px) {
+    p {
+      font-size: large;
+    }
+    h3 {
+      font-size: large;
+    }
+    h2 {
+      font-size: x-large;
+      margin: 10px 0 10px 0;
+    
+     }
+     h1 {
+      font-size: xx-large;
+      margin: 20px 0 20px 0;
+    
+     }
+  }
+  
+  
+  main {
+    width: 100vw;
+    overflow-x: hidden;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+  
+  }
+  
+  .section-full {
+    min-height: 100vh;
+    padding: 20px 30px;
+  }
+  
+  .section {
+    padding: 80px 30px;
+  }
+  
+  .title-text {
+    color: #E1E1E1;
+    font-family: 'Inter', sans-serif;
+  
+  }
+  .text-elipses-container {
+    display: -webkit-box; /* Necessary for line clamping */
+    -webkit-box-orient: vertical; /* Necessary for line clamping */
+    overflow: hidden; /* Hides overflowing content */
+    text-overflow: ellipsis; /* Displays ellipsis */
+    -webkit-line-clamp: 2; /* Limits to 2 lines */
+  }
+  
+  .mobile {
+    @media screen and (min-width: 800px) {
+      display: none;
+    }
+  }
+  
+  .desktop {
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
+  }
+  
+  .bg-grad-fast {
+    background: radial-gradient(circle at 50% 50%, #FFFFFF30, #FFFFFF10) top right/200% 200%;
+    animation: colorChange 1.5s infinite alternate;
+  }
+  @keyframes colorChange {
+    to {
+      background-position:top left;
+    }
+   }
+  
+  
+  

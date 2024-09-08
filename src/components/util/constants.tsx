@@ -129,7 +129,18 @@ export const initiative_data : {[key: string]: InitiativeInterface} = {
     background: "background-permeate",
     clip_background: "clip-background-permeate",
   },
-    
+  r: {
+    key: "r",
+    name: "Reading",
+    tagline: "Our literature review group.",
+    description: "Regular dinners to review interesting papers. Occasionally we bring the authors in to present.",
+    url: "reading",
+    icon: "icons/reading-icon.svg",
+    backdrop: "backdrops/reading-backdrop.svg",
+    border_class: "border-reading",
+    background: "background-reading",
+    clip_background: "clip-background-reading",
+  },
 };
 
 
