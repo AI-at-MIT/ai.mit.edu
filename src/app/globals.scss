@@ -4,6 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
+$initiatives:
+  "reading" (rgb(66,255,0),rgb(0,163,255)),
+  "labs" (rgb(255,122,0),rgb(127,0,254)),
+  "workshops" (rgb(255, 83, 12), rgb(255,5,126)),
+  "generator" (rgb(0,255,240), rgb(173,0,255)),
+  "speakers" (rgb(0,255,178),rgb(249,255,0)),
+  "permeate" (rgb(255,230,1), rgb(255,122,0), rgb(255,6,116)),
+  "aim" (rgb(252,88,54), rgb(203,36,85), rgb(147,23,193), rgb(36,203,243), rgb(48,229,72), rgb(220,255,1))
+
+  ;
+
 
 :root {
     --foreground-rgb: 255, 255, 255;
@@ -23,30 +34,19 @@
   }
   
   
-//define the colors for gradients of each initiative
 
 $init-transparent-opacity: 0.3;   
 
-$initiatives:
-  "reading" (rgb(66,255,0),rgb(0,163,255)),
-  "labs" (rgb(255,122,0),rgb(127,0,254)),
-  "workshops" (rgb(255, 83, 12), rgb(255,5,126)),
-  "generator" (rgb(0,255,240), rgb(173,0,255)),
-  "speakers" (rgb(0,255,178),rgb(249,255,0)),
-  "permeate" (rgb(255,230,1), rgb(255,122,0), rgb(255,6,116)),
-  "aim" (rgb(252,88,54), rgb(203,36,85), rgb(147,23,193), rgb(36,203,243), rgb(48,229,72), rgb(220,255,1))
-
-  ;
 
 
-  @function transparent_colors($colors, $opacity) {
+@function transparent_colors($colors, $opacity) {
     $sequence: ();
     @each $color in $colors {
-      $sequence: append($sequence, rgba($color, $opacity), comma);
+        $sequence: append($sequence, rgba($color, $opacity), comma);
     }
     @return $sequence;
-  }
-  
+}
+
 
 //construct css classes for each iniative
 @each $init, $colors in $initiatives {
@@ -69,7 +69,6 @@ $initiatives:
         }
 
     }
-
 
     .clip-background-#{$init} {
 
