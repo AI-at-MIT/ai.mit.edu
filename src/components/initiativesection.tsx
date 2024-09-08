@@ -109,11 +109,11 @@ export default function InitiativeSection() {
         <h1>Initiatives</h1>
   
         <div className="flex flex-wrap gap-20 justify-center max-w-[900px]">
-          <InitiativeCard initiative={Constants.initiative_data["l"]}/>
-          <InitiativeCard initiative={Constants.initiative_data["w"]}/>
-          <InitiativeCard initiative={Constants.initiative_data["s"]}/>
-          <InitiativeCard initiative={Constants.initiative_data["g"]}/>
-          <InitiativeCard initiative={Constants.initiative_data["p"]}/>
+          {Object.values(Constants.initiative_data)
+            .filter(init => init.key !== 'aim')
+            .map((init) => (
+              <InitiativeCard key={init.key} initiative={init} />
+            ))}
         </div>
       </div>
   
