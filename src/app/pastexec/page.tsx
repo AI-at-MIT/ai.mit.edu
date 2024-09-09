@@ -39,7 +39,7 @@ export default function Home() {
         <h1>Past Exec</h1>
         <div className="max-w-[600px] w-auto text-left mx-auto">
           <p className="gray-text">
-              {`While the organization was founded in 2017, we only show executive members of AI@MIT going back to 2023. If you're involved feel free to reach out to these recent alumni to learn more.`}
+              {`While the organization was founded in 2017, we only show executive members of AI@MIT going back to 2022. If you're involved feel free to reach out to these recent alumni to learn more.`}
 
           </p>
         </div>

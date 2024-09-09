@@ -154,8 +154,8 @@ export interface ExecData {
 
 
 
-const start_year = 2023
-const current_year =  2025
+const start_year = 2022
+const current_year =  (new Date()).getFullYear()+1
 
 
 let directories = [] as string[];

@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 
 function ExecutiveCard({ imageName, name, position, link } : {imageName: string, name: string, position: string, link: string}) {
   return (
-    <a href={link} className="m-10 group rounded-full border border-transparent px-4 py-4 flex flex-col items-center w-[250px] h-[350px] ">
+    <a href={link} className="m-4 group rounded-full border border-transparent px-4 py-4 flex flex-col items-center w-[250px] h-[350px] ">
 
       <div className="transition duration-500 ease-in-out group-active:scale-95 w-[170px] relative h-[170px] rounded-full overflow-hidden hover ">
         <Image
@@ -59,7 +59,7 @@ export default function ExecutiveMembers({title, initiative, exec_data} : {title
 
       {!exec_data&&
         <div className="flex flex-col items-center">
-          <p className="gray-text ">See past Exec since 2023 <FancyLink initiative={undefined} href="/pastexec" text="here"/>.</p>
+          <p className="gray-text ">See past Executive Members of AI@MIT <FancyLink initiative={undefined} href="/pastexec" text="here"/>.</p>
         </div>
       }
     </div>
