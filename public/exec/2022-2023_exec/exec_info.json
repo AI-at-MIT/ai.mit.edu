@@ -1,0 +1,80 @@
+[
+
+  {
+    "name": "Zack Ankner", 
+    "position": "Co-President",
+    "imageSource": "zack_headshot.png", 
+    "link": "https://www.linkedin.com/in/zack-ankner/",
+    "type": ["aim"]
+  },
+  {
+    "name": "Jimin Lee", 
+    "position": "Co-President",
+    "imageSource": "jimin_headshot.png", 
+    "link": "https://www.linkedin.com/in/jimin24/",
+    "type": ["aim"]
+  },
+  {
+    "name": "Nithya Attaluri", 
+    "position": "Treasurer",
+    "imageSource": "nithya_headshot.png", 
+    "link": "https://www.linkedin.com/in/nithya-attaluri/",
+    "type": ["aim"]
+  },
+  {
+    "name": "Sejal Gupta", 
+    "position": "Labs Co-Lead",
+    "imageSource": "sejal_headshot.jpeg", 
+    "link": "",
+    "type": ["aim","l"]
+  },
+  {
+    "name": "David Koplow", 
+    "position": "Labs Co-Lead",
+    "imageSource": "david_headshot.jpg", 
+    "link": "https://www.linkedin.com/in/david-koplow/",
+    "type": ["aim","l"]
+  },
+  {
+    "name": "Jose Ricardo Ramos", 
+    "position": "Reading Group Co-Lead",
+    "imageSource": "jose_headshot.jpeg", 
+    "link": "",
+    "type": ["aim","s"]
+  },
+  {
+    "name": "Shayda Moezzi",
+    "position": "Reading Group Co-Lead",
+    "imageSource": "shayda_headshot.png",
+    "link": "",
+    "type": ["aim","s"]
+  },
+  {
+    "name": "Kevin Meng",
+    "position": "Workshops Lead",
+    "imageSource": "kevin_headshot.png",
+    "link": "",
+    "type": ["aim","w"]
+  },
+  {
+    "name": "Anika Puri",
+    "position": "Marketing Lead",
+    "imageSource": "anika_headshot.jpeg",
+    "link": "",
+    "type": ["aim"]
+  },
+  {
+    "name": "Erick Gbordzoe",
+    "position": "Social Director",
+    "imageSource": "erick_headshot.png",
+    "link": "",
+    "type": ["aim"]
+  },
+  {
+    "name": "Will Guilhermo Costa",
+    "position": "Webmaster",
+    "imageSource": "will_headshot.png",
+    "link": "",
+    "type": ["aim"]
+  }
+]

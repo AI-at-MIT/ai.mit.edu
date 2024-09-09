@@ -1,7 +1,7 @@
 # Website for AI@MIT.
 
 
-## To deploy
+## To deploy site changes
 
 NOTE: **The prod branch is in active deployment.**
 
@@ -11,22 +11,22 @@ NOTE: **The prod branch is in active deployment.**
 3) Make your modifications
 4) Run `npm run build` to make sure your code builds and is type safe
 5) Push to main branch
-6) Create a [pull request](https://github.com/AI-at-MIT/ai.mit.edu/pulls) to pull the `main` branch into the `prod` branch.
-
-## To add a new initiative:
-1) add a new `(initiative)-icon.svg` logo to `public/icons`, and `(initiative)-backdrop.svg` to `public/backdrops`
-2) add a name and gradient in the `$initiatives` variable in `globals.scss` 
-3) add the initiative information in `initiative_data` from `@components/util/constants.tsx`
-4) create a page for the initiative in app/router, you can copy an existing one as a template
-5) customize the page
+6) Create a [pull request](https://github.com/AI-at-MIT/ai.mit.edu/pulls) to pull the `main` branch into the `prod` branch. 
+![image info](./readme_assets/PR1.png)
+7) Then follow the steps to complete it shown below. Note, if it doesn't build this won't work and you'll have to fix the errors.
+![image info](./readme_assets/PR2.png)
+![image info](./readme_assets/PR3.png)
+![image info](./readme_assets/PR4.png)
+![image info](./readme_assets/PR5.png)
+8) After a couple minutes the site should be deployed at [ai-at-mit.com](https://www.ai-at-mit.com/). If there are errors in the pull request or the site isn't updated, there might be an issue with Vercel. This can be solved by redeploying the organization on the Vercel account (you might need to make a new account) and updating domain redirects on NameCheap to go to the new Vercel deployment site.
 
 
 ## To update Exec:
 1) Navigate to the `public/exec` folder
-2) Rename the folder titled `"current_exec"` to `"20(start year)-20(start year + 1)_exec"`
-3) create a new folder titled `"current_exec"` and enter this folder
-4) add square high resolution colored photos for each person on exec
-5) create a json called `exec_info.json` and fill it with the exec information for the upcoming year. The format is shown below. Note: you can remove/modify the element for me once I'm no longer involved, it's there for clarity:
+2) Create a new folder titled `"20(start year)-20(start year + 1)_exec"`and enter this folder
+4) Add square high resolution colored photos for each person on exec
+5) Create a json called `exec_info.json` and fill it with the exec information for the upcoming year. The format is shown below. 
+Note: imageSource should just be the name of the image in the same folder as the json file. The actual link is calculated in the code:
 ```
 [
   {
@@ -46,4 +46,11 @@ NOTE: **The prod branch is in active deployment.**
   ...
 ]
 ```
+6) The website should show the most recent year on the first page and all exec on the page `/pastexec`.
 
+## To add a new initiative:
+1) Add a new `(initiative)-icon.svg` logo to `public/icons`, and `(initiative)-backdrop.svg` to `public/backdrops`
+2) Add a name and gradient in the `$initiatives` variable in `globals.scss` 
+3) Add the initiative information in `initiative_data` from `@components/util/constants.tsx`
+4) Create a page for the initiative in app/router, you can copy an existing one as a template
+5) Customize the page

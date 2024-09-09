@@ -144,99 +144,70 @@ export const initiative_data : {[key: string]: InitiativeInterface} = {
 };
 
 
-export const execMembers = [
-  {
-    name: "David Koplow", 
-    position: "Co-President",
-    imageSource: "/exec/david_headshot.jpg", 
-    link: "https://www.linkedin.com/in/david-koplow/",
-    type: ["aim","p"],
-  },
-  {
-    name: "Zack Ankner", 
-    position: "Co-President",
-    imageSource: "/exec/zack_headshot.png", 
-    link: "https://www.linkedin.com/in/zack-ankner/",
-    type: ["aim"],
-  },
+export interface ExecData {
+    name: string,
+    position: string,
+    imageSource: string,
+    link: string,
+    type: string[]
+}
 
-  {
-    name: "Emily Zhou", 
-    position: "Labs Co-Lead",
-    imageSource: "/exec/emily_headshot.jpg", 
-    link: "https://www.linkedin.com/in/emilyzhouprofile/",
-    type: ["aim","l"],
-  },
-  {
-    name: "Sagnik Anupam", 
-    position: "Labs Co-Lead",
-    imageSource: "/exec/sagnik_headshot.png", 
-    link: "https://www.linkedin.com/in/sagnik-anupam/",
-    type: ["aim","l"],
-  },
-  {
-    name: "Rishab Parthasarathy",
-    position: "Workshops Lead",
-    imageSource: "/exec/rishab_headshot.jpg",
-    link: "https://www.linkedin.com/in/rishab-parthasarathy-57b33424b/",
-    type: ["aim","w"],
-  },
-  {
-    name: "Jose Ricardo Ramos", 
-    position: "Speakers Co-Lead",
-    imageSource: "/exec/jose_headshot.jpeg", 
-    link: "",
-    type: ["aim","s"],
-  },
-  {
-    name: "Shayda Moezzi",
-    position: "Speakers Co-Lead",
-    imageSource: "/exec/shayda_headshot.png",
-    link: "",
-    type: ["aim","s"],
-  },
-  {
-    name: "John Yang", 
-    position: "Generator Lead",
-    imageSource: "/exec/john_headshot.png", 
-    link: "https://www.linkedin.com/in/johnyang101/",
-    type: ["aim","g"],
-  },
-  {
-    name: "Raunak Chowdhuri", 
-    position: "Permeate Lead",
-    imageSource: "/exec/raunak_headshot.jpg", 
-    link: "https://www.linkedin.com/in/sauhaarda/",
-    type: ["aim","p"],
-  },
 
-  {
-    name: "Jimin Lee", 
-    position: "Treasurer",
-    imageSource: "/exec/jimin_headshot.png", 
-    link: "https://www.linkedin.com/in/jimin24/",
-    type: ["aim"],
-  },
 
-  {
-    name: "Anika Puri",
-    position: "Marketing Lead",
-    imageSource: "/exec/anika_headshot.jpeg",
-    link: "",
-    type: ["aim"],
-  },
-  {
-    name: "Erick Gbordzoe",
-    position: "Social Director",
-    imageSource: "/exec/erick_headshot.png",
-    link: "",
-    type: ["aim"],
-  },
-  {
-    name: "Will Guilhermo Costa",
-    position: "Webmaster",
-    imageSource: "/exec/will_headshot.png",
-    link: "",
-    type: ["aim"],
+const start_year = 2022
+const current_year =  (new Date()).getFullYear()+1
+
+
+let directories = [] as string[];
+for (let i = 0; i <= current_year-start_year; i++) {
+  directories.push(`${(start_year+i)}-${(start_year+i+1)}_exec/`)
+}
+
+
+// Your loadExecData function
+const loadExecDataFromYear = (exec_loc: string): ExecData[] => {
+  try {
+    // Synchronously import the JSON file based on exec_loc
+    const importedData = require(`@/../public/exec/${exec_loc}exec_info.json`);
+    return importedData as ExecData[];
+  } catch (err) {
+    
+    return [] as ExecData[];
   }
-]
+};
+
+
+export const {allExec, recentExec}: {allExec:{ [key: string]: ExecData[] }, recentExec:ExecData[]} = (() => {
+  let allExec: { [key: string]: ExecData[] } = {};
+
+  directories.forEach((exec_loc, index) => {
+    allExec[exec_loc] = loadExecDataFromYear(exec_loc);
+  });
+
+  // Remove keys with empty arrays
+  Object.keys(allExec).forEach((key) => {
+    if (allExec[key].length === 0) {
+      delete allExec[key];
+    }
+  });
+
+  // Replace each imageSource with {"/exec/" + directory + imageSource}
+  Object.entries(allExec).forEach(([directory, execDataArray]) => {
+    execDataArray.forEach((execData) => {
+      execData.imageSource = `/exec/${directory}${execData.imageSource}`;
+    });
+  });
+
+  //Replace each imageSource with {"/exec/" + directory + imageSource}
+
+  const recentKey = Object.keys(allExec).reduce((latestKey, currentKey) => {
+    const currentYear2 = parseInt(currentKey.split('_')[0].split('-')[1], 10);
+    const latestYear2 = parseInt(latestKey.split('_')[0].split('-')[1], 10);
+    return currentYear2 > latestYear2 ? currentKey : latestKey;
+  }, Object.keys(allExec)[0]);
+
+  const recentExec = allExec[recentKey];
+
+  return {allExec,recentExec};
+})();
+
