@@ -43,7 +43,7 @@ function EventCard({EventData}:{EventData:CalendarEventData}){//{Type, Link, Tit
 
                 {status!="Future" && 
                   <span className={`${initiative.border_class} event-card noHover border border-transparent border-2 ml-2 text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded-full align-middle`}>
-                    <span className={`${initiative.clip_background} transition-transform motion-reduce:transform-none quicklink w-full`}>
+                    <span className={`${initiative.clip_background} transition-transform noHover motion-reduce:transform-none quicklink w-full`}>
                     {status}
 
                     </span>
@@ -116,7 +116,10 @@ function EndDateTimeDisplay({StartDateTimeStr, EndDateTimeStr} :{StartDateTimeSt
   const start_date = new Date(StartDateTimeStr)
   const end_date = new Date(EndDateTimeStr)
 
-  const same_day = start_date.getDay()==end_date.getDay()
+  const same_day = (start_date.getFullYear() === end_date.getFullYear() &&
+                    start_date.getMonth() === end_date.getMonth() &&
+                    start_date.getDate() === end_date.getDate())
+
   //fix wide display side translation
 
 
