@@ -32,7 +32,7 @@ export default function Sponsors() {
             <SponsorCard imageName="sponsors/logo-cerebras-bw.svg" href="https://www.cerebras.net/"/>
             <SponsorCard imageName="sponsors/logo-quest-bw.svg" href="https://quest.mit.edu/"/>
             <SponsorCard imageName="sponsors/logo-mit-bw.svg" href="https://www.mit.edu/"/>
-            <SponsorCard imageName="sponsors/logo-openai-bw.svg" href="https://www.mit.edu/"/>
+            <SponsorCard imageName="sponsors/logo-openai-bw.svg" href="https://openai.com/"/>
 
         </div>
  
