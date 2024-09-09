@@ -70,7 +70,7 @@ The issue is that Airtables stop syncing automatically if they aren't accessed f
 
 Both accounts are accesed through the Gmail [ai.at.mit.master@gmail.com](mailto:ai.at.mit.master@gmail.com). Exec should have password. 
 
-## Google Calendar Formatting
+### Google Calendar Formatting
 
 Assuming nothing breaks, the calendar on the site should load all events from the Google Calandar and display recent and upcoming ones (check code in `src/components/util/airtable.tsx` for exactly how this is decided). Events will also display with tags such as Done, Today, Now, and Future when they're coming up or over. 
 
