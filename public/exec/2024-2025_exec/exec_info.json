@@ -1,0 +1,17 @@
+[  
+  {
+      "name": "David Koplow", 
+      "position": "Advisor",
+      "imageSource": "david_headshot.jpg", 
+      "link": "https://www.linkedin.com/in/david-koplow/",
+      "type": ["aim"]
+    },
+    {
+      "name": "Zack Ankner", 
+      "position": "Advisor",
+      "imageSource": "zack_headshot.png", 
+      "link": "https://www.linkedin.com/in/zack-ankner/",
+      "type": ["aim"]
+    }
+  
+  ]

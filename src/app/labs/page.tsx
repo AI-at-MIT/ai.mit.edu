@@ -108,6 +108,15 @@ export default function Home() {
 
       ]}
       />
+
+
+      <Sponsors />
+    </main>
+  );
+}
+
+/*
+
       <Join
         initiative={initiative}
         heading="How to Join?"
@@ -122,7 +131,5 @@ export default function Home() {
         isrecruiting={true}
         link="labs/apply"
       />
-      <Sponsors />
-    </main>
-  );
-}
+
+      */

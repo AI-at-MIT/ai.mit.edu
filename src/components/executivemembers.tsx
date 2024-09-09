@@ -1,5 +1,9 @@
 import Image from "next/image";
-import {execMembers, InitiativeInterface} from './util/constants'
+import {InitiativeInterface,recentExec,ExecData} from './util/constants'
+import FancyLink from "./fancylink";
+
+import { useState, useEffect } from 'react';
+
 
 
 function ExecutiveCard({ imageName, name, position, link } : {imageName: string, name: string, position: string, link: string}) {
@@ -26,24 +30,39 @@ function ExecutiveCard({ imageName, name, position, link } : {imageName: string,
 }
 
 
-export default function ExecutiveMembers({title, initiative} : {title: string, initiative: InitiativeInterface}) {
+export default function ExecutiveMembers({title, initiative, exec_data} : {title: string, initiative: InitiativeInterface, exec_data?:ExecData[]}) {
 
-  const display_profiles = execMembers.filter((member) =>  member.type.includes(initiative.key)) 
+ 
+  let data = exec_data ?? recentExec
+
+  if (initiative.key !== "aim"){
+    data = data.filter(exec => exec.type.includes(initiative.key));
+  }
+
   return (
     <div className="section">
       <h1>{title}</h1>
       <div className="flex flex-wrap gap-4 justify-center m-10 max-w-[1200px]">
-        {display_profiles.map((member,index) => (
-          <ExecutiveCard 
-            key={index}
-            imageName={member.imageSource}
-            name={member.name}
-            position={member.position}
-            link={member.link}
-          />))
-        }
-          
+        {
+          data.map((member: ExecData, index: number) => (
+            <ExecutiveCard
+              key={index}
+              imageName={member.imageSource}
+              name={member.name}
+              position={member.position}
+              link={member.link}
+            />
+          ))
+
+         }
       </div>
+
+      {!exec_data&&
+        <div className="flex flex-col items-center">
+          <p className="gray-text ">See past Exec since 2023 <FancyLink initiative={undefined} href="/pastexec" text="here"/>.</p>
+        </div>
+      }
     </div>
+  
   );
 }

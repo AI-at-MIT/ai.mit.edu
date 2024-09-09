@@ -13,7 +13,6 @@ import {faPeopleGroup, faCircleNodes, faUsers, faBolt, faPlus, faUsersBetweenLin
 import InitiativePageTitle from '@/components/initiativepagetitle'
 import FancyLink from '@/components/fancylink'
 
-import Navbar from '@/components/navbar'
 
 
 
@@ -50,7 +49,6 @@ function Membership() {
 }
 
 
-
 export default function Home() {
   
   BackgroundAnimation();
@@ -69,6 +67,7 @@ export default function Home() {
         l2_t="Calendar" l2_l={"https://calendar.google.com/calendar/ical/c_17a0804f0b23934eca81b9e59fc82b83d2d485cd65741bc426ebdbd0c4592a5a%40group.calendar.google.com/public/basic.ics"}
         l3_t="Contact" l3_l={Constants.emails["contact"]}/>
       <div id="about" className="py-4"></div>
+
 
       <About blurb={`AI@MIT is a community of undergraduates aimed at promoting and fostering the growing interest around machine intelligence on campus. We hold weekly discussions on the latest papers in the field, organize workshops, host speakers, and arrange competitions around machine intelligence at MIT.`}/>
       <Stats content={[
