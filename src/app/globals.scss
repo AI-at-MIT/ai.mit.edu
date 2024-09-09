@@ -103,7 +103,9 @@ body {
   body::-webkit-scrollbar {
     display: none; /* Chrome, Safari, and Opera */
   }
-  
+  .noHover {
+    pointer-events: none; /* Disables pointer events like hover, click, etc. */
+  }
   .bg-dark {
     background: var(--background-dark);
   }

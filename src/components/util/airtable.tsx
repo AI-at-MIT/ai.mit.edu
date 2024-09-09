@@ -3,8 +3,13 @@ import Airtable from 'airtable'
 import {CalendarEventData, max_calendar_events_render, NoEventData, InitiativeInterface, initiative_data, dateOptions, timeOptions} from './constants'
 import DOMPurify from 'dompurify';
 
+
+
 function get_event_status(date_str:string, end_date_str:string){
   const now = new Date();
+  const tomorrow = new Date(now);
+  tomorrow.setDate(now.getDate() + 1);
+
   const eventDate = new Date(date_str);
   const endEventDate = new Date(end_date_str);
 
@@ -17,10 +22,21 @@ function get_event_status(date_str:string, end_date_str:string){
     return "Now";
   } 
   
-  if (now.getDay() == eventDate.getDay()) {
+  if (
+    now.getFullYear() === eventDate.getFullYear() &&
+    now.getMonth() === eventDate.getMonth() &&
+    now.getDate() === eventDate.getDate()
+  ) {
+    console.log(eventDate,now)
     return "Today"
   }
-
+  if (
+    tomorrow.getFullYear() === eventDate.getFullYear() &&
+    tomorrow.getMonth() === eventDate.getMonth() &&
+    tomorrow.getDate() === eventDate.getDate()
+  ) {
+    return "Tommorow"
+  }
   return "Future"
 
 }
