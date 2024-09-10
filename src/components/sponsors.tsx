@@ -24,11 +24,13 @@ export default function Sponsors() {
     return (
       <div className="section">
         <h1>Sponsors</h1>
-        <div className="flex flex-col items-center">
-        <p className="gray-text ">Interested in becoming a sponsor? <FancyLink initiative={undefined} href={Constants.emails["sponsor"]} text="Email us"/>.</p>
+
+        <div className="flex flex-col items-center text-center">
+
+          <p className="gray-text ">Interested in becoming a sponsor? <FancyLink initiative={undefined} href={Constants.emails["sponsor"]} text="Email us"/>.</p>
         </div>
         
-        <div className="flex flex-wrap gap-16 justify-center mt-4 mb-20 max-w-[1200px]">
+        <div className="flex flex-wrap gap-16 justify-center mt-10 mb-20 max-w-[1200px]">
             <SponsorCard imageName="sponsors/logo-cerebras-bw.svg" href="https://www.cerebras.net/"/>
             <SponsorCard imageName="sponsors/logo-quest-bw.svg" href="https://quest.mit.edu/"/>
             <SponsorCard imageName="sponsors/logo-mit-bw.svg" href="https://www.mit.edu/"/>

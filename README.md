@@ -55,6 +55,7 @@ Note: imageSource should just be the name of the image in the same folder as the
 4) Create a page for the initiative in app/router, you can copy an existing one as a template
 5) Customize the page
 
+Note: SVGs can sometimes display blurry on mobile due to their structure. When making these on Figma I often made a rectangle with a gradient and applied a mask on the front to display. Don't do this. It will lead to blurry SVGs on many IOS devices. An easy fix is just convert the drawing to a single path, and fill with a gradient. 
 
 ## How does the Calendar work?
 

@@ -38,22 +38,30 @@ function EventCard({EventData}:{EventData:CalendarEventData}){//{Type, Link, Tit
 
           <div className="mr-auto ">
             <div className="h-full flex flex-col justify-center items-start align-middle">
-              <p className="text-sm sm:text-lg">
-                {EventData.Title}
-
-                {status!="Future" && 
-                  <span className={`${initiative.border_class} event-card noHover border border-transparent border-2 ml-2 text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded-full align-middle`}>
-                    <span className={`${initiative.clip_background} transition-transform noHover motion-reduce:transform-none quicklink w-full`}>
-                    {status}
-
-                    </span>
-                  </span>
-                }
-                
 
 
+              <div className="flex items-center gap-1 mb-1">
 
-                </p>
+              <p className="text-sm sm:text-lg ">
+                    {EventData.Title}
+                    </p>
+
+                <div className="text-center whitespace-nowrap">
+                  {status!="Future" && 
+                      <div className={`${initiative.border_class} event-card noHover border border-transparent border-2 ml-2 text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded-full align-middle`}>
+
+                        <div className={`${initiative.clip_background} transition-transform noHover motion-reduce:transform-none quicklink w-full`}>
+                        {status}
+                        </div>
+                      </div>
+                    }
+
+                </div>
+
+
+
+
+              </div>
 
                 <p className="text-sm">
                 {/* start time */}
