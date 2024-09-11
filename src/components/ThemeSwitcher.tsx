@@ -46,7 +46,7 @@ const SunIcon = ({ size = 30, color = 'currentColor', isRotated = false }) => {
         {rayTransforms.map((transform, index) => (
           <line
             key={index}
-            className={`ray ${isRotated ? 'rotate' : 'reset'}`} // Apply classes based on rotation state
+            className={`stroke-color-1 ray ${isRotated ? 'rotate' : 'reset'}`} // Apply classes based on rotation state
             stroke={color}
             strokeWidth="2"
             strokeLinecap="round"
@@ -89,7 +89,7 @@ const ThemeChanger = () => {
     <div suppressHydrationWarning>
       <div className="">
       <button onClick={() => handleThemeChange()}> 
-        <div className="theme-button w-10 h-10 flex align-center items-center justify-center sponsor  ">
+        <div className="theme-button w-10 h-10 flex align-center items-center justify-center">
         <SunIcon isRotated={theme!="light"}/>
 
         </div>
