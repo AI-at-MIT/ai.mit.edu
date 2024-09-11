@@ -1,12 +1,10 @@
 "use client";
-import BackgroundAnimation from "@/components/backgroundanimation";
 import FancyLink from "@/components/fancylink";
 import Image from "next/image";
 import * as Constants from "@/components/util/constants";
 import Navbar from '@/components/navbar'
 
 export default function Home() {
-  BackgroundAnimation();
 
   return (
     <main>

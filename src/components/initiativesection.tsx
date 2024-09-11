@@ -61,7 +61,7 @@ function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterfac
             
             flex-col max-w-[800px] max-h-[800px]
             md:flex-row md:max-h-[250px] md:max-w-[250px]
-            md:hover:border-neutral-700 md:hover:bg-neutral-800/30 
+            md:hover:border-subtle md:hover:bg-shaded 
 
             ${expanded && "md:max-w-[800px] md:max-h-[450px]"}
             `

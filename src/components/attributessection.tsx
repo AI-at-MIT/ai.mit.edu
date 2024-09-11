@@ -50,8 +50,8 @@ function AttributeCard({icon, text, blurb} : {icon:IconDefinition, text:string, 
             `
             flex  items-center duration-100 transition-all 
             overflow-hidden m-5 p-5 group  
-            md:border md:border-neutral-700/70  
-            md:hover:bg-neutral-800/30 md:active:scale-95
+            md:border md:border-subtle  
+            md:hover:bg-shaded md:active:scale-95
    
             min-h-[200px] min-w-[200px]
             max-w-[800px] max-h-[600px]

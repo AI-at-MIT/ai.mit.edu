@@ -2,13 +2,13 @@ import Image from "next/image";
 import * as Constants from '@/components/util/constants'
 const initiative = Constants.initiative_data["aim"]
 
+import ThemeChanger from "@/components/ThemeSwitcher"
 
 export default function Navbar() {
     return (
         <header className="fixed w-full top-0 left-0 z-50">
-            <nav className="backdrop-blur-md bg-black/30 h-20 flex items-center justify-between p-4">
-                    
-                    <a href={"/"} className="quicklink-text group transition hover:duration-500 active:duration-200 active:scale-90 hover:rotate-[360deg]">
+            <nav className="blurred-bg h-20 flex items-center justify-between p-4">
+                    <a href={"/"} className=" group transition hover:duration-500 active:duration-200 active:scale-90 hover:rotate-[360deg]">
 
                     <Image
                         alt="initiative-icon"
@@ -20,9 +20,8 @@ export default function Navbar() {
                         />
                     </a>
 
-
-                    <div className={`mx-2 ${initiative.clip_background} text-base md:text-lg font-semibold flex quicklink md:space-x-6 space-x-4`}>
-
+                    <div className="flex">
+                    <div className={`mx-1 ${initiative.clip_background} text-base md:text-lg font-semibold flex quicklink items-center md:space-x-6 space-x-4`}>
 
                         <a href={"/#events"} className="quicklink-text group ">
                         Events
@@ -32,8 +31,8 @@ export default function Navbar() {
 
                         About
 
-                    </a>
-            
+                        </a>
+
                         <a href={"/#initiatives"} className="quicklink-text group">
                         Initiatives
                         </a>
@@ -41,7 +40,15 @@ export default function Navbar() {
                         <a href={"/#exec"} className="quicklink-text group">
                         Exec
                         </a>
-                    </div>   
+                        <div>
+
+                        </div>
+
+                        </div>  
+                        <ThemeChanger/>
+ 
+                    </div>
+  
 
                 </nav>
 
