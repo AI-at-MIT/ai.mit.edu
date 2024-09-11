@@ -16,12 +16,12 @@ export default function Navbar() {
                         width="32"
                         height="32"  
                         unoptimized
-                        className="mx-2 w-10 h-10"         
+                        className="mx-2 w-8 h-8 sm:w-10 sm:h-10"         
                         />
                     </a>
 
                     <div className="flex">
-                    <div className={`mx-1 ${initiative.clip_background} text-base md:text-lg font-semibold flex quicklink items-center md:space-x-6 space-x-4`}>
+                    <div className={`mx-1 ${initiative.clip_background} text-sm md:text-lg font-semibold  flex quicklink items-center  align-vertical md:space-x-6 space-x-3`}>
 
                         <a href={"/#events"} className="quicklink-text group ">
                         Events
@@ -41,11 +41,11 @@ export default function Navbar() {
                         Exec
                         </a>
                         <div>
+                        <ThemeChanger/>
 
                         </div>
 
                         </div>  
-                        <ThemeChanger/>
  
                     </div>
   
