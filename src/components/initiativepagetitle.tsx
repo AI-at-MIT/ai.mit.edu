@@ -7,7 +7,7 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
       <div>
       <div className="section-full w-screen overflow-hidden flex flex-col justify-center">
 
-        <div className="transform absolute inset-0 -z-50">
+        <div className="transform absolute inset-0 -z-50 gradient-image-container">
           <Image
             alt="aim-backdrop"
             src={initiative.backdrop}
@@ -21,7 +21,7 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
 
           {initiative.key != "aim" ? 
           <div className="flex flex-wrap gap-4 items-center m-[10px] md:m-[30px] mb-[50px] md:mb-[70px]">
-            <div className='w-32 md:w-64 my-[20px] md:my-0 '>
+            <div className='w-32 md:w-64 my-[20px] md:my-0 gradient-image-container'>
               <Image
                 alt="initiative-icon"
                 src={initiative.icon}

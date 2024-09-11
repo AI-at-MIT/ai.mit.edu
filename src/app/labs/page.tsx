@@ -2,7 +2,6 @@
 import InitiativePageTitle from "@/components/initiativepagetitle";
 import Sponsors from "@/components/sponsors";
 import About from "@/components/about";
-import BackgroundAnimation from "@/components/backgroundanimation";
 import Glance from "@/components/glance";
 
 import Stats from "@/components/stats";
@@ -35,7 +34,6 @@ import AttributeSection from "@/components/attributessection";
 
 
 export default function Home() {
-  BackgroundAnimation();
 
   const initiative = Constants.initiative_data["l"];
   return (

@@ -225,7 +225,7 @@ export default function Calendar({initiative}:{initiative:Constants.InitiativeIn
   const cards = Array.from(data as ArrayLike<CalendarEventData>);
 
   return (
-    <div className="mt-4 rounded-lg md:border w-full md:px-3 md:py-2 md:border-gray-600 flex flex-col justify-center items-center ">
+    <div className="mt-4 rounded-xl md:border w-full md:px-3 md:py-2 border-color-4 flex flex-col justify-center items-center ">
       {cards.length == 0 ? (
           Array.from({length: max_calendar_events_render}, (_, index) => index + 1).map((data,index) => (
             <EventLoading key={index}/>

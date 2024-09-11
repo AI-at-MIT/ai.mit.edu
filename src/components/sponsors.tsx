@@ -11,7 +11,7 @@ function SponsorCard({imageName, href}:{imageName: string, href:string}) {
           src={imageName}
           height={100}
           width={100}
-          className="w-full h-full transition duration-100 hover:opacity-50 active:scale-95"
+          className="w-full h-full transition duration-100 hover:opacity-70 active:scale-95"
         />
 
       </a>
@@ -30,7 +30,7 @@ export default function Sponsors() {
           <p className="gray-text ">Interested in becoming a sponsor? <FancyLink initiative={undefined} href={Constants.emails["sponsor"]} text="Email us"/>.</p>
         </div>
         
-        <div className="flex flex-wrap gap-16 justify-center mt-10 mb-20 max-w-[1200px]">
+        <div className="flex sponsor flex-wrap gap-16 justify-center mt-10 mb-20 max-w-[1200px]">
             <SponsorCard imageName="sponsors/logo-cerebras-bw.svg" href="https://www.cerebras.net/"/>
             <SponsorCard imageName="sponsors/logo-quest-bw.svg" href="https://quest.mit.edu/"/>
             <SponsorCard imageName="sponsors/logo-mit-bw.svg" href="https://www.mit.edu/"/>

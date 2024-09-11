@@ -4,7 +4,6 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react';
 import Sponsors from '@/components/sponsors'
 import ExecutiveMembers from '@/components/executivemembers'
-import BackgroundAnimation from '@/components/backgroundanimation'
 import About from '@/components/about'
 import Glance from '@/components/glance'
 import InitiativeSection from '@/components/initiativesection'
@@ -49,9 +48,9 @@ function Membership() {
 }
 
 
+
 export default function Home() {
   
-  BackgroundAnimation();
 
   return (
   <main>
