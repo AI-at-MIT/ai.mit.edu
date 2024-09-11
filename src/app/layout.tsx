@@ -30,9 +30,9 @@ export default function RootLayout({
       <head>
         <link rel="shortcut icon" href="icons/aim-icon-at.svg"  />
       </head>
-      <body className={mainfont.className}>
+      <body className={mainfont.className} >
  
-          <ThemeProvider>
+          <ThemeProvider defaultTheme = 'dark'>
           <Navbar/>
 
           
