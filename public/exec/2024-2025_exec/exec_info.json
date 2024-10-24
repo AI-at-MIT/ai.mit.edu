@@ -1,5 +1,91 @@
 [  
-  {
+  
+    {
+      "name": "Shrika Eddula", 
+      "position": "Co-President",
+      "imageSource": "shrika.jpeg", 
+      "link": "https://www.linkedin.com/in/shrika-eddula/",
+      "type": ["aim"]
+    },
+    {
+      "name": "Rishab Parthasarathy", 
+      "position": "Co-President",
+      "imageSource": "rishab_headshot.jpg", 
+      "link": "https://www.linkedin.com/in/rishab-partha/",
+      "type": ["aim"]
+    },
+    {
+      "name": "Hailey Pan", 
+      "position": "Labs Co-Lead",
+      "imageSource": "hailey.jpg", 
+      "link": "https://www.linkedin.com/in/haileypan/",
+      "type": ["aim","l"]
+    },
+    {
+      "name": "Annika Vivekananthan", 
+      "position": "Labs Co-Lead",
+      "imageSource": "annika.png", 
+      "link": "https://www.linkedin.com/in/annikavi/",
+      "type": ["aim","l"]
+    },
+    {
+      "name": "Advay Goel",
+      "position": "Workshops Lead",
+      "imageSource": "advay.jpeg",
+      "link": "https://www.linkedin.com/in/advay-goel/",
+      "type": ["aim","w"]
+    },
+    {
+      "name": "Archita Khaire", 
+      "position": "Permeate Lead",
+      "imageSource": "archita.png", 
+      "link": "https://www.linkedin.com/in/architakhaire/",
+      "type": ["aim","p"]
+    },
+    {
+      "name": "Riddhi Bhagwat", 
+      "position": "Permeate Lead",
+      "imageSource": "riddhi.jpeg", 
+      "link": "https://www.linkedin.com/in/riddhibhagwat/",
+      "type": ["aim","p"]
+    },
+    {
+      "name": "Miranda Liu",
+      "position": "Social Director",
+      "imageSource": "miranda.png",
+      "link": "https://www.linkedin.com/in/mirandaxliu/",
+      "type": ["aim"]
+    },
+    {
+      "name": "Yiqing Du",
+      "position": "Social Director",
+      "imageSource": "yiqing.jpg",
+      "link": "https://www.linkedin.com/in/yiqingdu/",
+      "type": ["aim"]
+    },
+    {
+      "name": "Alex Hu",
+      "position": "Reading Groups Lead",
+      "imageSource": "alex.jpeg",
+      "link": "https://www.linkedin.com/in/alexander-hu/",
+      "type": ["aim"]
+    },
+    {
+      "name": "Frankling Wang",
+      "position": "Reading Groups Lead",
+      "imageSource": "franklin.jpg",
+      "link": "https://www.linkedin.com/in/frankxwang/",
+      "type": ["aim"]
+    },
+    {
+      "name": "Zhening Li",
+      "position": "Reading Groups Lead",
+      "imageSource": "zed.jpg",
+      "link": "https://www.linkedin.com/in/zhening-li-9b9479227/",
+      "type": ["aim"]
+    },
+  
+    {
       "name": "David Koplow", 
       "position": "Advisor",
       "imageSource": "david_headshot.jpg", 
