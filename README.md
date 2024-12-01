@@ -1,6 +1,8 @@
 # Website for AI@MIT.
 
 
+TODO: Purchase vercel upgrade so anyone can push changes to prod. 
+
 ## To deploy site changes
 
 NOTE: **The prod branch is in active deployment.**
