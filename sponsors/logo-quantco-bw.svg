@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   id="Ebene_1"
+   x="0px"
+   y="0px"
+   width="100"
+   height="130"
+   viewBox="0 0 51.937 65.131"
+   enable-background="new 0 0 51.937 65.131"
+   xml:space="preserve"
+   sodipodi:docname="logo-quantco-bw.svg"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs15" /><sodipodi:namedview
+   id="namedview13"
+   pagecolor="#ffffff"
+   bordercolor="#000000"
+   borderopacity="0.25"
+   inkscape:showpageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:pagecheckerboard="0"
+   inkscape:deskcolor="#d1d1d1"
+   showgrid="false"
+   inkscape:zoom="3.6234667"
+   inkscape:cx="7.4514276"
+   inkscape:cy="32.703488"
+   inkscape:window-width="1728"
+   inkscape:window-height="1058"
+   inkscape:window-x="-6"
+   inkscape:window-y="-6"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Ebene_1" />
+<g
+   id="g10"
+   style="fill:#ffffff"
+   transform="matrix(0.78700894,0,0,0.78700894,5.5310584,6.9361602)">
+	<defs
+   id="defs3">
+		<rect
+   id="SVGID_1_"
+   x="0.31200001"
+   y="0.49599999"
+   width="51.312"
+   height="64.139999" />
+	</defs>
+	<clipPath
+   id="SVGID_2_">
+		<use
+   xlink:href="#SVGID_1_"
+   overflow="visible"
+   id="use5" />
+	</clipPath>
+	<path
+   shape-rendering="geometricPrecision"
+   clip-path="url(#SVGID_2_)"
+   fill="#FFFFFF"
+   d="M 51.624,32.609 C 51.624,22.486 50.49,14.196 43.77,7.477 39.059,2.764 32.6,0.496 25.969,0.496 c -6.632,0 -13.09,2.269 -17.802,6.981 -6.719,6.719 -7.854,15.009 -7.854,25.132 0,10.123 1.135,18.326 7.854,25.045 4.712,4.712 11.17,6.981 17.802,6.981 3.59,0 7.096,-0.66 10.374,-2.016 L 29.441,53.94 c -1.15,0.318 -2.34,0.484 -3.471,0.484 -3.578,0 -7.33,-1.483 -9.774,-4.102 -4.275,-4.45 -4.45,-12.043 -4.45,-17.715 0,-5.672 0.175,-13.352 4.45,-17.802 2.444,-2.618 6.196,-4.103 9.774,-4.103 3.579,0 7.331,1.484 9.774,4.103 4.275,4.45 4.45,12.13 4.45,17.802 0,4.945 -0.187,11.376 -3.042,15.902 l 6.974,8.767 c 6.383,-6.661 7.498,-14.686 7.498,-24.667"
+   id="path8"
+   style="fill:#ffffff" />
+</g>
+</svg>

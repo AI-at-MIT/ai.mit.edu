@@ -1,0 +1,96 @@
+[  
+  {
+      "name": "David Koplow", 
+      "position": "Co-President",
+      "imageSource": "david_headshot.jpg", 
+      "link": "https://www.linkedin.com/in/david-koplow/",
+      "type": ["aim","p"]
+    },
+    {
+      "name": "Zack Ankner", 
+      "position": "Co-President",
+      "imageSource": "zack_headshot.png", 
+      "link": "https://www.linkedin.com/in/zack-ankner/",
+      "type": ["aim"]
+    },
+  
+    {
+      "name": "Emily Zhou", 
+      "position": "Labs Co-Lead",
+      "imageSource": "emily_headshot.jpg", 
+      "link": "https://www.linkedin.com/in/emilyzhouprofile/",
+      "type": ["aim","l"]
+    },
+    {
+      "name": "Sagnik Anupam", 
+      "position": "Labs Co-Lead",
+      "imageSource": "sagnik_headshot.png", 
+      "link": "https://www.linkedin.com/in/sagnik-anupam/",
+      "type": ["aim","l"]
+    },
+    {
+      "name": "Rishab Parthasarathy",
+      "position": "Workshops Lead",
+      "imageSource": "rishab_headshot.jpg",
+      "link": "https://www.linkedin.com/in/rishab-parthasarathy-57b33424b/",
+      "type": ["aim","w"]
+    },
+    {
+      "name": "Jose Ricardo Ramos", 
+      "position": "Speakers Co-Lead",
+      "imageSource": "jose_headshot.jpeg", 
+      "link": "",
+      "type": ["aim","s"]
+    },
+    {
+      "name": "Shayda Moezzi",
+      "position": "Speakers Co-Lead",
+      "imageSource": "shayda_headshot.png",
+      "link": "",
+      "type": ["aim","s"]
+    },
+    {
+      "name": "John Yang", 
+      "position": "Generator Lead",
+      "imageSource": "john_headshot.png", 
+      "link": "https://www.linkedin.com/in/johnyang101/",
+      "type": ["aim","g"]
+    },
+    {
+      "name": "Raunak Chowdhuri", 
+      "position": "Permeate Lead",
+      "imageSource": "raunak_headshot.jpg", 
+      "link": "https://www.linkedin.com/in/sauhaarda/",
+      "type": ["aim","p"]
+    },
+  
+    {
+      "name": "Jimin Lee", 
+      "position": "Treasurer",
+      "imageSource": "jimin_headshot.png", 
+      "link": "https://www.linkedin.com/in/jimin24/",
+      "type": ["aim"]
+    },
+  
+    {
+      "name": "Anika Puri",
+      "position": "Marketing Lead",
+      "imageSource": "anika_headshot.jpeg",
+      "link": "",
+      "type": ["aim"]
+    },
+    {
+      "name": "Erick Gbordzoe",
+      "position": "Social Director",
+      "imageSource": "erick_headshot.png",
+      "link": "",
+      "type": ["aim"]
+    },
+    {
+      "name": "Will Guilhermo Costa",
+      "position": "Webmaster",
+      "imageSource": "will_headshot.png",
+      "link": "",
+      "type": ["aim"]
+    }
+  ]
