@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages (gh-pages branch)
 
 on:
   push:
@@ -6,16 +6,14 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -32,25 +30,18 @@ jobs:
 
       - name: Build static site
         env:
+          # Use project page base path so assets load under /<repo>
           NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
           AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
           GITHUB_ACTIONS: 'true'
         run: npm run build:static
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: ./out
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./out
+          # Do not set CNAME when using project page URL
 
 
