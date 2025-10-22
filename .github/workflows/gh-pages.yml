@@ -32,7 +32,8 @@ jobs:
 
       - name: Build static site
         env:
-          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+          # Set to empty string for custom domain, otherwise set to /${{ github.event.repository.name }}
+          NEXT_PUBLIC_BASE_PATH: ""
           AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
           GITHUB_ACTIONS: "true"
         run: npm run build:static

@@ -34,8 +34,9 @@ const repoName = process.env.GITHUB_REPOSITORY
   ? process.env.GITHUB_REPOSITORY.split("/")[1]
   : "";
 const configuredBasePath =
-  process.env.NEXT_PUBLIC_BASE_PATH ||
-  (isGithubActions && repoName ? `/${repoName}` : "");
+  process.env.NEXT_PUBLIC_BASE_PATH !== undefined
+    ? process.env.NEXT_PUBLIC_BASE_PATH
+    : (isGithubActions && repoName ? `/${repoName}` : "");
 
 const nextConfig = {
   output: "export",
