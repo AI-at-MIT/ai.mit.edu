@@ -15,7 +15,23 @@ import Navbar from '@/components/navbar'
 
 export const metadata: Metadata = {
   title: 'AI@MIT',
-  description: "MIT's premier undergraduate artificial intelligence student organization."
+  description: "MIT's premier undergraduate artificial intelligence student organization.",
+  openGraph: {
+    title: 'AI@MIT',
+    description: "MIT's premier undergraduate artificial intelligence student organization.",
+    url: 'https://aiatmit.com',
+    siteName: 'AI@MIT',
+    images: [
+      {
+        url: 'https://aiatmit.com/icons/aim-icon-full.svg',
+        width: 700,
+        height: 200,
+        alt: 'AI@MIT Logo',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 }
 
 import {ThemeProvider } from "next-themes"
