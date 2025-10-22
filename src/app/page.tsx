@@ -72,7 +72,7 @@ export default function Home() {
       <Stats content={[
         {icon: faPeopleGroup, number: "500+", text: "Associate Members"},
         {icon: faUsersBetweenLines, number: "50+", text: "General Members"},  
-        {icon: faCircleNodes, number: `${Object.keys(Constants.initiative_data).length -1}`, text: "Initiatives"}
+        {icon: faCircleNodes, number: "4", text: "Initiatives"}
       ]}/>
       <Membership/>
 
