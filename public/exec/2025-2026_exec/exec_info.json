@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Rishab Parthasarathy",
+    "position": "Co-President",
+    "imageSource": "rishab.jpg",
+    "link": "https://www.linkedin.com/in/rishab-partha/",
+    "type": ["aim"]
+  },
+  {
+    "name": "Hailey Pan",
+    "position": "Co-President",
+    "imageSource": "hailey.jpeg",
+    "link": "https://www.linkedin.com/in/haileypan/",
+    "type": ["aim"]
+  },
+  {
+    "name": "Riddhi Bhagwat",
+    "position": "Co-President",
+    "imageSource": "riddhi.jpeg",
+    "link": "https://www.linkedin.com/in/riddhibhagwat/",
+    "type": ["aim"]
+  },
+  {
+    "name": "Michael Huang",
+    "position": "Labs Co-Lead",
+    "imageSource": "michael.png",
+    "link": "https://www.linkedin.com/in/michael-hua-55b65324b/",
+    "type": ["aim", "l"]
+  },
+  {
+    "name": "Maureen Zhang",
+    "position": "Labs Co-Lead",
+    "imageSource": "maureen.png",
+    "link": "https://www.linkedin.com/in/maureenzhang/",
+    "type": ["aim", "l"]
+  },
+  {
+    "name": "Aaron Luong",
+    "position": "Workshops Lead",
+    "imageSource": "aaron.png",
+    "link": "",
+    "type": ["aim", "w"]
+  },
+  {
+    "name": "Anika Puri",
+    "position": "Permeate Lead",
+    "imageSource": "anika.jpeg",
+    "link": "https://www.linkedin.com/in/anika-puri-977328266/",
+    "type": ["aim", "p"]
+  },
+  {
+    "name": "Mary Lee",
+    "position": "Permeate Co-Lead",
+    "imageSource": "mary.jpeg",
+    "link": "https://www.linkedin.com/in/mary-lee-31b129264/",
+    "type": ["aim", "l"]
+  },
+  {
+    "name": "Zhening Li",
+    "position": "Reading Groups Lead",
+    "imageSource": "zed.jpg",
+    "link": "https://www.linkedin.com/in/zhening-li-9b9479227/",
+    "type": ["aim"]
+  },
+  {
+    "name": "Jasmine Shone",
+    "position": "Reading Groups Lead",
+    "imageSource": "jasmine.png",
+    "link": "https://www.linkedin.com/in/jasmine-shone-a90853149/",
+    "type": ["aim"]
+  },
+  {
+    "name": "Yiqing Du",
+    "position": "Social Director",
+    "imageSource": "yiqing.jpg",
+    "link": "https://www.linkedin.com/in/yiqingdu/",
+    "type": ["aim"]
+  },
+  {
+    "name": "Shrika Eddula",
+    "position": "Advisor",
+    "imageSource": "shrika.jpeg",
+    "link": "https://www.linkedin.com/in/shrika-eddula/",
+    "type": ["aim"]
+  }
+]
