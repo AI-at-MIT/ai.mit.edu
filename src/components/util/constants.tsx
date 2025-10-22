@@ -195,7 +195,7 @@ export const {allExec, recentExec}: {allExec:{ [key: string]: ExecData[] }, rece
   // Replace each imageSource with {"/exec/" + directory + imageSource}
   Object.entries(allExec).forEach(([directory, execDataArray]) => {
     execDataArray.forEach((execData) => {
-      execData.imageSource = `/exec/${directory}${execData.imageSource}`;
+      execData.imageSource = getAssetPath(`/exec/${directory}${execData.imageSource}`);
     });
   });
 
