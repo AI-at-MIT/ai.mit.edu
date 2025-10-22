@@ -4,6 +4,7 @@ import Image from "next/image";
 import * as Constants from "@/components/util/constants";
 import Navbar from '@/components/navbar'
 import ExecutiveMembers from '@/components/executivemembers'
+import { getAssetPath } from '@/components/util/assetPath'
 
 
 
@@ -43,10 +44,10 @@ export default function Home() {
           </p>
         </div>
         <div className="w-64 mt-12 z-100">
-          <a href="./">
+          <a href={getAssetPath("/")}>
             <Image
               alt="aim-logo-full"
-              src="/icons/aim-icon-full.svg"
+              src={getAssetPath("/icons/aim-icon-full.svg")}
               layout="responsive"
               width={100}
               height={100}

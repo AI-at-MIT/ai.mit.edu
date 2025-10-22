@@ -1,6 +1,7 @@
 import FancyLink from "./fancylink";
 import Image from 'next/image'
 import * as Constants from "./util/constants"
+import { getAssetPath } from "./util/assetPath"
 
 function SponsorCard({imageName, href}:{imageName: string, href:string}) {
   return (
@@ -31,10 +32,10 @@ export default function Sponsors() {
         </div>
         
         <div className="flex sponsor flex-wrap gap-16 justify-center mt-10 mb-20 max-w-[1200px]">
-            <SponsorCard imageName="/sponsors/logo-cerebras-bw.svg" href="https://www.cerebras.net/"/>
-            <SponsorCard imageName="/sponsors/logo-quest-bw.svg" href="https://quest.mit.edu/"/>
-            <SponsorCard imageName="/sponsors/logo-mit-bw.svg" href="https://www.mit.edu/"/>
-            <SponsorCard imageName="/sponsors/logo-openai-bw.svg" href="https://openai.com/"/>
+            <SponsorCard imageName={getAssetPath("/sponsors/logo-cerebras-bw.svg")} href="https://www.cerebras.net/"/>
+            <SponsorCard imageName={getAssetPath("/sponsors/logo-quest-bw.svg")} href="https://quest.mit.edu/"/>
+            <SponsorCard imageName={getAssetPath("/sponsors/logo-mit-bw.svg")} href="https://www.mit.edu/"/>
+            <SponsorCard imageName={getAssetPath("/sponsors/logo-openai-bw.svg")} href="https://openai.com/"/>
 
         </div>
  

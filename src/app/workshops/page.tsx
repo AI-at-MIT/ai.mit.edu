@@ -6,6 +6,7 @@ import Glance from "@/components/glance";
 import Showcase from "@/components/showcase";
 import ExecutiveMembers from "@/components/executivemembers";
 import * as Constants from "@/components/util/constants";
+import { getAssetPath } from "@/components/util/assetPath";
 
 
 const initiative = Constants.initiative_data["w"];
@@ -18,8 +19,8 @@ export default function Home() {
       <InitiativePageTitle initiative={initiative} />
       <Glance 
         initiative={initiative}
-        l1_t="Mailing List" l1_l={"/email/list"}
-        l2_t="Calendar" l2_l={"/calendar/gcal"}
+        l1_t="Mailing List" l1_l={getAssetPath("/email/list")}
+        l2_t="Calendar" l2_l={getAssetPath("/calendar/gcal")}
         l3_t="Contact" l3_l={Constants.emails["contact"]}/>
 
       <About
@@ -30,25 +31,25 @@ export default function Home() {
 
       <Showcase heading = {"Highlighted Workshops"} projects ={[
   {
-    imageName: "/workshops_highlights/pytorch_lightning.png",
+    imageName: getAssetPath("/workshops_highlights/pytorch_lightning.png"),
     name: "Pytorch Lightning",
     link: "https://colab.research.google.com/drive/12o9rI6EHu1CJPwwftcZVexCFGQYO7sI4?usp=sharing",
     blurb: ""
   },
   {
-    imageName: "/workshops_highlights/cnns.png",
+    imageName: getAssetPath("/workshops_highlights/cnns.png"),
     name: "Convolutional Neural Networks",
     link: "https://docs.google.com/presentation/d/1e7BMYyVt9IDNWG1Mk4PwzbSR_vrWIYvQ/edit#slide=id.p1",
     blurb: ""
   },
   {
-    imageName: "/workshops_highlights/styletransfer.png",
+    imageName: getAssetPath("/workshops_highlights/styletransfer.png"),
     name: "Style Transfer",
     link: "https://docs.google.com/presentation/d/1mVLIWk3Ok93JxLGD2Wb2Qy7HEPkqRs_n4vZ0aYwkxsM/edit#slide=id.g842d541dd1_0_204/",
     blurb: ""
   },
   {
-    imageName: "/workshops_highlights/metalearning.png",
+    imageName: getAssetPath("/workshops_highlights/metalearning.png"),
     name: "Meta Learning",
     link: "https://drive.google.com/file/d/1L6ESEo6NmJcce48DIbBpdAe3RnVUG5QH/view",
     blurb: ""

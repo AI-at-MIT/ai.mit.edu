@@ -10,6 +10,7 @@ import Showcase from "@/components/showcase";
 import Join from "@/components/join";
 import ExecutiveMembers from "@/components/executivemembers";
 import * as Constants from "@/components/util/constants";
+import { getAssetPath } from "@/components/util/assetPath";
 
 
 import Image from 'next/image'
@@ -41,8 +42,8 @@ export default function Home() {
       <InitiativePageTitle initiative={initiative} />
       <Glance 
         initiative={initiative}
-        l1_t="Mailing List" l1_l={"/email/list"}
-        l2_t="Calendar" l2_l={"/calendar/gcal"}
+        l1_t="Mailing List" l1_l={getAssetPath("/email/list")}
+        l2_t="Calendar" l2_l={getAssetPath("/calendar/gcal")}
         l3_t="Contact" l3_l={Constants.emails["contact"]}/>
 
       <About
@@ -65,28 +66,28 @@ export default function Home() {
         projects={[
  
           {
-            imageName: "/labs_highlights/styletransfer.png",
+            imageName: getAssetPath("/labs_highlights/styletransfer.png"),
             name: "Stylish Videos",
             link: "https://github.com/zephyrys/stylish-flask-backend",
             blurb:
               "Applying custom neural style transfers to generate unique effects on images and videos",
           },
           {
-            imageName: "/labs_highlights/posenet-art.png",
+            imageName: getAssetPath("/labs_highlights/posenet-art.png"),
             name: "PoseNet Body Art",
             link: "https://posenet-art.netlify.app/",
             blurb:
               "Combining your body's movements with PoseNet to create an interactive visual and auditory artistic experience",
           },
           {
-            imageName: "/labs_highlights/paths.png",
+            imageName: getAssetPath("/labs_highlights/paths.png"),
             name: "Intra Building Maps",
             link: "https://docs.google.com/presentation/d/1f8R8GOi87zCLnFAymnKqLtxwwc3MA_MNzKXpoHVfEe8/edit?usp=sharing/",
             blurb:
               "Ever get lost walking through campus? Get directions from any room in MIT to any other.",
           },
           {
-            imageName: "/labs_highlights/lecshort.png",
+            imageName: getAssetPath("/labs_highlights/lecshort.png"),
             name: "Lecture Shortener",
             link: "https://docs.google.com/presentation/d/1CVe4tKPrfCCDGWzN09YelMaWXWEGWOFQC851n7JmbuE/edit?usp=sharing",//"http://www.lecshort.com/",
             blurb:

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import {InitiativeInterface,recentExec,ExecData} from './util/constants'
 import FancyLink from "./fancylink";
+import { getAssetPath } from './util/assetPath';
 
 import { useState, useEffect } from 'react';
 
@@ -60,7 +61,7 @@ export default function ExecutiveMembers({title, initiative, exec_data} : {title
       {!exec_data&&
       
         <div className="flex flex-col items-center text-center">
-          <p className="gray-text ">See past Executive Members of AI@MIT <FancyLink initiative={undefined} href="/pastexec" text="here"/>.</p>
+          <p className="gray-text ">See past Executive Members of AI@MIT <FancyLink initiative={undefined} href={getAssetPath("/pastexec")} text="here"/>.</p>
         </div>
       }
     </div>

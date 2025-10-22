@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Inter, Nunito } from 'next/font/google'
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import { getAssetPath } from '@/components/util/assetPath'
 
 config.autoAddCss = false;
 
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="shortcut icon" href="icons/aim-icon-at.svg"  />
+        <link rel="shortcut icon" href={getAssetPath("/icons/aim-icon-at.svg")}  />
       </head>
       <body className={mainfont.className} >
  

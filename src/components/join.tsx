@@ -1,5 +1,6 @@
 import * as Constants from '@/components/util/constants'
 import FancyLink from '@/components/fancylink'
+import { getAssetPath } from '@/components/util/assetPath'
 
 function ApplyNow({initiative, href} : {initiative: Constants.InitiativeInterface, href: string}) {
 
@@ -23,7 +24,7 @@ function ApplyNow({initiative, href} : {initiative: Constants.InitiativeInterfac
 function JoinMailingList({initiative} : {initiative: Constants.InitiativeInterface}) {
     return (
         <p className="mt-10 mb-10">
-            Join our <FancyLink initiative={initiative} href="/email/list" text={"mailing list"}/> to be notified!
+            Join our <FancyLink initiative={initiative} href={getAssetPath("/email/list")} text={"mailing list"}/> to be notified!
         </p>
     )
 } 

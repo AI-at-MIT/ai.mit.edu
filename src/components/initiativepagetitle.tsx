@@ -1,5 +1,6 @@
 import Image from "next/image";
 import * as Constants from '@/components/util/constants'
+import { getAssetPath } from '@/components/util/assetPath'
 
 
 export default function InitiativePageTitle({initiative}: {initiative: Constants.InitiativeInterface}) {
@@ -38,7 +39,7 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
           :
           <Image
              alt="aim-logo-full"
-             src="/icons/aim-icon-full.svg"
+             src={getAssetPath("/icons/aim-icon-full.svg")}
              width={700}
              height={200}
              className="mb-[30px] md:mb-0 md:ml-7  m-[10px] md:m-[30px] max-w-[90%]"
@@ -56,10 +57,10 @@ export default function InitiativePageTitle({initiative}: {initiative: Constants
           
           { initiative.key != "aim" ?
             <div className="w-48 md:w-64 ml-[10px] md:ml-6 z-100">
-              <a href="./" >
+              <a href={getAssetPath("/")} >
                   <Image
                       alt="aim-logo-full"
-                      src="/icons/aim-icon-full.svg"
+                      src={getAssetPath("/icons/aim-icon-full.svg")}
                       width={300}
                       height={300}
                       className="transition duration-100 hover:opacity-50 active:scale-95"
