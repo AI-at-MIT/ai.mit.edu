@@ -17,9 +17,11 @@ export const metadata: Metadata = {
   description:
     "MIT's premier undergraduate artificial intelligence student organization.",
   keywords: [
-    "ai@mit",
-    "aim mit",
     "ai at mit",
+    "ai at mit club",
+    "ai@mit",
+    "ai@mit club",
+    "aim mit",
     "ai club mit",
     "mit ai club",
     "mit artificial intelligence club",
