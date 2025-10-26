@@ -1,5 +1,24 @@
 "use client";
+import { Metadata } from "next";
 import InitiativePageTitle from "@/components/initiativepagetitle";
+
+export const metadata: Metadata = {
+  title: "AI@MIT Labs",
+  description:
+    "Join MIT's premier AI project incubator. Receive funding, mentorship, and resources to build innovative AI products.",
+  keywords: [
+    "aim labs",
+    "ai at mit labs",
+    "ai club mit labs",
+    "mit ai club labs",
+    "mit artificial intelligence club labs",
+    "mit artificial intelligence labs",
+    "mit machine learning labs",
+    "artificial intelligence",
+    "machine learning",
+    "student organization",
+  ],
+};
 import Sponsors from "@/components/sponsors";
 import About from "@/components/about";
 import Glance from "@/components/glance";
@@ -12,12 +31,10 @@ import ExecutiveMembers from "@/components/executivemembers";
 import * as Constants from "@/components/util/constants";
 import { getAssetPath } from "@/components/util/assetPath";
 
-
-import Image from 'next/image'
+import Image from "next/image";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-
 
 import {
   faUniversity,
@@ -26,25 +43,25 @@ import {
   faUserSecret,
   faPeopleRoof,
   faScrewdriverWrench,
-  faHandHoldingDollar
+  faHandHoldingDollar,
 } from "@fortawesome/free-solid-svg-icons";
-
 
 import AttributeSection from "@/components/attributessection";
 
-
-
 export default function Home() {
-
   const initiative = Constants.initiative_data["l"];
   return (
     <main>
       <InitiativePageTitle initiative={initiative} />
-      <Glance 
+      <Glance
         initiative={initiative}
-        l1_t="Mailing List" l1_l={getAssetPath("/email/list")}
-        l2_t="Calendar" l2_l={getAssetPath("/calendar/gcal")}
-        l3_t="Contact" l3_l={Constants.emails["contact"]}/>
+        l1_t="Mailing List"
+        l1_l={getAssetPath("/email/list")}
+        l2_t="Calendar"
+        l2_l={getAssetPath("/calendar/gcal")}
+        l3_t="Contact"
+        l3_l={Constants.emails["contact"]}
+      />
 
       <About
         blurb={`
@@ -64,7 +81,6 @@ export default function Home() {
       <Showcase
         heading="Example Projects"
         projects={[
- 
           {
             imageName: getAssetPath("/labs_highlights/styletransfer.png"),
             name: "Stylish Videos",
@@ -89,7 +105,7 @@ export default function Home() {
           {
             imageName: getAssetPath("/labs_highlights/lecshort.png"),
             name: "Lecture Shortener",
-            link: "https://docs.google.com/presentation/d/1CVe4tKPrfCCDGWzN09YelMaWXWEGWOFQC851n7JmbuE/edit?usp=sharing",//"http://www.lecshort.com/",
+            link: "https://docs.google.com/presentation/d/1CVe4tKPrfCCDGWzN09YelMaWXWEGWOFQC851n7JmbuE/edit?usp=sharing", //"http://www.lecshort.com/",
             blurb:
               "This ML pipeline extracts the most important visual and auditory components of lectures.",
           },
@@ -98,16 +114,34 @@ export default function Home() {
 
       <ExecutiveMembers title="Labs Exec" initiative={initiative} />
       <AttributeSection
-      heading="Why Labs?"
-      projects={[
-        { icon: faHandHoldingDollar, text: "Funding", blurb: "Cover hosting, deployment, and other costs of project. Additionally each team gets $400 stipend at the end of the semester after successful deployment. " },
-        { icon: faScrewdriverWrench, text: "Tutorials", blurb: "AIM Labs specific tutorials covering important techniques for real-world artificial intelligence deployment and development such as PyTorch, Next.js, and more."},
-        { icon: faUserSecret, text: "Mentors", blurb: "Very knowledgeable mentors to help quickly resolve technical issues you're facing in machine learning or web-dev."},
-        { icon: faPeopleRoof, text: "Community", blurb: "Weekly meetings, monthly social outings, regular coffee chats, and an active alumni network. Labs is a place for you to build both projects and relationships."},
-
-      ]}
+        heading="Why Labs?"
+        projects={[
+          {
+            icon: faHandHoldingDollar,
+            text: "Funding",
+            blurb:
+              "Cover hosting, deployment, and other costs of project. Additionally each team gets $400 stipend at the end of the semester after successful deployment. ",
+          },
+          {
+            icon: faScrewdriverWrench,
+            text: "Tutorials",
+            blurb:
+              "AIM Labs specific tutorials covering important techniques for real-world artificial intelligence deployment and development such as PyTorch, Next.js, and more.",
+          },
+          {
+            icon: faUserSecret,
+            text: "Mentors",
+            blurb:
+              "Very knowledgeable mentors to help quickly resolve technical issues you're facing in machine learning or web-dev.",
+          },
+          {
+            icon: faPeopleRoof,
+            text: "Community",
+            blurb:
+              "Weekly meetings, monthly social outings, regular coffee chats, and an active alumni network. Labs is a place for you to build both projects and relationships.",
+          },
+        ]}
       />
-
 
       <Sponsors />
     </main>
