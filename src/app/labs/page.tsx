@@ -1,24 +1,5 @@
 "use client";
-import { Metadata } from "next";
 import InitiativePageTitle from "@/components/initiativepagetitle";
-
-export const metadata: Metadata = {
-  title: "AI@MIT Labs",
-  description:
-    "Join MIT's premier AI project incubator. Receive funding, mentorship, and resources to build innovative AI products.",
-  keywords: [
-    "aim labs",
-    "ai at mit labs",
-    "ai club mit labs",
-    "mit ai club labs",
-    "mit artificial intelligence club labs",
-    "mit artificial intelligence labs",
-    "mit machine learning labs",
-    "artificial intelligence",
-    "machine learning",
-    "student organization",
-  ],
-};
 import Sponsors from "@/components/sponsors";
 import About from "@/components/about";
 import Glance from "@/components/glance";

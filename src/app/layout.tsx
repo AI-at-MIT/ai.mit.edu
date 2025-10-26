@@ -48,7 +48,6 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from "next-themes";
-import StructuredData from "@/components/StructuredData";
 
 export default function RootLayout({
   children,
