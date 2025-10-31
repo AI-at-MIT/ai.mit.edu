@@ -79,13 +79,14 @@ function InitiativeCard({initiative} : {initiative: Constants.InitiativeInterfac
               <p className="gray-text ">{initiative.description}</p>
               <div className={`flex w-full justify-center md:justify-end`}>
                   <a 
-                  href={initiative.url} 
+                  href={initiative.url}
+                  aria-label={`Explore ${initiative.name} - ${initiative.tagline}`}
                   onClick={handleButtonClick}
                   onMouseEnter={() => setButtonHovered(true)}
                   onMouseLeave={() => setButtonHovered(false)}
                   >
-                  <div className={`group transition duration-100 active:scale-95 ${initiative.border_class} border-2  text-xl w-48 h-16 mt-8 mb-[15px] rounded-full border border-transparent px-5 py-3 flex items-center justify-center `}>
-                    Learn More
+                  <div className={`group transition duration-100 active:scale-95 ${initiative.border_class} border-2  text-xl w-56 h-16 mt-8 mb-[15px] rounded-full border border-transparent px-5 py-3 flex items-center justify-center `}>
+                    Explore {initiative.name}
                   </div>
                     
                   </a>

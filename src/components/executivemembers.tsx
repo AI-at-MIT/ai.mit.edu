@@ -61,7 +61,7 @@ export default function ExecutiveMembers({title, initiative, exec_data} : {title
       {!exec_data&&
       
         <div className="flex flex-col items-center text-center">
-          <p className="gray-text ">See past Executive Members of AI@MIT <FancyLink initiative={undefined} href={getAssetPath("/pastexec")} text="here"/>.</p>
+          <p className="gray-text ">See <FancyLink initiative={undefined} href={getAssetPath("/pastexec")} text="past AI@MIT Exec"/>.</p>
         </div>
       }
     </div>

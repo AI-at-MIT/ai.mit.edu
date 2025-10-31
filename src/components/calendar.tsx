@@ -28,7 +28,7 @@ function EventCard({EventData}:{EventData:CalendarEventData}){//{Type, Link, Tit
 
 
   return (
-    <a onClick={toggleExpansion}   className={`${initiative.border_class} border-2 event-card m-1 group rounded-lg border border-transparent w-full px-3 py-2 md:px-5 md:py-4 flex flex-col relative`}>
+    <a href={EventData.Link || initiative.url} onClick={(e) => { e.preventDefault(); toggleExpansion(); }} className={`${initiative.border_class} border-2 event-card m-1 group rounded-lg border border-transparent w-full px-3 py-2 md:px-5 md:py-4 flex flex-col relative`}>
       <div className="event-info flex items-center w-full ">
 
           <EventIcon Important={EventData.Important} Type={EventData.Type}/>
@@ -185,7 +185,7 @@ function EventIcon({Type, Important} : {Type: string, Important: String}) {
 function EventLoading() {
 
   return (
-    <a  className={`bg-grad-fast border-2 event-card m-1 group rounded-lg border border-transparent w-full px-3 py-2 md:px-5 md:py-4 flex flex-col`}>
+    <a href="#" className={`bg-grad-fast border-2 event-card m-1 group rounded-lg border border-transparent w-full px-3 py-2 md:px-5 md:py-4 flex flex-col`}>
      
       <div className="event-info flex items-center w-full">
 
