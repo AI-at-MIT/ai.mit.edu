@@ -30,6 +30,10 @@ export const metadata: Metadata = {
     "machine learning",
     "student organization",
   ],
+  icons: {
+    icon: '/aim-icon-at.png',
+    apple: '/aim-icon-at.png',
+  },
   openGraph: {
     title: "AI@MIT",
     description:
@@ -38,9 +42,9 @@ export const metadata: Metadata = {
     siteName: "AI@MIT",
     images: [
       {
-        url: "https://aiatmit.com/icons/aim-icon-full.svg",
-        width: 700,
-        height: 200,
+        url: "https://aiatmit.com/aim-icon-at.png",
+        width: 1200,
+        height: 630,
         alt: "AI@MIT Logo",
       },
     ],
@@ -58,12 +62,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link
-          rel="shortcut icon"
-          href={getAssetPath("/icons/aim-icon-at.svg")}
-        />
-      </head>
       <body className={mainfont.className}>
         <ThemeProvider defaultTheme="dark">
           <Navbar />
