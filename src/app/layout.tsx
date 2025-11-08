@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     "student organization",
   ],
   icons: {
-    icon: '/aim-icon-at.png',
-    apple: '/aim-icon-at.png',
+    icon: '/icons/aim-icon-at.png',
+    apple: '/icons/aim-icon-at.png',
   },
   openGraph: {
     title: "AI@MIT",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     siteName: "AI@MIT",
     images: [
       {
-        url: "https://aiatmit.com/aim-icon-at.png",
+        url: "https://aiatmit.com/icons/aim-icon-at.png",
         width: 1200,
         height: 630,
         alt: "AI@MIT Logo",
