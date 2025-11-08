@@ -7,7 +7,7 @@ import Image from 'next/image'
 
 import {CalendarEventData, max_calendar_events_render, dateOptions, timeOptions} from './util/constants'
 
-import {sanitizeHtml, get_airtable_data} from './util/airtable'
+import {sanitizeHtml, get_google_calendar_data} from './util/gcalendar'
 
 
 
@@ -216,7 +216,7 @@ export default function Calendar({initiative}:{initiative:Constants.InitiativeIn
  
   useEffect(() => {
     const fetchData = async () => {
-      const result = await get_airtable_data(initiative);
+      const result = await get_google_calendar_data(initiative);
       setData(result);
     };
     fetchData();
